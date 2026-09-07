@@ -1,8 +1,8 @@
-# Storyfield
+# HowItWent
 
 > Find the whitespace around your story.
 
-Storyfield is a creative intelligence tool for independent filmmakers, screenwriters, and digital storytellers. Before a creator spends months making something, it maps the creative territory around their premise, surfaces recurring audience friction, and turns those signals into grounded differentiation opportunities.
+HowItWent is a creative intelligence tool for independent filmmakers, screenwriters, and digital storytellers. Before a creator spends months making something, it maps the creative territory around their premise, surfaces recurring audience friction, and turns those signals into grounded differentiation opportunities.
 
 Built for the **Agentic Cinema Hackathon — Parallel track**.
 
@@ -14,7 +14,7 @@ Claims of “objective originality” are misleading. Search result counts are n
 
 ## The solution
 
-Storyfield researches the live web before offering advice. Its single workflow is designed for a three-minute demo:
+HowItWent researches the live web before offering advice. Its single workflow is designed for a three-minute demo:
 
 1. Paste a story premise or load the built-in example.
 2. Gemini decomposes it into six targeted research angles.
@@ -41,7 +41,7 @@ flowchart LR
     G --> I
 ```
 
-This is intentionally one understandable orchestrator, not a large multi-agent system. Independent Parallel requests run concurrently, related queries share a session ID, and one failed branch can still produce a deliberately narrow partial report. If no evidence is returned, Storyfield does not fabricate an analysis.
+This is intentionally one understandable orchestrator, not a large multi-agent system. Independent Parallel requests run concurrently, related queries share a session ID, and one failed branch can still produce a deliberately narrow partial report. If no evidence is returned, HowItWent does not fabricate an analysis.
 
 ## Parallel integration
 

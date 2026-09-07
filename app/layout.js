@@ -3,11 +3,11 @@ import { Manrope } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-storyfield",
+  variable: "--font-howitwent",
 });
 
 export const metadata = {
-  title: "Storyfield — Creative territory, mapped",
+  title: "HowItWent — Creative territory, mapped",
   description: "Live web research for filmmakers and storytellers looking for creative whitespace.",
 };
 

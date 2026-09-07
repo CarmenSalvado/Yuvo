@@ -27,7 +27,7 @@ export async function POST(request) {
         emit({ type: "plan", queries: [...plan.landscapeQueries, ...plan.frictionQueries] });
         emit({ type: "status", step: 1, label: "Mapping nearby creative territory" });
 
-        const sessionId = `storyfield_${crypto.randomUUID()}`;
+        const sessionId = `howitwent_${crypto.randomUUID()}`;
         const searches = await Promise.allSettled([
           parallelSearch({
             objective: `Find works, tropes, themes, mechanics, and critical discussion closely surrounding this creative concept: ${idea}`,

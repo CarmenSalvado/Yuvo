@@ -19,9 +19,9 @@ function Arrow({ direction = "right" }) {
 
 function Brand() {
   return (
-    <div className="brand" aria-label="Storyfield home">
+    <div className="brand" aria-label="HowItWent home">
       <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
-      <span>Storyfield</span>
+      <span>HowItWent</span>
     </div>
   );
 }
@@ -29,7 +29,7 @@ function Brand() {
 function Header() {
   return (
     <header className="site-header">
-      <Link className="brand-button" href="/" aria-label="Storyfield home"><Brand /></Link>
+      <Link className="brand-button" href="/" aria-label="HowItWent home"><Brand /></Link>
       <div className="header-meta">
         <span className="live-dot" />
         <span>Live web research by Parallel</span>
@@ -118,7 +118,7 @@ function Landing({ onStart, onDemo }) {
           <h2 id="method-title">Research before<br />you rewrite.</h2>
           <p>Gemini plans the investigation. Parallel searches the live web. Every useful conclusion stays attached to its evidence.</p>
         </div>
-        <div className="method-strip" aria-label="How Storyfield works">
+        <div className="method-strip" aria-label="HowItWent workflow">
           <article data-reveal="rise" style={{ "--reveal-order": 0 }}><span>01</span><h3>Describe</h3><p>Paste the premise you are actually considering.</p></article>
           <article data-reveal="rise" style={{ "--reveal-order": 1 }}><span>02</span><h3>Research</h3><p>Map comparable work and real audience friction.</p></article>
           <article data-reveal="rise" style={{ "--reveal-order": 2 }}><span>03</span><h3>Find signals</h3><p>Separate familiar territory from useful openings.</p></article>
@@ -129,7 +129,7 @@ function Landing({ onStart, onDemo }) {
           <button className="sample-link" type="button" onClick={onDemo}>Explore the prepared sample <Arrow /></button>
         </div>
       </section>
-      <p className="truth-note">Storyfield maps surrounding territory. It does not certify originality or predict audiences.</p>
+      <p className="truth-note">HowItWent maps surrounding territory. It does not certify originality or predict audiences.</p>
     </main>
   );
 }
@@ -317,7 +317,7 @@ function Report({ report, onReset }) {
         <details><summary><span>Research evidence</span><b>{report.sources.length} sources surfaced</b><span className="details-plus">+</span></summary>
           <div className="sources-list">{report.sources.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={source.id}><span>[{source.id}]</span><div><b>{source.title}</b><small>{new URL(source.url).hostname.replace("www.", "")}</small><p>{source.excerpts[0]}</p></div><Arrow /></a>)}</div>
         </details>
-        <p>Based on the sources analyzed. Storyfield does not establish originality or predict real audience behavior.</p>
+        <p>Based on the sources analyzed. HowItWent does not establish originality or predict real audience behavior.</p>
       </section>
     </main>
   );
@@ -338,7 +338,7 @@ export default function Home() {
   useEffect(() => {
     if (restored.current) return;
     restored.current = true;
-    try { const saved = sessionStorage.getItem("storyfield-report"); if (saved) setReport(JSON.parse(saved)); } catch { /* corrupted session state is disposable */ }
+    try { const saved = sessionStorage.getItem("howitwent-report"); if (saved) setReport(JSON.parse(saved)); } catch { /* corrupted session state is disposable */ }
   }, []);
 
   async function analyze() {
@@ -362,7 +362,7 @@ export default function Home() {
           if (event.type === "error") throw new Error(event.message);
           if (event.type === "done") {
             setReport(event.report);
-            sessionStorage.setItem("storyfield-report", JSON.stringify(event.report));
+            sessionStorage.setItem("howitwent-report", JSON.stringify(event.report));
           }
         }
         if (done) break;
@@ -371,8 +371,8 @@ export default function Home() {
     finally { setLoading(false); }
   }
 
-  function reset() { setReport(null); setLoading(false); setError(""); sessionStorage.removeItem("storyfield-report"); window.scrollTo({ top: 0, behavior: "smooth" }); }
-  function showDemo() { setIdea(DEMO_IDEA); setError(""); setReport(DEMO_REPORT); sessionStorage.setItem("storyfield-report", JSON.stringify(DEMO_REPORT)); router.push("/start"); }
+  function reset() { setReport(null); setLoading(false); setError(""); sessionStorage.removeItem("howitwent-report"); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  function showDemo() { setIdea(DEMO_IDEA); setError(""); setReport(DEMO_REPORT); sessionStorage.setItem("howitwent-report", JSON.stringify(DEMO_REPORT)); router.push("/start"); }
 
   const content = pathname === "/start"
     ? loading ? <Loading step={step} queries={queries} evidence={evidence} /> : report ? <Report report={report} onReset={reset} /> : <Start idea={idea} setIdea={setIdea} onAnalyze={analyze} error={error} />

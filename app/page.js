@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { DEMO_IDEA, DEMO_REPORT } from "../lib/demo-report.mjs";
 
@@ -12,7 +14,7 @@ const STEPS = [
 ];
 
 function Arrow({ direction = "right" }) {
-  return <span aria-hidden="true" className={`arrow arrow-${direction}`}>↗</span>;
+  return <span aria-hidden="true" className={`arrow arrow-${direction}`}>→</span>;
 }
 
 function Brand() {
@@ -24,10 +26,10 @@ function Brand() {
   );
 }
 
-function Header({ hasReport, onReset }) {
+function Header() {
   return (
     <header className="site-header">
-      <button className="brand-button" onClick={hasReport ? onReset : undefined} type="button"><Brand /></button>
+      <Link className="brand-button" href="/" aria-label="Storyfield home"><Brand /></Link>
       <div className="header-meta">
         <span className="live-dot" />
         <span>Live web research by Parallel</span>
@@ -38,41 +40,147 @@ function Header({ hasReport, onReset }) {
   );
 }
 
-function Landing({ idea, setIdea, onAnalyze, onDemo, error }) {
-  const ready = idea.trim().length >= 30;
+function Landing({ onStart, onDemo }) {
+  const landingRef = useRef(null);
+
+  useEffect(() => {
+    const root = landingRef.current;
+    if (!root) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = root.querySelectorAll("[data-reveal]");
+    root.dataset.motion = "ready";
+
+    if (reducedMotion) {
+      revealItems.forEach((item) => { item.dataset.visible = "true"; });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.dataset.visible = "true";
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -12%", threshold: 0.12 });
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    const hero = root.querySelector(".landing-hero");
+    const sphere = root.querySelector(".hero-sphere-track");
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    let frame;
+
+    function followPointer(event) {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const bounds = hero.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width - .5) * 28;
+        const y = ((event.clientY - bounds.top) / bounds.height - .5) * 20;
+        sphere.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      });
+    }
+
+    function resetPointer() {
+      sphere.style.transform = "translate3d(0, 0, 0)";
+    }
+
+    if (finePointer) {
+      hero.addEventListener("pointermove", followPointer);
+      hero.addEventListener("pointerleave", resetPointer);
+    }
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      hero?.removeEventListener("pointermove", followPointer);
+      hero?.removeEventListener("pointerleave", resetPointer);
+    };
+  }, []);
+
   return (
-    <main className="landing">
-      <section className="hero-copy">
-        <p className="eyebrow"><span>Creative intelligence</span><span>For storytellers</span></p>
-        <h1>Find the whitespace<br />around <em>your story.</em></h1>
-        <p className="dek">Don’t ask AI for another idea. Map what’s already resonating, what audiences are tired of, and where your concept can move differently.</p>
+    <main className="landing" ref={landingRef}>
+      <section className="landing-hero">
+        <div className="hero-orbits" aria-hidden="true"><i /><i /><i /></div>
+        <div className="hero-sphere-scroll" aria-hidden="true"><div className="hero-sphere-track"><div className="hero-sphere" /></div></div>
+        <div className="hero-copy">
+          <p className="eyebrow"><span>Creative territory</span><span>Field research / 2026</span></p>
+          <h1><span>Find the</span><span>whitespace</span><span><em>around your story.</em></span></h1>
+          <Link className="hero-cta" href="/start" onClick={onStart}>Start with your premise <Arrow /></Link>
+          <p className="dek">Map what’s already resonating, what audiences are tired of, and where your concept can move differently.</p>
+        </div>
+        <p className="hero-note"><span>Story intelligence</span>For filmmakers who would rather know before they shoot.</p>
       </section>
 
-      <section className="idea-desk" aria-labelledby="idea-label">
-        <div className="desk-topline">
-          <label id="idea-label" htmlFor="idea">Your premise</label>
-          <span>{idea.length.toLocaleString()} / 3,000</span>
+      <section className="method-section" aria-labelledby="method-title">
+        <div className="method-intro" data-reveal="wipe">
+          <p className="section-label">02 / The method</p>
+          <h2 id="method-title">Research before<br />you rewrite.</h2>
+          <p>Gemini plans the investigation. Parallel searches the live web. Every useful conclusion stays attached to its evidence.</p>
         </div>
-        <textarea id="idea" maxLength={3000} value={idea} onChange={(event) => setIdea(event.target.value)} placeholder="A disgraced sound editor discovers that every lie leaves behind a frequency only she can hear…" />
-        <div className="desk-actions">
-          <button className="preset" type="button" onClick={() => setIdea(DEMO_IDEA)}>
-            <span className="preset-play">▶</span><span><b>Try the demo premise</b>Cozy mystery × sentient buildings</span>
-          </button>
-          <button className="primary-button" type="button" disabled={!ready} onClick={onAnalyze}>
-            Map this territory <Arrow />
-          </button>
+        <div className="method-strip" aria-label="How Storyfield works">
+          <article data-reveal="rise" style={{ "--reveal-order": 0 }}><span>01</span><h3>Describe</h3><p>Paste the premise you are actually considering.</p></article>
+          <article data-reveal="rise" style={{ "--reveal-order": 1 }}><span>02</span><h3>Research</h3><p>Map comparable work and real audience friction.</p></article>
+          <article data-reveal="rise" style={{ "--reveal-order": 2 }}><span>03</span><h3>Find signals</h3><p>Separate familiar territory from useful openings.</p></article>
+          <article data-reveal="rise" style={{ "--reveal-order": 3 }}><span>04</span><h3>Make your move</h3><p>Pressure-test the next version before production.</p></article>
         </div>
-        {error && <p className="inline-error" role="alert">{error}</p>}
+        <div className="sample-row" data-reveal="rise">
+          <span>Want to see the finished field report?</span>
+          <button className="sample-link" type="button" onClick={onDemo}>Explore the prepared sample <Arrow /></button>
+        </div>
       </section>
-
-      <section className="method-strip" aria-label="How Storyfield works">
-        <p>01 <span>Describe</span></p><i />
-        <p>02 <span>Research</span></p><i />
-        <p>03 <span>Find signals</span></p><i />
-        <p>04 <span>Make your move</span></p>
-      </section>
-      <button className="sample-link" type="button" onClick={onDemo}>No keys yet? Explore a clearly labeled sample report <Arrow /></button>
       <p className="truth-note">Storyfield maps surrounding territory. It does not certify originality or predict audiences.</p>
+    </main>
+  );
+}
+
+function Start({ idea, setIdea, onAnalyze, error }) {
+  const ready = idea.trim().length >= 30;
+
+  return (
+    <main className="start-page" data-ready={ready}>
+      <nav className="start-navigation" aria-label="Research navigation">
+        <Link href="/">← Back to home</Link>
+        <span>01 / Premise <span aria-hidden="true">—</span> 02 / Field report</span>
+      </nav>
+      <section className="premise-section" aria-labelledby="start-title">
+        <div className="premise-intro">
+          <p className="section-label">A new investigation</p>
+          <h1 id="start-title">Every story starts<br />with a <em>what if.</em></h1>
+          <p>Bring your premise. Find the stories around it, the patterns audiences notice, and room to make it your own.</p>
+          <div className="start-deliverables">
+            <p className="section-label">Inside your field report</p>
+            <p><span>01</span> Nearby stories & creative territory</p>
+            <p><span>02</span> Audience friction & recurring patterns</p>
+            <p><span>03</span> New directions, backed by sources</p>
+          </div>
+        </div>
+        <div className="start-editor">
+        <div className="premise-status" role="status">
+          <span>{ready ? "✦ Ready to explore" : "✦ Your next big what if"}</span>
+          <span>{ready ? "Let’s find your opening." : "Start with a spark."}</span>
+        </div>
+        <div className="idea-desk">
+          <div className="desk-topline">
+            <label id="idea-label" htmlFor="idea">Describe your story</label>
+            <span>{idea.length.toLocaleString()} / 3,000</span>
+          </div>
+          <textarea id="idea" aria-describedby="idea-guidance" maxLength={3000} value={idea} onChange={(event) => setIdea(event.target.value)} placeholder="What if every lie left behind a frequency only one sound editor could hear?" />
+          <progress className="premise-progress" max={30} value={Math.min(idea.trim().length, 30)} aria-label="Minimum premise length" />
+          <p className="idea-guidance" id="idea-guidance">A character, a conflict, a world. A few sentences are enough. Minimum 30 characters.</p>
+          <div className="desk-actions">
+            <button className="preset" type="button" onClick={() => setIdea(DEMO_IDEA)}>
+              <span className="preset-play">+</span><span><b>Use the sample premise</b>Cozy mystery × sentient buildings</span>
+            </button>
+            <button className="primary-button" type="button" disabled={!ready} onClick={onAnalyze}>
+              Find my whitespace <Arrow />
+            </button>
+          </div>
+          {error && <p className="inline-error" role="alert">{error}</p>}
+        </div>
+        <p className="start-footnote">Your premise is the starting point. Every useful signal comes with evidence.</p>
+        </div>
+      </section>
     </main>
   );
 }
@@ -216,6 +324,8 @@ function Report({ report, onReset }) {
 }
 
 export default function Home() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [idea, setIdea] = useState("");
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -262,7 +372,11 @@ export default function Home() {
   }
 
   function reset() { setReport(null); setLoading(false); setError(""); sessionStorage.removeItem("storyfield-report"); window.scrollTo({ top: 0, behavior: "smooth" }); }
-  function showDemo() { setIdea(DEMO_IDEA); setError(""); setReport(DEMO_REPORT); sessionStorage.setItem("storyfield-report", JSON.stringify(DEMO_REPORT)); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  function showDemo() { setIdea(DEMO_IDEA); setError(""); setReport(DEMO_REPORT); sessionStorage.setItem("storyfield-report", JSON.stringify(DEMO_REPORT)); router.push("/start"); }
 
-  return <div className="app-shell"><Header hasReport={Boolean(report)} onReset={reset} />{loading ? <Loading step={step} queries={queries} evidence={evidence} /> : report ? <Report report={report} onReset={reset} /> : <Landing idea={idea} setIdea={setIdea} onAnalyze={analyze} onDemo={showDemo} error={error} />}<footer><Brand /><p>Creative territory, mapped with Gemini reasoning and Parallel web research.</p><span>Made for filmmakers who would rather know before they shoot.</span></footer></div>;
+  const content = pathname === "/start"
+    ? loading ? <Loading step={step} queries={queries} evidence={evidence} /> : report ? <Report report={report} onReset={reset} /> : <Start idea={idea} setIdea={setIdea} onAnalyze={analyze} error={error} />
+    : <Landing onStart={reset} onDemo={showDemo} />;
+
+  return <div className="app-shell"><Header />{content}<footer><Brand /><p>Creative territory, mapped with Gemini reasoning and Parallel web research.</p><span>Made for filmmakers who would rather know before they shoot.</span></footer></div>;
 }

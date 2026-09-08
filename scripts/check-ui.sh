@@ -18,6 +18,8 @@ browser eval 'if (document.querySelector("#access-error")) throw Error("Stale co
 browser press Enter
 browser wait '#idea'
 browser eval 'if (!document.querySelector(".workspace-window .premise-panel textarea")) throw Error("Missing workspace premise panel"); if (!document.querySelector("button[type=submit]").disabled) throw Error("Empty premise accepted")'
+browser find role button click --name 'Write your idea'
+browser eval 'if (document.activeElement.id !== "idea") throw Error("Welcome action did not focus the premise")'
 browser find role button click --name 'Use an example'
 browser eval 'if (document.querySelector("button[type=submit]").disabled) throw Error("Example premise rejected")'
 browser eval 'window.shortcutSubmitted = false; document.querySelector("#idea").form.addEventListener("submit", event => { event.preventDefault(); event.stopImmediatePropagation(); window.shortcutSubmitted = true; }, {once:true}); document.querySelector("#idea").focus()'
@@ -25,6 +27,9 @@ browser press Control+Enter
 browser eval 'if (!window.shortcutSubmitted) throw Error("Premise shortcut did not submit")'
 browser find role button click --name 'View a sample report'
 browser wait '#audience-room'
+browser eval 'if (document.querySelectorAll(".report-navigation a").length !== 3) throw Error("Expected three report stages"); if (document.querySelector(".report-context").open) throw Error("Research context should start collapsed")'
+browser click '.report-context summary'
+browser eval 'if (!document.querySelector(".report-context").open || !document.querySelector(".report-context p").textContent.trim()) throw Error("Research context cannot be read")'
 browser set viewport 390 844
 browser eval 'if (document.documentElement.scrollWidth > innerWidth) throw Error("Horizontal overflow"); if ([...document.querySelectorAll(".report-navigation a")].some(a => !document.querySelector(a.hash))) throw Error("Broken section link"); if (!document.querySelector(".light-button").disabled) throw Error("Unchanged revision accepted")'
 browser find label 'Current iteration' fill short
@@ -41,6 +46,8 @@ browser find role button click --name 'Use the sample revision'
 browser find role button click --name 'View sample feedback'
 browser eval 'if (document.querySelectorAll(".audience-grid article").length !== 3) throw Error("Sample cannot be replayed")'
 
+browser set media light reduced-motion
+browser eval 'if ([...document.querySelectorAll(".workspace-window *")].some(el => getComputedStyle(el).animationName !== "none")) throw Error("Reduced motion still animates")'
 browser find role button click --name 'Sign out'
 browser wait '.landing-hero'
 browser open "${1:-http://localhost:3000}/start"

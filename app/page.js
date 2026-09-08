@@ -161,17 +161,22 @@ function PremisePanel({ idea, setIdea, onAnalyze, onDemo, error, loading }) {
 }
 
 function Start() {
-  return <main className="workspace-empty"><h1>Creative field report</h1><div><span className="empty-orbits" aria-hidden="true"><i /><i /><i /></span><h2>Every story starts somewhere.</h2><p>Add a premise to find nearby stories and room for a different direction.</p></div></main>;
+  return <main className="workspace-empty"><p className="kicker">Your creative space</p><div className="start-stage"><img className="workspace-start-art" src="/art/yuvo-friends.svg" width="560" height="320" alt="Three friendly yellow, coral and blue shapes." /><h1>A little idea.<br />A new direction.</h1><p>Bring your what if. Let’s find what makes it yours.</p><button className="primary-button" type="button" onClick={() => document.getElementById("idea").focus()}>Write your idea <Arrow /></button></div></main>;
 }
 
 function Loading({ step, queries, evidence }) {
   return (
     <main className="loading-page">
       <section className="loading-title">
-        <p className="kicker">Research agent in the field</p>
-        <h1>Following the<br /><em>creative signal.</em></h1>
-        <p>We’re looking for comparable stories, audience reactions, and useful openings.</p>
+        <p className="kicker">A little research. A new possibility.</p>
+        <h1>Finding your<br /><em>own angle.</em></h1>
+        <p>Following the stories, reactions and ideas around yours.</p>
       </section>
+      <div className="workspace-research-orbits" aria-hidden="true">
+        <div className="search-orbit"><img src="/brand/parallel.png" width="112" height="18" alt="" /><strong>{evidence || "…"}</strong><span>{evidence ? "sources found" : "Searching the web"}</span></div>
+        <span className="research-connection">↗</span>
+        <div className="synthesis-orbit" data-active={step >= 3}><img src="/brand/gemini.svg" width="52" height="52" alt="" /><strong>Your next<br />possibility.</strong><span>Shaped by Gemini</span></div>
+      </div>
       <section className="research-console" aria-live="polite">
         <div className="console-head"><span>Live research</span><span>{evidence ? `${evidence} sources surfaced` : "In progress"}</span></div>
         <ol className="steps">
@@ -205,7 +210,7 @@ function Landscape({ report }) {
 }
 
 function SectionHead({ number, label, title, note }) {
-  return <div className="section-head"><p>{number} / {label}</p><div><h2>{title}</h2>{note && <span>{note}</span>}</div></div>;
+  return <div className="section-head"><p><span className="section-number">{number}</span>{label}</p><div><h2>{title}</h2>{note && <span>{note}</span>}</div></div>;
 }
 
 function AudienceRoom({ report, iteration, previousIdea, setIteration, audience, onTest, testing, error }) {
@@ -266,17 +271,16 @@ function Report({ report, onReset }) {
     <main className="report-page">
       {report.demo && <div className="demo-banner"><span>Prepared sample</span>This report is illustrative and did not run live research. <button type="button" onClick={onReset}>Run your own analysis</button></div>}
       {report.partial && <div className="partial-banner">Partial research: one search angle failed. Conclusions are intentionally narrow.</div>}
-      <section className="report-hero">
-        <div className="report-heading"><h1>Creative field report</h1><a href="#sources">{report.sources.length} sources</a></div>
-        <p className="report-overview">{report.overview}</p>
-        <aside className="report-opening"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />Potential opening</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p><a href="#opportunities">Explore this direction <Arrow /></a></aside>
-        <div className="next-draft"><p className="section-label">Try this in your next draft</p><p>{report.whitespace[0].move}</p><a className="sample-link" href="#video-room">Review your first cut <Arrow /></a></div>
+      <nav className="report-navigation" aria-label="Report sections">
+        <a href="#direction"><span>01</span>Your direction</a><a href="#landscape"><span>02</span>The research</a><a href="#video-room"><span>03</span>Your next take</a>
+      </nav>
+      <section className="report-hero" id="direction">
+        <div className="report-heading"><div><p className="kicker">From research to possibility</p><h1>Here’s your opening.</h1></div><a href="#sources"><span className="evidence-dot" aria-hidden="true" />{report.sources.length} sources <Arrow /></a></div>
+        <aside className="report-opening"><div className="direction-copy"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />A direction to explore</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p></div><div className="direction-motif" aria-hidden="true"><img className="shape-friend" src="/art/yuvo-coral.svg" width="170" height="170" alt="" /><i /><i /></div><a href="#opportunities">Explore this direction <Arrow /></a></aside>
+        <div className="next-draft"><span className="next-draft-icon" aria-hidden="true">↗</span><div><p className="section-label">Make it real</p><h2>Your next move.</h2><p>{report.whitespace[0].move}</p><a className="primary-button" href="#video-room">Review your first cut <Arrow /></a></div></div>
+        <details className="report-context"><summary>What the research found</summary><p className="report-overview">{report.overview}</p></details>
         <details className="original-premise"><summary>Analyzed premise</summary><p>{report.idea}</p></details>
       </section>
-
-      <nav className="report-navigation" aria-label="Report sections">
-        <a href="#landscape">Landscape</a><a href="#patterns">Patterns</a><a href="#friction">Friction</a><a href="#opportunities">Opportunities</a><a href="#audience-room">Revise your idea</a><a href="#video-room">Review your video</a><a href="#sources">Sources</a>
-      </nav>
       <section className="report-section landscape-section" id="landscape">
         <SectionHead number="01" label="Creative landscape" title="The territory around your idea" note="Qualitative proximity, based on surfaced sources" />
         <Landscape report={report} />

@@ -68,7 +68,7 @@ export default function VideoRoom({ report, idea }) {
 
   return (
     <section className="video-room report-section" id="video-room" aria-labelledby="video-room-heading">
-      <div className="section-head"><p>06 / The next take</p><div><h2 id="video-room-heading">See your story take shape.</h2><span>Attach a cut. Find the moment to improve. Compare the next version.</span></div></div>
+      <div className="section-head"><p><span className="section-number">06</span>The next take</p><div><h2 id="video-room-heading">See your story take shape.</h2><span>Attach a cut. Find the moment to improve. Compare the next version.</span></div></div>
       <div className="cut-workspace">
         <div className="cut-toolbar"><span><img src="/brand/gemini.svg" width="26" height="26" alt="" />Gemini · Visual review</span><div className="cut-tabs" aria-label="Reviewed cuts">{cuts.map((cut) => <button type="button" key={cut.number} disabled={busy || Boolean(pending)} aria-pressed={!pending && (view || latest) === cut} onClick={() => { setView(cut); setError(""); }}>Cut {cut.number}</button>)}</div></div>
         {displayed ? <video key={url} ref={player} className="cut-player" src={url || undefined} controls playsInline preload="metadata" aria-label={pending ? "Attached cut preview" : `Cut ${(view || latest).number}`} onLoadedMetadata={(event) => {
@@ -76,7 +76,7 @@ export default function VideoRoom({ report, idea }) {
           const seconds = event.currentTarget.duration;
           if (!Number.isFinite(seconds) || seconds <= 0 || seconds > MAX_CLIP_SECONDS) { setDuration(0); setError("Choose a clip up to 60 seconds long."); }
           else setDuration(seconds);
-        }} onError={() => { setDuration(0); setError("This video cannot play in your browser. Try an H.264 MP4 export."); }} /> : <div className="cut-empty"><span className="cut-orbits" aria-hidden="true"><i /><i /><i /></span><h3>Your first cut goes here.</h3><p>Show Gemini what you made.</p></div>}
+        }} onError={() => { setDuration(0); setError("This video cannot play in your browser. Try an H.264 MP4 export."); }} /> : <div className="cut-empty"><img className="cut-friend" src="/art/yuvo-blue.svg" width="120" height="120" alt="" /><h3>Your first cut goes here.</h3><p>Show Gemini what you made.</p></div>}
         <form className="cut-upload" onSubmit={review} aria-busy={busy}>
           <label htmlFor="cut-file">{latest ? "Attach your next cut" : "Attach your first cut"}</label>
           <input id="cut-file" type="file" accept={VIDEO_TYPES.join(",")} disabled={busy} onChange={attach} aria-describedby="cut-guidance cut-privacy" />

@@ -14,6 +14,10 @@ const STEPS = [
   { label: "Your angle", title: "Shaping your own angle.", detail: "Turning the research into a direction for your next draft." },
 ];
 
+function LineIcon({ path, size = 18 }) {
+  return <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={path} /></svg>;
+}
+
 function Arrow({ direction = "right" }) {
   return <span aria-hidden="true" className={`arrow arrow-${direction}`}>→</span>;
 }
@@ -167,8 +171,9 @@ function Loading({ step, queries, evidence }) {
   return (
     <main className="loading-page">
       <section className="loading-title">
-        <p className="kicker">A fresh perspective</p>
-        <h1>Good ideas grow<br />with a little research.</h1>
+        <p className="kicker">Live research</p>
+        <h1>Finding your own angle.</h1>
+        <p>Following the stories, reactions and ideas around yours.</p>
       </section>
       <section className="research-stage" aria-label="Research progress">
         <div className="research-stage-top">
@@ -180,10 +185,10 @@ function Loading({ step, queries, evidence }) {
           <div className="research-friend" aria-hidden="true"><i /><img src="/art/yuvo-spark.svg" width="180" height="180" alt="" /><i /></div>
         </div>
         <ol className="research-progress">
-          {STEPS.map(({ label }, index) => <li key={label} className={index < step ? "done" : index === step ? "active" : ""} aria-current={index === step ? "step" : undefined}><span className="research-track" aria-hidden="true" /><span><b>{index < step ? "✓" : `0${index + 1}`}</b>{label}</span></li>)}
+          {STEPS.map(({ label }, index) => <li key={label} className={index < step ? "done" : index === step ? "active" : ""} aria-current={index === step ? "step" : undefined}><span className="research-track" aria-hidden="true" /><span><LineIcon size={14} path={index < step ? "M5 12l4 4L19 6" : index === step ? "M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0ZM15 15l6 6" : "M18 12a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"} />{label}</span></li>)}
         </ol>
       </section>
-      {queries.length > 0 && <section className="research-searches" aria-label="Research searches"><div className="research-searches-heading"><h2>Following these threads</h2><span role="status">{evidence ? <><b>{evidence}</b> sources found</> : "Searching the web…"}</span></div><ul>{queries.map((query) => <li key={query}><span aria-hidden="true">↗</span>{query}</li>)}</ul></section>}
+      {queries.length > 0 && <section className="research-searches" aria-label="Research searches"><div className="research-searches-heading"><h2>Following these threads</h2><span role="status">{evidence ? <><b>{evidence}</b> sources found</> : "Searching the web…"}</span></div><ul>{queries.map((query) => <li key={query}><LineIcon size={16} path="M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0ZM15 15l6 6" />{query}</li>)}</ul></section>}
     </main>
   );
 }
@@ -244,12 +249,18 @@ function Report({ report, onReset }) {
   const [nextMode, setNextMode] = useState("video");
   const reportNav = useRef(null);
 
-  function openView(next) {
+  function openView(next, section) {
     setView(next);
     const scrolled = reportNav.current.getBoundingClientRect().top <= 0;
     requestAnimationFrame(() => {
       if (scrolled) reportNav.current.parentElement.scrollIntoView({ behavior: "instant", block: "start" });
       document.getElementById(`tab-${next}`).focus({ preventScroll: true });
+      if (section) {
+        const target = document.getElementById(section);
+        target.open = true;
+        target.querySelector("summary").focus({ preventScroll: true });
+        target.scrollIntoView({ behavior: "instant", block: "start" });
+      }
     });
   }
   const [iteration, setIteration] = useState(report.idea);
@@ -286,15 +297,27 @@ function Report({ report, onReset }) {
         const next = event.key === "ArrowRight" ? (index + 1) % tabs.length : event.key === "ArrowLeft" ? (index + tabs.length - 1) % tabs.length : event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : null;
         if (next !== null) { event.preventDefault(); tabs[next].focus(); tabs[next].click(); }
       }}>
-        {[["direction", "Your direction"], ["research", "The research"], ["next", "Your next take"]].map(([id, label], index) => <button key={id} id={`tab-${id}`} role="tab" type="button" aria-selected={view === id} aria-controls={`panel-${id}`} tabIndex={view === id ? 0 : -1} onClick={() => openView(id)}><span>{String(index + 1).padStart(2, "0")}</span>{label}</button>)}
+        {[
+          ["direction", "Your direction", "M9 18h6M10 21h4M9 15c0-2-3-3-3-7a6 6 0 0 1 12 0c0 4-3 5-3 7H9Z"],
+          ["research", "The research", "M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0ZM15 15l6 6"],
+          ["next", "Your next take", "M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1ZM10 9l5 3-5 3V9Z"],
+        ].map(([id, label, icon]) => <button key={id} id={`tab-${id}`} role="tab" type="button" aria-selected={view === id} aria-controls={`panel-${id}`} tabIndex={view === id ? 0 : -1} onClick={() => openView(id)}><span aria-hidden="true"><LineIcon path={icon} /></span>{label}</button>)}
       </nav>
       <div id="panel-direction" role="tabpanel" aria-labelledby="tab-direction" tabIndex={0} hidden={view !== "direction"}>
       <section className="report-hero" id="direction">
-        <div className="report-heading"><div><p className="kicker">From research to possibility</p><h1>Here’s your opening.</h1></div><button type="button" onClick={() => openView("research")}><span className="evidence-dot" aria-hidden="true" />{report.sources.length} sources <Arrow /></button></div>
+        <div className="report-heading"><h1>Here’s your opening.</h1><button type="button" onClick={() => openView("research")}><span className="evidence-dot" aria-hidden="true" />{report.sources.length} sources <Arrow /></button></div>
+        <div className="direction-dashboard">
         <aside className="report-opening"><div className="direction-copy"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />A direction to explore</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p></div><div className="direction-motif" aria-hidden="true"><img className="shape-friend" src="/art/yuvo-coral.svg" width="170" height="170" alt="" /><i /><i /></div></aside>
         <div className="next-draft"><span className="next-draft-icon" aria-hidden="true">↗</span><div><p className="section-label">Make it real</p><h2>Your next move.</h2><p>{report.whitespace[0].move}</p><button className="primary-button" type="button" onClick={() => { setNextMode("video"); openView("next"); }}>Review your first cut <Arrow /></button></div></div>
-        <details className="report-context"><summary>What the research found</summary><p className="report-overview">{report.overview}</p></details>
-        <details className="original-premise"><summary>Analyzed premise</summary><p>{report.idea}</p></details>
+        </div>
+        <div className="research-shortcuts"><p className="section-label">Explore the research</p><div>
+          {[
+            ["landscape", "Nearby stories", `${report.clusters.length} territories`, "M5 3h14v18H5V3ZM9 7h6M9 11h6M9 15h3"],
+            ["patterns", "Recurring patterns", `${report.saturated.length} themes`, "M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0ZM15 15l6 6"],
+            ["friction", "Audience reactions", `${report.frictions.length} signals`, "M15 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM5 21v-2a7 7 0 0 1 14 0v2M18 4a3 3 0 0 1 0 6M22 21v-2a7 7 0 0 0-3-5"],
+          ].map(([id, label, count, icon]) => <button key={id} type="button" onClick={() => openView("research", id)}><span className="shortcut-icon"><LineIcon path={icon} size={22} /></span><span><b>{label}</b><small>{count}</small></span><Arrow /></button>)}
+        </div></div>
+        <details className="report-context"><summary>What the research found</summary><p className="report-overview">{report.overview}</p><details className="original-premise"><summary>Analyzed premise</summary><p>{report.idea}</p></details></details>
       </section>
       <details className="direction-details"><summary>Explore all {report.whitespace.length} creative openings<span aria-hidden="true">+</span></summary>
       <section className="whitespace-section" id="opportunities">

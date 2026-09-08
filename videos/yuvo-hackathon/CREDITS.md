@@ -2,6 +2,10 @@
 
 ## Music
 
+Review version: “Cirrus” — Bonobo. User-supplied MP3, 202.318 seconds; excerpted, faded and mixed under narration. No publication or synchronization license has been verified. The source file stays local and is excluded from Git.
+
+Alternative soundtrack:
+
 “Funkorama” — Kevin MacLeod (incompetech.com).
 Licensed under Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Track and license: https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1100474
@@ -19,7 +23,7 @@ https://www.pexels.com/video/a-long-hallway-with-graffiti-on-the-walls-17037805/
 License: https://www.pexels.com/license/
 First and second cuts are extracts of the same stock footage; the video explicitly identifies them as a location test, not an original completed film. No implied endorsement by the contributor or Pexels.
 
-Application footage was recorded from the running Yuvo app on 2026-09-08, using Google ADK, Gemini 3.8 Flash on Vertex AI and live Parallel Search. No fetch interception, mocked providers or prepared responses were used. Waiting intervals are cut, and that edit is disclosed on screen. Cut detail shots show the actual uploaded media. Still images are captured from the same live report and reviews. The room-circle graphic is an editorial explanation, not another app feature.
+Application footage was recorded from the running Yuvo app on 2026-09-08, using Google ADK, Gemini 3.8 Flash on Vertex AI and live Parallel Search. No fetch interception, mocked providers or prepared responses were used. Waiting intervals are cut, and that edit is disclosed on screen. Cut detail shots show the actual uploaded media. Still images are captured from the same live report and reviews. The room-circle graphic and traveling provider dots are editorial explanations, not additional app features or a recorded execution trace. The bridge still is extracted from the actual first uploaded cut.
 
 ## Marks and type
 
@@ -30,4 +34,10 @@ GSAP 3.14.2: https://gsap.com/standard-license/ . Local runtime copy preserves i
 
 ## Delivery
 
-131.71 seconds, 1920×1080, 30 fps. English voiceover. Music credit is also displayed in the closing frame. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
+131.71 seconds, 1920×1080, 30 fps. English voiceover. The closing frame directs viewers to the music credit in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
+
+## Cursor and sound effects
+
+The macOS arrow and text cursor are unchanged SVG assets reused from the landing project; provenance and upstream terms are in ../landing-demo/assets/SOURCES.md. Cursor choreography is added in post-production over the real app recording. The text cursor appears only while hovering over the text input. It is not a recording of OS mouse telemetry.
+
+Soft click, short whoosh and pop: bundled HyperFrames media-use sound-effect library, resolved locally through media-use. Effects are placed on the corresponding UI actions and graphic transformations; they are not original location sound.

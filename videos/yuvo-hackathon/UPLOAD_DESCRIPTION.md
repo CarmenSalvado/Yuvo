@@ -8,6 +8,7 @@ Source: https://github.com/CarmenSalvado/HowItWent (make public before submissio
 
 The footage shows real application requests and results; provider waits are condensed. Stock footage is used as an early location test. Feedback is a model’s visual critique, not real audience testing or a guarantee of originality.
 
+For the CC BY soundtrack edition:
 Music: “Funkorama” — Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Music is excerpted and mixed under narration.
@@ -17,3 +18,8 @@ https://www.pexels.com/video/a-long-hallway-with-graffiti-on-the-walls-17037805/
 https://www.pexels.com/license/
 
 Narration: Google Cloud Gemini TTS, Puck / Kore / Charon.
+
+For the private review with the user-supplied track:
+Music: “Cirrus” — Bonobo. Publication/synchronization permission has not been verified; do not use the CC BY credit above for this track.
+
+Cursor and subtle interaction sounds were added in editing; the application responses are real.

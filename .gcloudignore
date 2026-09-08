@@ -1,0 +1,13 @@
+*
+!app/
+!app/**
+!lib/
+!lib/**
+!public/
+!public/**
+!package.json
+!package-lock.json
+!next.config.mjs
+!proxy.js
+!Dockerfile
+!.dockerignore

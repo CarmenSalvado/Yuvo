@@ -55,7 +55,7 @@ The API runs in `fast` mode with bounded result/context sizes for demo latency. 
 
 ## Gemini integration
 
-Gemini 3.8 Flash is called through the official `@google/genai` SDK on the server:
+Google ADK (`@google/adk`) runs a request-scoped `LlmAgent` and `InMemoryRunner` for Gemini 3.8 Flash on Vertex AI. ADK uses the official Google Gen AI client internally:
 
 - research-query planning;
 - evidence-grounded opportunity synthesis;
@@ -66,7 +66,7 @@ All tasks request structured JSON. Results pass through small runtime validators
 
 ## Run locally
 
-Requirements: Node.js 20.9+ and API keys for [Parallel](https://platform.parallel.ai/) and [Google AI Studio](https://aistudio.google.com/).
+Requirements: Node.js 24.13+ and a [Parallel](https://platform.parallel.ai/) key, plus Vertex AI credentials or a [Google AI Studio](https://aistudio.google.com/) key.
 
 ```bash
 npm install
@@ -131,7 +131,7 @@ Browser verification (mocked provider responses, actual playable clips under 2 M
 bash scripts/check-video-ui.sh http://localhost:3017 /path/first.mp4 /path/second.mp4
 ```
 
-For Google Cloud credentials, leave `GEMINI_API_KEY` empty and configure `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` (defaults to `global`) and Application Default Credentials. On a Google Cloud deployment, use the workload's service account. On a local machine, configure ADC separately; `gcloud auth login` by itself does not configure ADC. If `GEMINI_API_KEY` is set, the SDK uses the Gemini Developer API instead. Neither route alone proves an Agent Builder deployment.
+For Google Cloud credentials, leave `GEMINI_API_KEY` empty and configure `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` (defaults to `global`) and Application Default Credentials. On a Google Cloud deployment, use the workload's service account. On a local machine, configure ADC separately; `gcloud auth login` by itself does not configure ADC. If `GEMINI_API_KEY` is set, the SDK uses the Gemini Developer API instead. All four model tasks execute through Google ADK. The runtime is deployed on Cloud Run; it is not a managed Agent Engine deployment.
 
 
 ## Invite access
@@ -141,3 +141,13 @@ The landing and video are public. `/start` and the research APIs require a share
 Sessions use signed HttpOnly, SameSite=Lax cookies and expire after eight hours; HTTPS deployments use Secure cookies. Rotating the code invalidates existing sessions. The demo limits sign-in attempts per process; use a shared limiter before running multiple replicas. This is shared invite access, not personal accounts or email OTP.
 
 Yuvo's editorial artwork was generated with GPT Image at the user's request. Provenance is in `public/art/SOURCES.md`; video sources are documented alongside the composition. The scroll narrative uses native CSS and respects reduced-motion preferences.
+
+## Hosted hackathon app
+
+[Open Yuvo](https://yuvo-530653958920.europe-west1.run.app). The workspace requires the invite code shared separately with judges.
+
+The Docker image runs Next.js standalone on Cloud Run in `europe-west1`. Vertex AI uses the attached `yuvo-runtime` service account. Parallel and invite secrets are mounted from Secret Manager. `.gcloudignore` and `.dockerignore` use an allowlist so credentials, footage work files and local configuration never enter the build.
+
+To deploy in your own billed project, enable Cloud Run, Cloud Build, Artifact Registry, Vertex AI and Secret Manager. Create a runtime service account with Vertex AI user access and access only to your three secrets. Then deploy this Dockerfile with `gcloud run deploy --source .`, attach that account, set `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION=global`, `GEMINI_MODEL=gemini-3.8-flash` and the exact HTTPS `APP_ORIGIN`, and map `ACCESS_CODE`, `SESSION_SECRET`, `PARALLEL_API_KEY` from Secret Manager. Keep one instance for the process-local invite limiter; the current demo uses 1 CPU, 1 GiB, concurrency 4, a 600-second request timeout and scale-to-zero.
+
+Live verification on 2026-09-08: hosted invite login, six-query / 15-source research (14s), Audience Room (15s), visual-only video review (6s), two-cut comparison (6s), and unauthenticated request rejection (401). These are observed runs, not latency guarantees.

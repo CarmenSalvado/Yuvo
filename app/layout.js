@@ -7,8 +7,8 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "HowItWent — Creative territory, mapped",
-  description: "Live web research for filmmakers and storytellers looking for creative whitespace.",
+  title: "Yuvo — Big idea. Better story.",
+  description: "A creative workspace for storytellers: research your idea, find a direction, and improve your next draft.",
 };
 
 export default function RootLayout({ children }) {

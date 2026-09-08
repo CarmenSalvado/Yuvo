@@ -1,13 +1,17 @@
+import { authorize } from "../../../lib/access.mjs";
 import { cleanIdea, normalizeFollowUp, normalizePlan, normalizeReport, normalizeSources } from "../../../lib/contracts.mjs";
-import { generateJson } from "../../../lib/gemini.mjs";
+import { generateJson, geminiConfigured } from "../../../lib/gemini.mjs";
 import { parallelSearch } from "../../../lib/parallel.mjs";
 import { followUpPrompt, followUpSchema, planPrompt, planSchema, reportPrompt, reportSchema } from "../../../lib/prompts.mjs";
 
 export const runtime = "nodejs";
+export const maxDuration = 600;
 
 export async function POST(request) {
-  if (!process.env.PARALLEL_API_KEY || !process.env.GEMINI_API_KEY) {
-    return Response.json({ error: "Live research needs PARALLEL_API_KEY and GEMINI_API_KEY on the server." }, { status: 503 });
+  const denied = authorize(request);
+  if (denied) return denied;
+  if (!process.env.PARALLEL_API_KEY || !geminiConfigured()) {
+    return Response.json({ error: "Live research needs Parallel and Gemini credentials on the server." }, { status: 503 });
   }
 
   let idea;

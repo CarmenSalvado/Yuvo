@@ -1,3 +1,4 @@
+import { createSession } from "../lib/access.mjs";
 import test from "node:test";
 import assert from "node:assert/strict";
 
@@ -14,6 +15,9 @@ test("analysis and Audience Room complete the grounded happy path", async () => 
   const originalGemini = process.env.GEMINI_API_KEY;
   process.env.PARALLEL_API_KEY = "test-parallel";
   process.env.GEMINI_API_KEY = "test-gemini";
+  const originalAccess = { ACCESS_CODE: process.env.ACCESS_CODE, SESSION_SECRET: process.env.SESSION_SECRET, APP_ORIGIN: process.env.APP_ORIGIN };
+  Object.assign(process.env, { ACCESS_CODE: "test-invite-code", SESSION_SECRET: "test-secret-with-at-least-32-characters", APP_ORIGIN: "http://localhost" });
+  const headers = { origin: "http://localhost", cookie: `yuvo_session=${createSession()}` };
   const calls = [];
 
   global.fetch = async (url, options) => {
@@ -44,7 +48,7 @@ test("analysis and Audience Room complete the grounded happy path", async () => 
   try {
     const { POST: analyze } = await import("../app/api/analyze/route.js");
     const idea = "A young detective can hear incomplete memories held by abandoned buildings.";
-    const response = await analyze(new Request("http://localhost/api/analyze", { method: "POST", body: JSON.stringify({ idea }) }));
+    const response = await analyze(new Request("http://localhost/api/analyze", { method: "POST", headers, body: JSON.stringify({ idea }) }));
     const events = (await response.text()).trim().split("\n").map(JSON.parse);
     const done = events.find((event) => event.type === "done");
     assert.equal(response.status, 200);
@@ -54,7 +58,7 @@ test("analysis and Audience Room complete the grounded happy path", async () => 
     assert.equal(done.report.whitespace.length, 2);
 
     const { POST: audience } = await import("../app/api/audience/route.js");
-    const audienceResponse = await audience(new Request("http://localhost/api/audience", { method: "POST", body: JSON.stringify({
+    const audienceResponse = await audience(new Request("http://localhost/api/audience", { method: "POST", headers, body: JSON.stringify({
       previousIdea: idea,
       currentIdea: `${idea} Their memories follow three strict physical rules.`,
       report: done.report,
@@ -64,6 +68,7 @@ test("analysis and Audience Room complete the grounded happy path", async () => 
     assert.deepEqual(room.perspectives.map((item) => item.role), ["Genre Fan", "Casual Viewer", "Story Nerd"]);
   } finally {
     global.fetch = originalFetch;
+    for (const [key, value] of Object.entries(originalAccess)) { if (value === undefined) delete process.env[key]; else process.env[key] = value; }
     if (originalParallel === undefined) delete process.env.PARALLEL_API_KEY; else process.env.PARALLEL_API_KEY = originalParallel;
     if (originalGemini === undefined) delete process.env.GEMINI_API_KEY; else process.env.GEMINI_API_KEY = originalGemini;
   }

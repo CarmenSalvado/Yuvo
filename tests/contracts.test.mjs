@@ -16,14 +16,13 @@ test("trust boundaries reject short concepts and unsafe sources", () => {
   ]);
 });
 
-test("landing motion is one-shot and reduced-motion safe", async () => {
+test("landing respects reduced motion without per-frame scroll handlers", async () => {
   const [page, css] = await Promise.all([
     readFile(new URL("../app/page.js", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /observer\.unobserve\(entry\.target\)/);
-  assert.match(page, /prefers-reduced-motion: reduce/);
+  assert.doesNotMatch(page, /requestAnimationFrame/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 });
 

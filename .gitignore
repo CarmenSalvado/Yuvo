@@ -6,3 +6,11 @@ node_modules/
 npm-debug.log*
 .DS_Store
 CLAUDE.md
+
+# HyperFrames intermediate artifacts
+videos/**/.hyperframes/
+videos/**/.thumbnails/
+videos/**/snapshots/
+videos/**/renders/
+
+JUDGE_ACCESS.txt

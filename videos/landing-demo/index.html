@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=1440, height=810">
+<title>Yuvo — Product walkthrough</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="assets/typing.js"></script>
+<style>
+@font-face { font-family:Manrope; src:url('assets/manrope.woff2') format('woff2'); font-weight:200 800; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Manrope,sans-serif; color:#252b38; }
+#root { width:1440px; height:810px; position:relative; overflow:hidden; background:#fff4df; }
+.wallpaper { position:absolute; inset:0; background:#fff4df; }
+.wallpaper i { position:absolute; width:560px; height:560px; border-radius:50%; background:#ffda45; left:-240px; top:-250px; }
+.wallpaper i:nth-child(2) { width:480px; height:480px; background:#8bcff5; left:1120px; top:460px; }
+.wallpaper i:nth-child(3) { width:320px; height:320px; background:#ff977c; left:10px; top:630px; }
+.window { position:absolute; left:36px; top:36px; width:1368px; height:738px; border-radius:20px; background:#fff; box-shadow:0 18px 50px #555b7b24; overflow:hidden; }
+.chrome { height:64px; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:0 24px; background:#fff8e4; border-bottom:1px solid #d8d9ce; }
+.lights { display:flex; gap:9px; }
+.lights i { width:12px; height:12px; border-radius:50%; background:#e66e66; }
+.lights i:nth-child(2) { background:#e6bf62; }.lights i:nth-child(3) { background:#80b878; }
+.url { font-size:17px; color:#626878; }
+#replay { font-size:16px; padding:10px; color:#626878; }
+.workspace { display:grid; grid-template-columns:370px 1fr; height:674px; }
+.editor { padding:26px 24px; border-right:1px solid #d8d9ce; }
+.brand { font-size:26px; font-weight:750; letter-spacing:-1px; margin-bottom:20px; }
+.label { font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#626878; margin:0 0 15px; }
+h1,h2,p { margin:0; }
+.input { height:185px; border:1px solid #cbd0bd; background:#fffefa; border-radius:8px; padding:20px 14px; }
+#input { font-size:20px; line-height:32px; letter-spacing:-.4px; }
+#prompt-text { white-space:pre-wrap; overflow-wrap:break-word; }
+#typing-caret { display:inline-block; width:2px; height:23px; margin-left:1px; vertical-align:-4px; background:#252b38; opacity:0; }
+#cta { display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:18px 16px; background:#0866e6; color:#fffefa; border-radius:28px; font-size:18px; font-weight:600; }
+.engine-list { margin-top:18px; display:flex; gap:26px; align-items:center; }
+.engine { display:flex; align-items:center; gap:12px; }
+.engine img { flex:none; object-fit:contain; }
+.engine b { display:block; font-size:16px; font-weight:600; }
+.engine small { display:block; font-size:12px; color:#626878; margin-top:2px; }
+.engine .parallel-wordmark { width:104px; height:auto; display:block; margin:2px 0 5px; }
+.results { padding:28px 28px; position:relative; }
+.result-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; }
+.result-header h1 { font-size:30px; font-weight:650; letter-spacing:-1px; }
+.result-header span { font-size:13px; color:#626878; }
+.content { position:relative; height:568px; }
+#empty, #findings { position:absolute; inset:0; }
+#empty { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.scene-heading, .scene-caption { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.scene-heading { margin-bottom:16px; font-size:20px; }
+.scene-heading > span { display:flex; align-items:center; gap:10px; }
+.scene-heading small, .scene-caption { font-size:12px; color:#626878; }
+#scene-video { display:block; width:100%; height:340px; object-fit:cover; border-radius:9px; }
+.scene-caption { margin-top:12px; }
+.scene-caption a { color:inherit; }
+.empty-orbits { display:flex; align-items:center; height:150px; margin-bottom:24px; }
+.empty-orbits i { display:block; width:120px; height:120px; border-radius:50%; background:#ffda45; }
+.empty-orbits i:nth-child(2) { width:90px; height:90px; background:#ff7853; margin-left:-30px; }
+.empty-orbits i:nth-child(3) { width:66px; height:66px; background:#8bcff5; margin-left:-25px; }
+#empty h2 { font:650 30px/1.2 Manrope,sans-serif; margin-bottom:14px; }
+#empty p { max-width:295px; font-size:17px; line-height:1.55; color:#626878; }
+#planning, #searching, #synthesis { position:absolute; inset:0; opacity:0; visibility:hidden; }
+.agent-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:18px; }
+.agent-heading > span { display:flex; align-items:center; gap:12px; font-size:20px; font-weight:600; }
+.agent-heading small { font-size:13px; color:#626878; }
+.agent-heading img { object-fit:contain; }
+.agent-title { font-size:32px; line-height:1.15; letter-spacing:-1px; margin-bottom:12px; }
+.agent-description { color:#626878; font-size:17px; line-height:1.5; }
+.plan-angles { display:flex; justify-content:center; gap:44px; margin-top:52px; }
+.plan-angle { text-align:center; font-size:16px; color:#252b38; }
+.plan-angle b { display:grid; place-items:center; width:164px; height:164px; border-radius:50%; background:#ffda45; color:#252b38; font-size:24px; font-weight:650; margin-bottom:16px; }
+.plan-angle:nth-child(2) b { background:#ff997d; }
+.plan-angle:nth-child(3) b { background:#8bcff5; }
+.research-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:28px; margin-top:26px; }
+.query-row { position:relative; padding:12px 16px 18px; margin-bottom:14px; background:#f0f5ff; border-radius:12px; }
+.query-row b { font-size:17px; display:block; margin-bottom:6px; }
+.query-row p { font-size:14px; line-height:1.5; color:#626878; }
+.query-track { position:absolute; left:16px; right:16px; bottom:7px; height:3px; background:#dbe5f6; border-radius:3px; }
+.query-track i { display:block; width:100%; height:100%; background:#0866e6; transform-origin:left; }
+.source-list { display:grid; gap:8px; align-content:start; }
+.source-item { display:flex; gap:10px; align-items:center; padding:10px 12px; border:1px solid #e6e6e0; border-radius:10px; font-size:15px; }
+.source-item i { display:block; flex:none; width:10px; height:10px; border-radius:50%; background:#72cca8; }
+.source-item small { display:block; color:#626878; font-size:12px; margin-top:3px; }
+#research-signal { display:flex; align-items:center; gap:14px; margin-top:12px; border-radius:12px; padding:16px; background:#eef8f3; font-size:17px; opacity:0; visibility:hidden; }
+#research-signal img { flex:none; }
+.synthesis-list { display:grid; gap:18px; margin-top:28px; }
+.synthesis-list > div { display:flex; align-items:center; gap:20px; padding:22px; border-radius:14px; background:#f0f5ff; }
+.synthesis-list i { display:grid; place-items:center; flex:none; width:48px; height:48px; border-radius:50%; background:#8bcff5; font-style:normal; font-size:22px; }
+.synthesis-list > div:nth-child(2) { background:#fff0e7; }
+.synthesis-list > div:nth-child(2) i { background:#ff997d; }
+.synthesis-list > div:nth-child(3) { background:#eef8f3; }
+.synthesis-list > div:nth-child(3) i { background:#72cca8; }
+.synthesis-list b { display:block; font-size:18px; margin-bottom:5px; }
+.synthesis-list p { font-size:16px; color:#626878; }
+.signals { display:flex; gap:8px; margin-bottom:18px; }
+.signals span { font-size:14px; padding:8px 14px; background:#edf5ff; border-radius:20px; }
+.signals span:nth-child(2) { background:#eef8f3; }
+#opportunity { position:relative; padding:28px; background:#fff4c7; border-radius:16px; overflow:hidden; }
+#opportunity h2, #opportunity > p { max-width:580px; position:relative; }
+.direction-dots { display:flex; gap:10px; margin-top:20px; }
+.direction-dots i { display:block; width:20px; height:20px; border-radius:50%; background:#ffda45; }
+.direction-dots i:nth-child(2) { background:#ff7853; }
+.direction-dots i:nth-child(3) { background:#0866e6; }
+.direction-dots i:nth-child(4) { background:#72cca8; }
+.direction-dots i:nth-child(5) { background:#8bcff5; }
+.opportunity-top { display:flex; align-items:center; gap:9px; font-size:12px; text-transform:uppercase; letter-spacing:.5px; margin-bottom:17px; color:#515b40; }
+.opportunity-top img { width:23px; height:23px; }
+#opportunity h2 { font:650 38px/1.1 Manrope,sans-serif; letter-spacing:-.8px; }
+#opportunity > p { font-size:18px; line-height:1.5; margin-top:16px; }
+#open-move { display:flex; align-items:center; justify-content:space-between; margin-top:19px; padding-top:15px; border-top:1px solid #bec7a7; font-size:16px; }
+#move { margin-top:19px; padding:20px; border-radius:14px; background:#edf5ff; border:0; }
+#move .label { margin-bottom:7px; font-size:12px; }
+#move p:last-child { font-size:16px; line-height:1.4; }
+#sources-button { margin-top:15px; display:inline-block; font-size:14px; padding:8px 0; text-decoration:underline; text-underline-offset:4px; }
+#sources { display:flex; gap:12px; font-size:12px; color:#4c5b36; }
+.cursor { position:absolute; left:0; top:0; width:64px; height:64px; pointer-events:none; filter:drop-shadow(0 2px 1px #0005); transform-origin:31.25% 21.875%; }
+.ripple { position:absolute; width:50px; height:50px; border:3px solid #252b3877; border-radius:50%; pointer-events:none; }
+#findings, #searching, #move, #sources, #source-count, #ring { opacity:0; visibility:hidden; }
+
+#attach { position:relative; display:flex; justify-content:space-between; padding:14px 12px; margin-top:12px; border:1px solid #cbd0bd; border-radius:12px; font-size:17px; background:#fff; }
+#attach-next { position:absolute; left:12px; }
+.versions { display:flex; gap:14px; font-size:11px; color:#626878; margin-top:10px; }
+#video-stage { position:absolute; inset:0; }
+.video-frame { position:relative; height:344px; border-radius:14px; overflow:hidden; background:#eaece1; }
+.video-frame video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.scene-caption { position:relative; }
+.scene-caption a { margin-left:auto; }
+#filename-v2 { position:absolute; left:0; }
+.video-feedback { position:absolute; top:422px; left:0; right:0; background:#fff0e7; padding:18px 22px; border-radius:14px; }
+.video-feedback .label { font-size:12px; color:#454c58; }
+.video-feedback h2 { font:650 28px/1.15 Manrope,sans-serif; margin:8px 0; }
+.video-feedback p { font-size:15px; line-height:1.4; }
+#reading-video { position:absolute; top:446px; display:flex; gap:12px; align-items:center; font-size:17px; }
+#file-picker { position:absolute; left:440px; top:208px; width:560px; padding:24px; border-radius:13px; background:#f9faf7; box-shadow:0 24px 90px #20294f66; }
+.picker-title { display:flex; justify-content:space-between; font-size:18px; margin-bottom:22px; }
+.picker-title span:last-child { color:#626878; font-size:14px; }
+.file-row { display:flex; align-items:center; gap:18px; padding:14px; border-radius:6px; font-size:18px; }
+.file-row small { display:block; font-size:12px; margin-top:3px; color:#626878; }
+.file-icon { display:grid; place-items:center; width:42px; height:46px; background:#ffe16a; border-radius:5px; font-size:27px; }
+.picker-footer { display:flex; justify-content:flex-end; align-items:center; gap:28px; padding-top:24px; font-size:15px; }
+#open-file { padding:10px 28px; border-radius:24px; color:white; background:#0866e6; }
+#uploading { position:absolute; top:335px; left:520px; width:440px; padding:28px; border-radius:10px; background:#ffffff; box-shadow:0 12px 60px #20294f55; font-size:18px; }
+#upload-name-two { position:absolute; top:28px; left:28px; }
+#uploading > div { margin-top:20px; height:5px; background:#d8decd; }
+#upload-progress { display:block; width:100%; height:100%; background:#0866e6; transform-origin:left; }
+#text-pointer, #attach, #attach-next, .versions > span, #video-stage, #file-picker, #uploading, #upload-name-two, #filename-v2, .video-feedback, #reading-video { opacity:0; visibility:hidden; }
+.yuvo-mark { display:inline-grid; place-items:center; width:31px; height:35px; border-radius:50%; background:#ffda45; font-size:31px; line-height:1; padding-bottom:5px; transform:rotate(-8deg); margin-right:5px; }
+#feedback-v2 { background:#dcf3e7; }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-5t5u" id="root" data-composition-id="main" data-width="1440" data-height="810" data-duration="52">
+<div data-hf-id="hf-oo67" class="wallpaper" data-layout-ignore=""><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i></div>
+<div data-hf-id="hf-6r44" class="window">
+<div data-hf-id="hf-6ex2" class="chrome"><div data-hf-id="hf-0aby" class="lights" data-layout-ignore=""><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div><span data-hf-id="hf-5sxs" class="url">Yuvo / Your creative space</span><span data-hf-id="hf-bp1v" id="replay">↻ Reset</span></div>
+<div data-hf-id="hf-e8vj" class="workspace">
+<section data-hf-id="hf-8i3b" class="editor">
+<div data-hf-id="hf-nk0e" class="brand"><span data-hf-id="hf-0m2b" class="yuvo-mark">y</span> Yuvo</div><p data-hf-id="hf-p8lr" class="label">Your premise</p>
+<div data-hf-id="hf-u9cm" class="input" id="input"><span data-hf-id="hf-m8zk" id="prompt-text"></span><i data-hf-id="hf-p0sm" id="typing-caret"></i></div>
+<div data-hf-id="hf-l401" id="cta"><span data-hf-id="hf-w95d">Research my idea</span><span data-hf-id="hf-p70p">→</span></div>
+<div data-hf-id="hf-jqie" id="attach"><span data-hf-id="hf-u16p" id="attach-first">＋ Attach a scene</span><span data-hf-id="hf-sq8s" id="attach-next">＋ Attach next version</span><span data-hf-id="hf-1t5y">↗</span></div><div data-hf-id="hf-ivfz" class="versions"><span data-hf-id="hf-sgua" id="version-one">v1 · Reviewed</span><span data-hf-id="hf-wg6r" id="version-two">v2 · Compared</span></div>
+<div data-hf-id="hf-me4z" class="engine-list"><div data-hf-id="hf-zk32" class="engine"><img data-hf-id="hf-eyxo" src="assets/gemini.svg" width="30" height="30"><div data-hf-id="hf-yeow"><b data-hf-id="hf-qtn2">Gemini</b><small data-hf-id="hf-3t0r">Plans &amp; critiques</small></div></div><div data-hf-id="hf-lkdu" class="engine"><div data-hf-id="hf-y7yw"><img data-hf-id="hf-4avi" class="parallel-wordmark" src="assets/parallel.png" width="104" height="17"><small data-hf-id="hf-smvt">Searches the live web</small></div></div></div>
+</section>
+<section data-hf-id="hf-s5vi" class="results"><div data-hf-id="hf-y4kj" class="result-header"><h1 data-hf-id="hf-8vvb">Creative field report</h1><span data-hf-id="hf-oxys" id="source-count">5 sources</span></div>
+<div data-hf-id="hf-mcm7" class="content">
+<div data-hf-id="hf-6wro" id="empty"><div data-hf-id="hf-x863" class="empty-orbits"><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i></div><h2 data-hf-id="hf-ewjj">Every story starts somewhere.</h2><p data-hf-id="hf-deoc">Start with an idea. Shape it into a scene.</p></div>
+<div data-hf-id="hf-xgk7" id="video-stage">
+ <div data-hf-id="hf-czbd" class="scene-heading"><span data-hf-id="hf-thee"><img data-hf-id="hf-j9fm" src="assets/gemini.svg" width="24" height="24" alt="">Gemini · Video understanding</span><small data-hf-id="hf-35bv">Demo</small></div>
+ <div data-hf-id="hf-iq3d" class="video-frame"><video data-hf-id="hf-bq6g" id="video-v1" class="clip" src="assets/scene.mp4" data-start="31.4" data-duration="9" data-track-index="1" width="960" height="540" muted playsinline></video><video data-hf-id="hf-un3e" id="video-v2" class="clip" src="assets/scene-v2.mp4" data-start="40.8" data-duration="9.6" data-track-index="2" width="960" height="540" muted playsinline></video></div>
+ <div data-hf-id="hf-6okl" class="scene-caption"><span data-hf-id="hf-6n9m" id="filename-v1">scene-v1.mp4</span><span data-hf-id="hf-ps39" id="filename-v2">scene-v2.mp4 · Revised opening</span><a data-hf-id="hf-iu0q" href="https://www.pexels.com/video/a-long-hallway-with-graffiti-on-the-walls-17037805/">Florian Delée / Pexels</a></div>
+ <div data-hf-id="hf-5wye" class="video-feedback" id="feedback-v1"><span data-hf-id="hf-dgrk" class="label">Gemini · 00:02 · First cut</span><h2 data-hf-id="hf-rwaq">The space is clear. The clue is not.</h2><p data-hf-id="hf-chvk">Open closer to the corridor. Give the viewer one detail to follow.</p></div>
+ <div data-hf-id="hf-1yud" class="video-feedback" id="feedback-v2"><span data-hf-id="hf-s2ju" class="label">Gemini · 00:02 · Compared with v1</span><h2 data-hf-id="hf-d0o3">A clearer opening. One question remains.</h2><p data-hf-id="hf-gkzl">The tighter view directs attention. Next, connect the corridor to a memory.</p></div>
+ <div data-hf-id="hf-0hva" id="reading-video"><img data-hf-id="hf-rveu" src="assets/gemini.svg" width="22" height="22" alt="">Gemini is checking the frames against your intent…</div>
+</div>
+<div data-hf-id="hf-8ub6" id="planning">
+ <div data-hf-id="hf-a7q6" class="agent-heading"><span data-hf-id="hf-r6qz"><img data-hf-id="hf-l1xr" src="assets/gemini.svg" width="34" height="34" alt="Gemini">Gemini · Research plan</span><small data-hf-id="hf-0kbs">Prepared demo</small></div>
+ <h2 data-hf-id="hf-r7j1" class="agent-title">Three angles. One better question.</h2><p data-hf-id="hf-rcgu" class="agent-description">What makes this premise distinct — and what could weaken it?</p>
+ <div data-hf-id="hf-uuvm" class="plan-angles"><div data-hf-id="hf-xnq5" class="plan-angle"><b data-hf-id="hf-7vwi">Stories</b>Find nearby territory</div><div data-hf-id="hf-zee7" class="plan-angle"><b data-hf-id="hf-ugyr">Audience</b>Look for repeated friction</div><div data-hf-id="hf-a7m4" class="plan-angle"><b data-hf-id="hf-boio">Rules</b>Explore story mechanics</div></div>
+</div>
+<div data-hf-id="hf-scs3" id="searching">
+ <div data-hf-id="hf-xkle" class="agent-heading"><span data-hf-id="hf-5br1"><img data-hf-id="hf-uhsv" src="assets/parallel.png" width="130" height="21" alt="Parallel">Search + cross-check</span><small data-hf-id="hf-1dz4">6 queries · 5 sample sources</small></div>
+ <h2 data-hf-id="hf-nsc5" class="agent-title">Looking beyond the obvious.</h2>
+ <div data-hf-id="hf-bz8o" class="research-grid">
+  <div data-hf-id="hf-5k75" class="query-list">
+   <div data-hf-id="hf-jew3" class="query-row"><b data-hf-id="hf-zaxc">Story references</b><p data-hf-id="hf-q9jz">“supernatural cozy mystery novels”</p><p data-hf-id="hf-7ltu">“sentient house fiction”</p><div data-hf-id="hf-zas6" class="query-track"><i data-hf-id="hf-qkg0"></i></div></div>
+   <div data-hf-id="hf-ax43" class="query-row"><b data-hf-id="hf-bye7">Audience friction</b><p data-hf-id="hf-1u6j">“cozy mystery reader complaints”</p><p data-hf-id="hf-f82k">“cozy mystery romance criticism”</p><div data-hf-id="hf-hj5m" class="query-track"><i data-hf-id="hf-q64z"></i></div></div>
+   <div data-hf-id="hf-ait2" class="query-row"><b data-hf-id="hf-aorg">Rules + memory</b><p data-hf-id="hf-9a0s">“buildings remember fiction”</p><p data-hf-id="hf-esvt">“supernatural mystery rule consistency”</p><div data-hf-id="hf-hxgn" class="query-track"><i data-hf-id="hf-prty"></i></div></div>
+  </div>
+  <div data-hf-id="hf-7ip4" class="source-list">
+   <div data-hf-id="hf-bad9" class="source-item"><i data-hf-id="hf-pdix"></i><span data-hf-id="hf-a2xn">Cozy mystery<small data-hf-id="hf-yj1l">Wikipedia · Genre conventions</small></span></div>
+   <div data-hf-id="hf-yxch" class="source-item"><i data-hf-id="hf-hqsk"></i><span data-hf-id="hf-xx5y">The rise and rise of cosy crime<small data-hf-id="hf-cr6w">The Guardian · Audience context</small></span></div>
+   <div data-hf-id="hf-049k" class="source-item"><i data-hf-id="hf-hchj"></i><span data-hf-id="hf-0bgx">Genius Loci<small data-hf-id="hf-b95x">TV Tropes · Places with agency</small></span></div>
+   <div data-hf-id="hf-zpyj" class="source-item"><i data-hf-id="hf-8d0n"></i><span data-hf-id="hf-a6t9">Unreliable narrator<small data-hf-id="hf-mx1w">Wikipedia · Incomplete testimony</small></span></div>
+   <div data-hf-id="hf-xqfe" class="source-item"><i data-hf-id="hf-8rbo"></i><span data-hf-id="hf-e9k7">Environmental storytelling<small data-hf-id="hf-0hh6">Wikipedia · Clues in a space</small></span></div>
+  </div>
+ </div>
+ <div data-hf-id="hf-4ufz" id="research-signal"><img data-hf-id="hf-qiqx" src="assets/gemini.svg" width="28" height="28" alt="Gemini"><span data-hf-id="hf-zehl">One useful tension: a witness that cannot tell the whole truth.</span></div>
+</div>
+<div data-hf-id="hf-bseh" id="synthesis">
+ <div data-hf-id="hf-xywf" class="agent-heading"><span data-hf-id="hf-axw4"><img data-hf-id="hf-sl67" src="assets/gemini.svg" width="34" height="34" alt="Gemini">Gemini · Evidence to direction</span><small data-hf-id="hf-o926">Grounded in the sample sources</small></div>
+ <h2 data-hf-id="hf-hymp" class="agent-title">Keep the wonder. Make the rules clear.</h2>
+ <div data-hf-id="hf-wzcb" class="synthesis-list"><div data-hf-id="hf-xfcu"><i data-hf-id="hf-943b">1</i><span data-hf-id="hf-uckh"><b data-hf-id="hf-p7pw">Connect the references</b><p data-hf-id="hf-h21k">A place can be a witness, not just a setting.</p></span></div><div data-hf-id="hf-w8fr"><i data-hf-id="hf-8psa">2</i><span data-hf-id="hf-l73p"><b data-hf-id="hf-7xhq">Challenge the premise</b><p data-hf-id="hf-5avi">Unlimited recall makes a mystery too easy to solve.</p></span></div><div data-hf-id="hf-wmqs"><i data-hf-id="hf-8bh9">3</i><span data-hf-id="hf-me0s"><b data-hf-id="hf-w5ks">Choose a testable direction</b><p data-hf-id="hf-iody">Five memory rules. One clue the audience can follow.</p></span></div></div>
+</div>
+<div data-hf-id="hf-8147" id="findings"><div data-hf-id="hf-vc5z" class="signals"><span data-hf-id="hf-q78b">Cozy mystery</span><span data-hf-id="hf-j5mf">Memory-bearing places</span></div>
+<div data-hf-id="hf-7qfc" id="opportunity"><div data-hf-id="hf-qno9" class="opportunity-top"><img data-hf-id="hf-olgo" src="assets/gemini.svg" width="23" height="23"><span data-hf-id="hf-n0o1">Potential opening</span></div><h2 data-hf-id="hf-otl3">Give the memory<br data-hf-id="hf-x5px">five rules.</h2><p data-hf-id="hf-fzf4">Give the viewer a clue they can follow.</p><div data-hf-id="hf-uyyo" class="direction-dots"><i data-hf-id="hf-2krg"></i><i data-hf-id="hf-oz7w"></i><i data-hf-id="hf-okwv"></i><i data-hf-id="hf-o6lu"></i><i data-hf-id="hf-jqbp"></i></div><div data-hf-id="hf-2su5" id="open-move"><span data-hf-id="hf-mk3x">Explore this direction</span><span data-hf-id="hf-o03m">↗</span></div></div>
+<div data-hf-id="hf-ml2a" id="move"><p data-hf-id="hf-pzys" class="label">Try this in your next draft</p><p data-hf-id="hf-3744">Write five rules for building-memory. Make the first mystery solvable using only those rules.</p></div>
+<span data-hf-id="hf-3rmp" id="sources-button">View the evidence ↗</span><div data-hf-id="hf-s6mx" id="sources"><span data-hf-id="hf-cqgw">[3] Genius Loci</span><span data-hf-id="hf-m7kz">[4] Unreliable narrator</span></div>
+</div>
+</div></section>
+</div></div>
+<div data-hf-id="hf-f5ve" id="file-picker"><div data-hf-id="hf-yqhv" class="picker-title"><span data-hf-id="hf-ifak">Choose a video</span><span data-hf-id="hf-pum8">Movies</span></div><div data-hf-id="hf-0jly" class="file-row" id="file-one"><span data-hf-id="hf-qq4o" class="file-icon">▷</span><span data-hf-id="hf-gt7e">scene-v1.mp4<small data-hf-id="hf-vevj">First cut · MP4 video</small></span></div><div data-hf-id="hf-605k" class="file-row" id="file-two"><span data-hf-id="hf-rqkg" class="file-icon">▷</span><span data-hf-id="hf-3f6j">scene-v2.mp4<small data-hf-id="hf-896d">Revised opening · MP4 video</small></span></div><div data-hf-id="hf-sutq" class="picker-footer"><span data-hf-id="hf-3n33">Cancel</span><span data-hf-id="hf-mwtx" id="open-file">Open</span></div></div>
+<div data-hf-id="hf-n1ma" id="uploading"><span data-hf-id="hf-fs4m" id="upload-name-one">Attaching scene-v1.mp4</span><span data-hf-id="hf-l24d" id="upload-name-two">Attaching scene-v2.mp4</span><div data-hf-id="hf-x11t"><i data-hf-id="hf-imh2" id="upload-progress"></i></div></div>
+<div data-hf-id="hf-uoq3" class="ripple" id="ring" data-layout-ignore=""></div>
+<img data-hf-id="hf-z15f" id="cursor" class="cursor" src="assets/macos-cursor.svg" width="64" height="64" data-layout-ignore="" alt="">
+<img data-hf-id="hf-xsu2" id="text-pointer" class="cursor" src="assets/macos-text-cursor.svg" width="40" height="40" data-layout-ignore="" alt="">
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+function point(selector, fx=.5, fy=.5) {
+ const rect=document.querySelector(selector).getBoundingClientRect();
+ return {x:rect.left+rect.width*fx-20,y:rect.top+rect.height*fy-14};
+}
+function move(t, selector) { tl.to('#cursor',{...point(selector),duration:.65,ease:'power3.inOut'},t); }
+function click(t,selector) {
+ const {x,y}=point(selector);
+ tl.to('#cursor',{scale:.84,duration:.1,ease:'power2.in'},t).to('#cursor',{scale:1,duration:.22,ease:'power2.out'},t+.1);
+ tl.fromTo('#ring',{x:x-5,y:y-11,scale:.3,autoAlpha:.7},{scale:1.4,autoAlpha:0,duration:.45,ease:'power2.out'},t);
+}
+function attach(t, file, version) {
+ move(t,'#attach'); click(t+.65,'#attach');
+ tl.set('.content',{autoAlpha:0},t+.65);
+ tl.fromTo('#file-picker',{autoAlpha:0,y:12,scale:.98},{autoAlpha:1,y:0,scale:1,duration:.25,ease:'power3.out',immediateRender:false},t+.65);
+ tl.set('.file-row',{backgroundColor:'transparent'},t+.65);
+ move(t+1,file); click(t+1.65,file);
+ tl.set(file,{backgroundColor:'#dcecff'},t+1.65);
+ move(t+2,'#open-file'); click(t+2.65,'#open-file');
+ tl.set('#file-picker',{autoAlpha:0},t+2.65).set('#uploading',{autoAlpha:1},t+2.65);
+ tl.set('#upload-name-one',{autoAlpha:version===1?1:0},t+2.65).set('#upload-name-two',{autoAlpha:version===2?1:0},t+2.65);
+ tl.fromTo('#upload-progress',{scaleX:0},{scaleX:1,duration:.65,ease:'none'},t+2.65);
+ tl.set('#uploading',{autoAlpha:0},t+3.4).set('.content',{autoAlpha:1},t+3.4);
+}
+tl.fromTo('.empty-orbits i',{y:16,scale:.94},{y:0,scale:1,duration:.45,stagger:.12,ease:'power3.out'},0);
+tl.fromTo('.wallpaper i',{y:0},{y:-16,duration:13,yoyo:true,repeat:3,ease:'sine.inOut'},0);
+const typingStates = buildTypingSequence();
+const typingDriver = {time:0};
+const promptText = document.querySelector('#prompt-text');
+const typingCaret = document.querySelector('#typing-caret');
+tl.to(typingDriver,{time:52,duration:52,ease:'none',onUpdate:()=>{
+ const state=typingAt(typingStates,typingDriver.time);
+ promptText.textContent=state.text;
+ typingCaret.style.opacity=state.caret?'1':'0';
+}},0);
+gsap.set('#cursor',{x:160,y:930});
+move(.2,'#input'); click(.85,'#input');
+tl.set('#text-pointer',{...point('#input'),width:40,height:40,autoAlpha:1},.75);
+tl.set('#cursor',{autoAlpha:0},.75);
+tl.to('#cursor',{x:400,y:435,duration:.65,ease:'power2.out'},1.2);
+tl.set('#text-pointer',{autoAlpha:0},1.2);
+tl.set('#cursor',{autoAlpha:1},1.85);
+move(9.55,'#cta'); click(10.2,'#cta');
+tl.set('#empty',{autoAlpha:0},10.2).set('#planning',{autoAlpha:1},10.2);
+tl.fromTo('.plan-angle',{y:20,autoAlpha:0},{y:0,autoAlpha:1,duration:.35,stagger:.14,ease:'power3.out'},10.2);
+tl.to('#cursor',{x:1310,y:730,duration:.65,ease:'power3.inOut'},10.6);
+tl.set('#planning',{autoAlpha:0},12.8).set('#searching',{autoAlpha:1},12.8);
+tl.fromTo('.query-row',{autoAlpha:0,x:-12},{autoAlpha:1,x:0,duration:.35,stagger:.25,ease:'power3.out'},12.8);
+tl.fromTo('.query-track i',{scaleX:0},{scaleX:1,duration:2.8,stagger:.65,ease:'power1.inOut'},13.1);
+tl.fromTo('.source-item',{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.3,stagger:.65,ease:'power3.out'},14.2);
+tl.fromTo('#research-signal',{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.35,ease:'power3.out'},18.2);
+tl.set('#searching',{autoAlpha:0},20.5).set('#synthesis',{autoAlpha:1},20.5);
+tl.fromTo('.synthesis-list > div',{autoAlpha:0,y:12},{autoAlpha:1,y:0,duration:.3,stagger:.45,ease:'power3.out'},20.5);
+tl.set('#synthesis',{autoAlpha:0},25.2).set(['#findings','#source-count'],{autoAlpha:1},25.2);
+tl.fromTo('#opportunity',{y:16},{y:0,duration:.3,ease:'power3.out'},25.2);
+tl.fromTo('.direction-dots i',{scale:.75,y:8},{scale:1,y:0,duration:.3,stagger:.065,ease:'back.out(1.4)'},25.35);
+move(26,'#open-move'); click(26.65,'#open-move');
+tl.fromTo('#move',{autoAlpha:0,y:12},{autoAlpha:1,y:0,duration:.3},26.65);
+tl.set('#attach',{autoAlpha:1},27.3);
+attach(28,'#file-one',1);
+tl.set(['#findings','#source-count'],{autoAlpha:0},31.4).set(['#video-stage','#reading-video'],{autoAlpha:1},31.4);
+tl.to('#cursor',{x:1310,y:730,duration:.6},31.6);
+tl.set('#reading-video',{autoAlpha:0},32.9).set(['#version-one','#attach-next'],{autoAlpha:1},32.9).fromTo('#feedback-v1',{autoAlpha:0,y:12},{autoAlpha:1,y:0,duration:.3,ease:'power3.out'},32.9).set('#attach-first',{autoAlpha:0},32.9);
+attach(37.4,'#file-two',2);
+tl.set(['#feedback-v1','#filename-v1'],{autoAlpha:0},40.8).set(['#filename-v2','#reading-video'],{autoAlpha:1},40.8);
+tl.to('#cursor',{x:1310,y:730,duration:.6},41);
+tl.set('#reading-video',{autoAlpha:0},42.3).set('#version-two',{autoAlpha:1},42.3).fromTo('#feedback-v2',{autoAlpha:0,y:12},{autoAlpha:1,y:0,duration:.3,ease:'power3.out'},42.3);
+move(49.3,'#replay'); click(49.95,'#replay');
+tl.set(['#video-stage','#attach','#version-one','#version-two'],{autoAlpha:0},50.3).set('#empty',{autoAlpha:1},50.3);
+tl.to('#cursor',{x:1480,y:450,duration:.7,ease:'power2.in'},50.5);
+window.__timelines['main']=tl;
+</script>
+</body>
+</html>

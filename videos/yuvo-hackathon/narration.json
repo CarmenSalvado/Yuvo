@@ -1,0 +1,37 @@
+[
+  {
+    "id": "01-hook",
+    "voice": "Puck",
+    "text": "I have an idea. But how do I know what makes it worth watching?"
+  },
+  {
+    "id": "02-idea",
+    "voice": "Kore",
+    "text": "Meet Yuvo. A creative workspace that turns an idea into a direction you can test. We start with a detective who reads memories trapped in abandoned buildings. Gemini plans the research. Parallel searches the live web across six angles, looking for familiar territory and the places nearby stories lose people."
+  },
+  {
+    "id": "03-direction",
+    "voice": "Kore",
+    "text": "This run surfaced fifteen sources. You can open the evidence behind each finding. Gemini connects those signals into a creative opening: what if the building is an unreliable witness? Each room can remember only its own point of view. Now we have a specific storytelling rule to explore, instead of another vague suggestion."
+  },
+  {
+    "id": "04-first-cut",
+    "voice": "Kore",
+    "text": "Next, we attach a real video. This is stock footage used as an early location test, not a finished film. Gemini inspects the frames and returns observations at precise moments. It recognizes the corridor, but points out that the detective and the conflicting memories are still missing. Click a timestamp to check the observation yourself."
+  },
+  {
+    "id": "05-next-cut",
+    "voice": "Kore",
+    "text": "We attach a second cut. Yuvo sends both videos to Gemini so it can compare what actually changed. The later start changes the framing. The story still needs a point of view. That is the loop: make a choice, show the cut, and get a concrete next editing move."
+  },
+  {
+    "id": "06-built",
+    "voice": "Charon",
+    "text": "Under the hood, Google ADK runs Gemini three point eight Flash on Vertex AI. Parallel supplies live research. The app runs on Google Cloud Run, with invite-code access and secrets kept on the server. The creator keeps the final decision."
+  },
+  {
+    "id": "07-close",
+    "voice": "Kore",
+    "text": "Yuvo. Big idea. Better story. One thoughtful take at a time."
+  }
+]

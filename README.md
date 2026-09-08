@@ -151,3 +151,7 @@ The Docker image runs Next.js standalone on Cloud Run in `europe-west1`. Vertex 
 To deploy in your own billed project, enable Cloud Run, Cloud Build, Artifact Registry, Vertex AI and Secret Manager. Create a runtime service account with Vertex AI user access and access only to your three secrets. Then deploy this Dockerfile with `gcloud run deploy --source .`, attach that account, set `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION=global`, `GEMINI_MODEL=gemini-3.8-flash` and the exact HTTPS `APP_ORIGIN`, and map `ACCESS_CODE`, `SESSION_SECRET`, `PARALLEL_API_KEY` from Secret Manager. Keep one instance for the process-local invite limiter; the current demo uses 1 CPU, 1 GiB, concurrency 4, a 600-second request timeout and scale-to-zero.
 
 Live verification on 2026-09-08: hosted invite login, six-query / 15-source research (14s), Audience Room (15s), visual-only video review (6s), two-cut comparison (6s), and unauthenticated request rejection (401). These are observed runs, not latency guarantees.
+
+## Hackathon film
+
+The final [editable demo](videos/yuvo-hackathon/README.md) shows actual research, an uploaded location test and a second-cut comparison. Its local render is `videos/yuvo-hackathon/renders/yuvo-hackathon.mp4` (2:12, Full HD, English narration), with optional English subtitles and licensed music credits alongside the source. The MP4 is generated locally and excluded from Git; the committed assets reproduce it without API credentials.

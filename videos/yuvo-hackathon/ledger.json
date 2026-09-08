@@ -1,0 +1,101 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "01-hook to 02-idea",
+      "cut": 6.64,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#scene-01-hook",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#scene-02-idea",
+        "axis": "x",
+        "dir": -1,
+        "travel": 8
+      }
+    },
+    {
+      "id": "02-idea to 03-direction",
+      "cut": 30.68,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#scene-02-idea",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#scene-03-direction",
+        "axis": "x",
+        "dir": -1,
+        "travel": 8
+      }
+    },
+    {
+      "id": "03-direction to 04-first-cut",
+      "cut": 55.32,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#scene-03-direction",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#scene-04-first-cut",
+        "axis": "x",
+        "dir": -1,
+        "travel": 8
+      }
+    },
+    {
+      "id": "04-first-cut to 05-next-cut",
+      "cut": 80.44,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#scene-04-first-cut",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#scene-05-next-cut",
+        "axis": "x",
+        "dir": -1,
+        "travel": 8
+      }
+    },
+    {
+      "id": "05-next-cut to 06-built",
+      "cut": 102.52,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#scene-05-next-cut",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#scene-06-built",
+        "axis": "x",
+        "dir": -1,
+        "travel": 8
+      }
+    },
+    {
+      "id": "06-built to 07-close",
+      "cut": 121.96,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#scene-06-built",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#scene-07-close",
+        "axis": "x",
+        "dir": -1,
+        "travel": 8
+      }
+    }
+  ]
+}

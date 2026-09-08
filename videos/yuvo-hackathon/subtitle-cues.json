@@ -1,0 +1,227 @@
+[
+  {
+    "start": 0.35,
+    "end": 2.21,
+    "text": "I have an idea."
+  },
+  {
+    "start": 2.25,
+    "end": 4.19,
+    "text": "But how do I know"
+  },
+  {
+    "start": 4.22,
+    "end": 6.37,
+    "text": "what makes it worth watching?"
+  },
+  {
+    "start": 6.989999999999999,
+    "end": 8.4,
+    "text": "Meet Yuvo."
+  },
+  {
+    "start": 8.86,
+    "end": 12.91,
+    "text": "A creative workspace that turns an idea"
+  },
+  {
+    "start": 12.989999999999998,
+    "end": 15.16,
+    "text": "into a direction you can test."
+  },
+  {
+    "start": 15.850000000000001,
+    "end": 18.169999999999998,
+    "text": "We start with a detective who reads memories"
+  },
+  {
+    "start": 18.169999999999998,
+    "end": 20.55,
+    "text": "trapped in abandoned buildings."
+  },
+  {
+    "start": 21.18,
+    "end": 23.37,
+    "text": "Gemini plans the research."
+  },
+  {
+    "start": 23.900000000000002,
+    "end": 26.88,
+    "text": "Parallel searches the live web across six angles,"
+  },
+  {
+    "start": 26.990000000000002,
+    "end": 28.82,
+    "text": "looking for familiar territory"
+  },
+  {
+    "start": 28.92,
+    "end": 30.61,
+    "text": "and the places nearby stories lose people."
+  },
+  {
+    "start": 31.03,
+    "end": 33.59,
+    "text": "This run surfaced fifteen sources."
+  },
+  {
+    "start": 34.1,
+    "end": 37.56,
+    "text": "You can open the evidence behind each finding."
+  },
+  {
+    "start": 38.18,
+    "end": 41.5,
+    "text": "Gemini connects those signals into a creative opening:"
+  },
+  {
+    "start": 41.91,
+    "end": 45.19,
+    "text": "what if the building is an unreliable witness?"
+  },
+  {
+    "start": 45.7,
+    "end": 48.91,
+    "text": "Each room can remember only its own point of view."
+  },
+  {
+    "start": 49.34,
+    "end": 52.7,
+    "text": "Now we have a specific storytelling rule to explore,"
+  },
+  {
+    "start": 52.8,
+    "end": 54.84,
+    "text": "instead of another vague suggestion."
+  },
+  {
+    "start": 55.67,
+    "end": 57.93,
+    "text": "Next, we attach a real video."
+  },
+  {
+    "start": 58.33,
+    "end": 62.16,
+    "text": "This is stock footage used as an early location test,"
+  },
+  {
+    "start": 62.47,
+    "end": 64.08,
+    "text": "not a finished film."
+  },
+  {
+    "start": 65.26,
+    "end": 67.65,
+    "text": "Gemini inspects the frames"
+  },
+  {
+    "start": 67.65,
+    "end": 70.97,
+    "text": "and returns observations at precise moments."
+  },
+  {
+    "start": 71.74000000000001,
+    "end": 73.55,
+    "text": "It recognizes the corridor,"
+  },
+  {
+    "start": 73.84,
+    "end": 75.67,
+    "text": "but points out that the detective"
+  },
+  {
+    "start": 75.67,
+    "end": 78.33,
+    "text": "and the conflicting memories are still missing."
+  },
+  {
+    "start": 78.78999999999999,
+    "end": 80.44,
+    "text": "Click a timestamp to check the observation yourself."
+  },
+  {
+    "start": 80.78999999999999,
+    "end": 82.64,
+    "text": "We attach a second cut."
+  },
+  {
+    "start": 83.08,
+    "end": 85.84,
+    "text": "Yuvo sends both videos to Gemini"
+  },
+  {
+    "start": 85.84,
+    "end": 88.6,
+    "text": "so it can compare what actually changed."
+  },
+  {
+    "start": 89.14,
+    "end": 91.67999999999999,
+    "text": "The later start changes the framing."
+  },
+  {
+    "start": 92.25999999999999,
+    "end": 94.94,
+    "text": "The story still needs a point of view."
+  },
+  {
+    "start": 95.78,
+    "end": 97.36,
+    "text": "That is the loop:"
+  },
+  {
+    "start": 97.64,
+    "end": 99.9,
+    "text": "make a choice, show the cut,"
+  },
+  {
+    "start": 99.9,
+    "end": 102.44,
+    "text": "and get a concrete next editing move."
+  },
+  {
+    "start": 102.86999999999999,
+    "end": 106.71,
+    "text": "Under the hood, Google ADK runs Gemini"
+  },
+  {
+    "start": 106.71,
+    "end": 109.89,
+    "text": "three point eight Flash on Vertex AI."
+  },
+  {
+    "start": 110.19,
+    "end": 112.91,
+    "text": "Parallel supplies live research."
+  },
+  {
+    "start": 113.25999999999999,
+    "end": 115.58,
+    "text": "The app runs on Google Cloud Run,"
+  },
+  {
+    "start": 115.58,
+    "end": 117.44999999999999,
+    "text": "with invite-code access"
+  },
+  {
+    "start": 117.44999999999999,
+    "end": 119.41999999999999,
+    "text": "and secrets kept on the server."
+  },
+  {
+    "start": 119.66999999999999,
+    "end": 121.86,
+    "text": "The creator keeps the final decision."
+  },
+  {
+    "start": 122.30999999999999,
+    "end": 126.5,
+    "text": "Yuvo. Big idea. Better story."
+  },
+  {
+    "start": 126.856,
+    "end": 129.567,
+    "text": "One thoughtful take at a time."
+  }
+]

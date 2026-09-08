@@ -1,0 +1,179 @@
+1
+00:00:00,350 --> 00:00:02,210
+I have an idea.
+
+2
+00:00:02,250 --> 00:00:04,190
+But how do I know
+
+3
+00:00:04,220 --> 00:00:06,370
+what makes it worth watching?
+
+4
+00:00:06,990 --> 00:00:08,400
+Meet Yuvo.
+
+5
+00:00:08,860 --> 00:00:12,910
+A creative workspace that turns an idea
+
+6
+00:00:12,990 --> 00:00:15,160
+into a direction you can test.
+
+7
+00:00:15,850 --> 00:00:18,170
+We start with a detective who reads memories
+
+8
+00:00:18,170 --> 00:00:20,550
+trapped in abandoned buildings.
+
+9
+00:00:21,180 --> 00:00:23,370
+Gemini plans the research.
+
+10
+00:00:23,900 --> 00:00:26,880
+Parallel searches the live web across six angles,
+
+11
+00:00:26,990 --> 00:00:28,820
+looking for familiar territory
+
+12
+00:00:28,920 --> 00:00:30,610
+and the places nearby stories lose people.
+
+13
+00:00:31,030 --> 00:00:33,590
+This run surfaced fifteen sources.
+
+14
+00:00:34,100 --> 00:00:37,560
+You can open the evidence behind each finding.
+
+15
+00:00:38,180 --> 00:00:41,500
+Gemini connects those signals into a creative opening:
+
+16
+00:00:41,910 --> 00:00:45,190
+what if the building is an unreliable witness?
+
+17
+00:00:45,700 --> 00:00:48,910
+Each room can remember only its own point of view.
+
+18
+00:00:49,340 --> 00:00:52,700
+Now we have a specific storytelling rule to explore,
+
+19
+00:00:52,800 --> 00:00:54,840
+instead of another vague suggestion.
+
+20
+00:00:55,670 --> 00:00:57,930
+Next, we attach a real video.
+
+21
+00:00:58,330 --> 00:01:02,160
+This is stock footage used as an early location test,
+
+22
+00:01:02,470 --> 00:01:04,080
+not a finished film.
+
+23
+00:01:05,260 --> 00:01:07,650
+Gemini inspects the frames
+
+24
+00:01:07,650 --> 00:01:10,970
+and returns observations at precise moments.
+
+25
+00:01:11,740 --> 00:01:13,550
+It recognizes the corridor,
+
+26
+00:01:13,840 --> 00:01:15,670
+but points out that the detective
+
+27
+00:01:15,670 --> 00:01:18,330
+and the conflicting memories are still missing.
+
+28
+00:01:18,790 --> 00:01:20,440
+Click a timestamp to check the observation yourself.
+
+29
+00:01:20,790 --> 00:01:22,640
+We attach a second cut.
+
+30
+00:01:23,080 --> 00:01:25,840
+Yuvo sends both videos to Gemini
+
+31
+00:01:25,840 --> 00:01:28,600
+so it can compare what actually changed.
+
+32
+00:01:29,140 --> 00:01:31,680
+The later start changes the framing.
+
+33
+00:01:32,260 --> 00:01:34,940
+The story still needs a point of view.
+
+34
+00:01:35,780 --> 00:01:37,360
+That is the loop:
+
+35
+00:01:37,640 --> 00:01:39,900
+make a choice, show the cut,
+
+36
+00:01:39,900 --> 00:01:42,440
+and get a concrete next editing move.
+
+37
+00:01:42,870 --> 00:01:46,710
+Under the hood, Google ADK runs Gemini
+
+38
+00:01:46,710 --> 00:01:49,890
+three point eight Flash on Vertex AI.
+
+39
+00:01:50,190 --> 00:01:52,910
+Parallel supplies live research.
+
+40
+00:01:53,260 --> 00:01:55,580
+The app runs on Google Cloud Run,
+
+41
+00:01:55,580 --> 00:01:57,450
+with invite-code access
+
+42
+00:01:57,450 --> 00:01:59,420
+and secrets kept on the server.
+
+43
+00:01:59,670 --> 00:02:01,860
+The creator keeps the final decision.
+
+44
+00:02:02,310 --> 00:02:06,500
+Yuvo. Big idea. Better story.
+
+45
+00:02:06,856 --> 00:02:09,567
+One thoughtful take at a time.

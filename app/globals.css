@@ -234,19 +234,14 @@ button:disabled { color: #6b6e63; background: #e5e7df; cursor: not-allowed; }
 .demo-toggle { display: block; width: 100%; padding: 0; border-radius: 8px; }
 .demo-toggle:active:not(:disabled) { transform: none; }
 
-.workspace-desktop { min-height: 100svh; padding: 40px 32px; background: radial-gradient(ellipse at 0% 0%, #ffdc55 0%, transparent 45%), radial-gradient(ellipse at 100% 100%, #8bcff5 0%, transparent 55%), #fff1de; background-attachment: fixed; }
-.workspace-window { max-width: 1440px; margin: auto; min-height: calc(100svh - 80px); border-radius: 16px; background: #ffffff; box-shadow: 0 18px 50px #555b7b24; }
-.window-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 8px 24px; border-radius: 16px 16px 0 0; background: #fff8e4; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-.window-toolbar a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
-.window-toolbar button { min-height: 44px; }
-.window-lights { display: flex; gap: 8px; pointer-events: none; }
-.window-lights i { width: 12px; height: 12px; border-radius: 50%; background: #e66e66; }
-.window-lights i:nth-child(2) { background: #e6bf62; }
-.window-lights i:nth-child(3) { background: #80b878; }
+.workspace-desktop { min-height: 100svh; padding: 16px 32px 32px; background: radial-gradient(ellipse at 0% 0%, #ffdc55 0%, transparent 45%), radial-gradient(ellipse at 100% 100%, #8bcff5 0%, transparent 55%), #fff1de; background-attachment: fixed; }
+.workspace-window { max-width: 1440px; margin: auto; min-height: calc(100svh - 128px); border-radius: 24px; background: #ffffff; }
+.workspace-header { max-width: 1440px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.workspace-header a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.workspace-header button { min-height: 44px; }
 .workspace-body { display: grid; grid-template-columns: 320px minmax(0, 1fr); }
 .premise-panel { align-self: start; position: sticky; top: 24px; padding: 24px; }
-.premise-panel .brand { font-size: 25px; }
-.premise-panel form { margin-top: 28px; }
+.premise-panel form { margin: 0; }
 .premise-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
 .premise-label label { font-size: 14px; font-weight: 600; }
 .premise-label span { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
@@ -296,9 +291,7 @@ button:disabled { color: #6b6e63; background: #e5e7df; cursor: not-allowed; }
 @media (max-width: 760px) {
   .workspace-desktop { padding: 12px 8px; }
   .workspace-body { grid-template-columns: 1fr; }
-  .window-toolbar { padding-inline: 16px; gap: 8px; font-size: 12px; }
-  .window-lights { gap: 5px; }
-  .window-lights i { width: 9px; height: 9px; }
+  .workspace-header { padding-inline: 12px; gap: 8px; }
   .premise-panel { position: static; padding: 20px; }
   .workspace-results { border-left: 0; border-top: 1px solid var(--line); }
   .premise-panel textarea { min-height: 170px; }
@@ -319,7 +312,7 @@ button:disabled { color: #6b6e63; background: #e5e7df; cursor: not-allowed; }
 .hero-copy h1 { font-weight: 750; letter-spacing: -.055em; line-height: 1.05; }
 .hero-copy h1 em { font-style: normal; font-weight: inherit; color: #0866e6; }
 .hero-copy .dek { max-width: 350px; font-size: 18px; line-height: 1.6; }
-.site-header .brand, .premise-panel .brand { font-size: 30px; letter-spacing: -.055em; }
+.site-header .brand, .workspace-header .brand { font-size: 30px; letter-spacing: -.055em; }
 .report-opening h2, .workspace-empty h2, .opportunity-body h3 { font-weight: 650; }
 .workspace-empty .empty-symbol { display: grid; place-items: center; width: 112px; height: 112px; background: #ffda45; border-radius: 40% 55% 45% 50%; color: #252b38; font-size: 76px; transform: rotate(-7deg); }
 .workspace-results .friction-grid article { background: #fff0e7; padding: 20px; border: 0; border-radius: 14px; }
@@ -327,8 +320,8 @@ button:disabled { color: #6b6e63; background: #e5e7df; cursor: not-allowed; }
 .cluster-node { border-radius: 12px; }
 
 .next-draft { display: flex; gap: 24px; padding: 28px; border-radius: 24px; background: #d8f1e4; border: 0; }
-.window-actions { display: flex; gap: 16px; }
-.window-actions button { font-size: 14px; white-space: nowrap; }
+.workspace-actions { display: flex; gap: 16px; }
+.workspace-actions button { font-size: 14px; white-space: nowrap; }
 .hero-film { position: relative; }
 .expand-demo { position: absolute; z-index: 1; top: 12px; right: 12px; width: 44px; height: 44px; display: grid; place-items: center; background: #fff; color: #252b38; border-radius: 50%; font-size: 26px; box-shadow: 0 2px 12px #252b3820; }
 .hero-film:fullscreen { display: grid; place-items: center; background: #fffdf8; padding: 24px; }
@@ -347,7 +340,7 @@ button:disabled { color: #6b6e63; background: #e5e7df; cursor: not-allowed; }
 .access-card .primary-button { width: 100%; justify-content: space-between; margin-top: 16px; }
 .access-card > a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; }
 #access-error { color: #a33222; font-size: 13px; }
-@media (max-width: 520px) { .expand-demo { top: 8px; right: 8px; } .window-actions { gap: 8px; } .window-actions button { font-size: 14px; white-space: nowrap; } .access-card { padding: 28px; } }
+@media (max-width: 520px) { .expand-demo { top: 8px; right: 8px; } .workspace-actions { gap: 8px; } .workspace-actions button { font-size: 14px; white-space: nowrap; } .access-card { padding: 28px; } }
 
 .color-dots { display: flex; gap: 10px; margin-bottom: 28px; }
 .color-dots i { display: block; width: 28px; height: 28px; border-radius: 50%; background: #ffda45; }
@@ -635,4 +628,4 @@ button:disabled { color: #6b6e63; background: #e5e7df; cursor: not-allowed; }
   .report-opening:hover .shape-friend { transform: rotate(-5deg) translateY(-4px); }
 }
 
-.workspace-desktop .sample-link:disabled, .window-actions button:disabled { background: transparent; opacity: .5; }
+.workspace-desktop .sample-link:disabled, .workspace-actions button:disabled { background: transparent; opacity: .5; }

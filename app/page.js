@@ -142,7 +142,6 @@ function PremisePanel({ idea, setIdea, onAnalyze, onDemo, error, loading }) {
   const ready = idea.trim().length >= 30;
   return (
     <aside className="premise-panel">
-      <Link href="/" className="brand-button"><Brand /></Link>
       <form aria-busy={loading} onSubmit={(event) => { event.preventDefault(); if (ready && !loading) onAnalyze(); }}>
         <div className="premise-label"><label htmlFor="idea">Your premise</label><span>{idea.length.toLocaleString()} / 3,000</span></div>
         <textarea id="idea" aria-describedby={error ? "idea-guidance idea-error" : "idea-guidance"} onKeyDown={submitOnShortcut} minLength={30} maxLength={3000} required readOnly={loading} value={idea} onChange={(event) => setIdea(event.target.value)} placeholder="A woman can speak to abandoned buildings. Their memories are incomplete." />
@@ -382,8 +381,8 @@ export default function Home() {
 
   if (pathname === "/start") return (
     <div className="workspace-desktop">
+      <header className="workspace-header"><Link href="/" className="brand-button" aria-label="Yuvo home"><Brand /></Link><div className="workspace-actions"><button type="button" disabled={loading} onClick={reset}>↻ Reset</button><button type="button" disabled={loading} onClick={signOut}>Sign out</button></div></header>
       <div className="workspace-window">
-        <header className="window-toolbar"><div className="window-lights" aria-hidden="true"><i /><i /><i /></div><Link href="/">Yuvo / Your creative space</Link><div className="window-actions"><button type="button" disabled={loading} onClick={reset}>↻ Reset</button><button type="button" disabled={loading} onClick={signOut}>Sign out</button></div></header>
         <div className="workspace-body">
           <PremisePanel idea={idea} setIdea={(value) => { setIdea(value); setError(""); }} onAnalyze={analyze} onDemo={showDemo} error={error} loading={loading} />
           <div className="workspace-results" aria-busy={loading}>

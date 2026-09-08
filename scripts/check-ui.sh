@@ -25,13 +25,31 @@ browser eval 'if (document.querySelector("button[type=submit]").disabled) throw 
 browser eval 'window.shortcutSubmitted = false; document.querySelector("#idea").form.addEventListener("submit", event => { event.preventDefault(); event.stopImmediatePropagation(); window.shortcutSubmitted = true; }, {once:true}); document.querySelector("#idea").focus()'
 browser press Control+Enter
 browser eval 'if (!window.shortcutSubmitted) throw Error("Premise shortcut did not submit")'
+browser eval 'window.researchFetch = window.fetch; window.fetch = async (url, options) => url !== "/api/analyze" ? window.researchFetch(url, options) : new Response(new ReadableStream({start(controller) { window.researchStream = controller; window.researchEvent = event => controller.enqueue(new TextEncoder().encode(JSON.stringify(event) + "\n")); window.researchEvent({type:"plan", queries:["UI test: nearby stories"]}); window.researchEvent({type:"evidence", count:13}); window.researchEvent({type:"status", step:3}); }}))'
+browser find role button click --name 'Research my idea'
+browser wait '.research-stage'
+browser eval 'if (document.querySelector(".research-copy h2").textContent !== "Finding what’s missing." || document.querySelectorAll(".research-progress .done").length !== 3 || document.querySelector(".research-searches-heading b").textContent !== "13") throw Error("Research state is not reflected in the UI"); window.researchEvent({type:"status", step:4})'
+browser wait --fn 'document.querySelector(".research-copy h2").textContent === "Shaping your own angle."'
+browser eval 'window.researchStream.close(); window.fetch = window.researchFetch'
+browser wait '.start-stage'
 browser find role button click --name 'View a sample report'
-browser wait '#audience-room'
-browser eval 'if (document.querySelectorAll(".report-navigation a").length !== 3) throw Error("Expected three report stages"); if (document.querySelector(".report-context").open) throw Error("Research context should start collapsed")'
+browser wait '#panel-direction'
+browser eval 'if (document.querySelectorAll(".report-navigation [role=tab]").length !== 3) throw Error("Expected three report stages"); if (document.querySelector(".report-context").open) throw Error("Research context should start collapsed")'
 browser click '.report-context summary'
 browser eval 'if (!document.querySelector(".report-context").open || !document.querySelector(".report-context p").textContent.trim()) throw Error("Research context cannot be read")'
+browser click '#tab-direction'
+browser press ArrowRight
+browser eval 'if (document.activeElement.id !== "tab-research" || document.querySelector("#panel-research").hidden || !document.querySelector("#panel-direction").hidden) throw Error("Keyboard navigation did not switch panels")'
+browser click '#patterns summary'
+browser eval 'if (!document.querySelector("#patterns").open) throw Error("Research cannot expand")'
+browser click '#tab-direction'
+browser find role button click --name 'Review your first cut'
+browser wait '#cut-file'
+browser eval 'if (document.querySelectorAll("[role=tabpanel]:not([hidden])").length !== 1 || document.querySelector("#panel-next").hidden) throw Error("Next take did not replace report")'
+browser find role button click --name 'Test a premise'
+browser wait '#iteration'
 browser set viewport 390 844
-browser eval 'if (document.documentElement.scrollWidth > innerWidth) throw Error("Horizontal overflow"); if ([...document.querySelectorAll(".report-navigation a")].some(a => !document.querySelector(a.hash))) throw Error("Broken section link"); if (!document.querySelector(".light-button").disabled) throw Error("Unchanged revision accepted")'
+browser eval 'if (document.documentElement.scrollWidth > innerWidth) throw Error("Horizontal overflow"); if (!document.querySelector(".light-button").disabled) throw Error("Unchanged revision accepted")'
 browser find label 'Current iteration' fill short
 browser eval 'if (!document.querySelector(".light-button").disabled) throw Error("Short revision accepted")'
 browser find label 'Current iteration' fill 'A retired projectionist discovers that every missing frame records a future crime.'
@@ -45,6 +63,11 @@ browser eval 'if (document.querySelectorAll(".audience-grid article").length !==
 browser find role button click --name 'Use the sample revision'
 browser find role button click --name 'View sample feedback'
 browser eval 'if (document.querySelectorAll(".audience-grid article").length !== 3) throw Error("Sample cannot be replayed")'
+
+browser eval 'window.savedDraft = document.querySelector("#iteration").value'
+browser click '#tab-research'
+browser click '#tab-next'
+browser eval 'if (document.querySelector("#iteration").value !== window.savedDraft || !document.querySelector("#iteration").checkVisibility() || document.querySelectorAll(".audience-grid article").length !== 3) throw Error("Switching views lost draft or feedback")'
 
 browser set media light reduced-motion
 browser eval 'if ([...document.querySelectorAll(".workspace-window *")].some(el => getComputedStyle(el).animationName !== "none")) throw Error("Reduced motion still animates")'

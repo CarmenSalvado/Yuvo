@@ -7,11 +7,11 @@ import { DEMO_IDEA, DEMO_REPORT, DEMO_REVISION, DEMO_AUDIENCE } from "../lib/dem
 import VideoRoom from "./video-room";
 
 const STEPS = [
-  "Understanding your concept",
-  "Mapping nearby creative territory",
-  "Researching audience reactions",
-  "Finding repeated friction",
-  "Identifying potential whitespace",
+  { label: "Your idea", title: "Getting to know your idea.", detail: "Gemini is turning your premise into a research plan." },
+  { label: "Nearby stories", title: "Following the story threads.", detail: "Parallel is looking for nearby stories, themes and ideas." },
+  { label: "Audience", title: "Listening to the audience.", detail: "Exploring what people love, question and wish were different." },
+  { label: "The gaps", title: "Finding what’s missing.", detail: "Gemini is connecting the evidence and recurring criticisms." },
+  { label: "Your angle", title: "Shaping your own angle.", detail: "Turning the research into a direction for your next draft." },
 ];
 
 function Arrow({ direction = "right" }) {
@@ -167,25 +167,23 @@ function Loading({ step, queries, evidence }) {
   return (
     <main className="loading-page">
       <section className="loading-title">
-        <p className="kicker">A little research. A new possibility.</p>
-        <h1>Finding your<br /><em>own angle.</em></h1>
-        <p>Following the stories, reactions and ideas around yours.</p>
+        <p className="kicker">A fresh perspective</p>
+        <h1>Good ideas grow<br />with a little research.</h1>
       </section>
-      <div className="workspace-research-orbits" aria-hidden="true">
-        <div className="search-orbit"><img src="/brand/parallel.png" width="112" height="18" alt="" /><strong>{evidence || "…"}</strong><span>{evidence ? "sources found" : "Searching the web"}</span></div>
-        <span className="research-connection">↗</span>
-        <div className="synthesis-orbit" data-active={step >= 3}><img src="/brand/gemini.svg" width="52" height="52" alt="" /><strong>Your next<br />possibility.</strong><span>Shaped by Gemini</span></div>
-      </div>
-      <section className="research-console" aria-live="polite">
-        <div className="console-head"><span>Live research</span><span>{evidence ? `${evidence} sources surfaced` : "In progress"}</span></div>
-        <ol className="steps">
-          {STEPS.map((label, index) => <li key={label} className={index < step ? "done" : index === step ? "active" : ""}>
-            <span className="step-index">{index < step ? "✓" : `0${index + 1}`}</span>
-            <span>{label}</span>{index === step && <i className="step-pulse" />}
-          </li>)}
+      <section className="research-stage" aria-label="Research progress">
+        <div className="research-stage-top">
+          <div className="research-partners"><span><img src="/brand/parallel.png" width="100" height="16" alt="Parallel" /></span><span><img src="/brand/gemini.svg" width="22" height="22" alt="" />Gemini</span></div>
+          <span className="research-live"><i className="step-pulse" aria-hidden="true" />Live research</span>
+        </div>
+        <div className="research-current">
+          <div className="research-copy" role="status"><p className="research-count">Step {step + 1} of {STEPS.length}</p><h2 key={step}>{STEPS[step].title}</h2><p>{STEPS[step].detail}</p></div>
+          <div className="research-friend" aria-hidden="true"><i /><img src="/art/yuvo-spark.svg" width="180" height="180" alt="" /><i /></div>
+        </div>
+        <ol className="research-progress">
+          {STEPS.map(({ label }, index) => <li key={label} className={index < step ? "done" : index === step ? "active" : ""} aria-current={index === step ? "step" : undefined}><span className="research-track" aria-hidden="true" /><span><b>{index < step ? "✓" : `0${index + 1}`}</b>{label}</span></li>)}
         </ol>
-        {queries.length > 0 && <div className="query-ticker"><p>Search angles dispatched</p><div>{queries.map((query) => <span key={query}>{query}</span>)}</div></div>}
       </section>
+      {queries.length > 0 && <section className="research-searches" aria-label="Research searches"><div className="research-searches-heading"><h2>Following these threads</h2><span role="status">{evidence ? <><b>{evidence}</b> sources found</> : "Searching the web…"}</span></div><ul>{queries.map((query) => <li key={query}><span aria-hidden="true">↗</span>{query}</li>)}</ul></section>}
     </main>
   );
 }
@@ -215,7 +213,7 @@ function SectionHead({ number, label, title, note }) {
 function AudienceRoom({ report, iteration, previousIdea, setIteration, audience, onTest, testing, error }) {
   return (
     <section className="audience-section" id="audience-room">
-      <SectionHead number="05" label="Iteration lab" title="Audience Room" note="Three synthetic perspectives—not predictions" />
+      <SectionHead number="03" label="Iteration lab" title="Audience Room" note="Three synthetic perspectives—not predictions" />
       <div className="audience-intro">
         <div><p className="kicker">Test the next draft</p><h3>Change the premise.<br />Pressure-test the move.</h3></div>
         <form className="iteration-box" aria-busy={testing} onSubmit={(event) => { event.preventDefault(); if (!testing && iteration.trim().length >= 30 && iteration.trim() !== (report.demo ? report.idea : previousIdea).trim()) onTest(); }}>
@@ -242,6 +240,18 @@ function AudienceRoom({ report, iteration, previousIdea, setIteration, audience,
 }
 
 function Report({ report, onReset }) {
+  const [view, setView] = useState("direction");
+  const [nextMode, setNextMode] = useState("video");
+  const reportNav = useRef(null);
+
+  function openView(next) {
+    setView(next);
+    const scrolled = reportNav.current.getBoundingClientRect().top <= 0;
+    requestAnimationFrame(() => {
+      if (scrolled) reportNav.current.parentElement.scrollIntoView({ behavior: "instant", block: "start" });
+      document.getElementById(`tab-${next}`).focus({ preventScroll: true });
+    });
+  }
   const [iteration, setIteration] = useState(report.idea);
   const [previousIdea, setPreviousIdea] = useState(report.idea);
   const [audience, setAudience] = useState(null);
@@ -270,31 +280,23 @@ function Report({ report, onReset }) {
     <main className="report-page">
       {report.demo && <div className="demo-banner"><span>Prepared sample</span>This report is illustrative and did not run live research. <button type="button" onClick={onReset}>Run your own analysis</button></div>}
       {report.partial && <div className="partial-banner">Partial research: one search angle failed. Conclusions are intentionally narrow.</div>}
-      <nav className="report-navigation" aria-label="Report sections">
-        <a href="#direction"><span>01</span>Your direction</a><a href="#landscape"><span>02</span>The research</a><a href="#video-room"><span>03</span>Your next take</a>
+      <nav ref={reportNav} className="report-navigation" role="tablist" aria-label="Your project" onKeyDown={(event) => {
+        const tabs = [...event.currentTarget.querySelectorAll('[role="tab"]')];
+        const index = tabs.indexOf(document.activeElement);
+        const next = event.key === "ArrowRight" ? (index + 1) % tabs.length : event.key === "ArrowLeft" ? (index + tabs.length - 1) % tabs.length : event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : null;
+        if (next !== null) { event.preventDefault(); tabs[next].focus(); tabs[next].click(); }
+      }}>
+        {[["direction", "Your direction"], ["research", "The research"], ["next", "Your next take"]].map(([id, label], index) => <button key={id} id={`tab-${id}`} role="tab" type="button" aria-selected={view === id} aria-controls={`panel-${id}`} tabIndex={view === id ? 0 : -1} onClick={() => openView(id)}><span>{String(index + 1).padStart(2, "0")}</span>{label}</button>)}
       </nav>
+      <div id="panel-direction" role="tabpanel" aria-labelledby="tab-direction" tabIndex={0} hidden={view !== "direction"}>
       <section className="report-hero" id="direction">
-        <div className="report-heading"><div><p className="kicker">From research to possibility</p><h1>Here’s your opening.</h1></div><a href="#sources"><span className="evidence-dot" aria-hidden="true" />{report.sources.length} sources <Arrow /></a></div>
-        <aside className="report-opening"><div className="direction-copy"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />A direction to explore</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p></div><div className="direction-motif" aria-hidden="true"><img className="shape-friend" src="/art/yuvo-coral.svg" width="170" height="170" alt="" /><i /><i /></div><a href="#opportunities">Explore this direction <Arrow /></a></aside>
-        <div className="next-draft"><span className="next-draft-icon" aria-hidden="true">↗</span><div><p className="section-label">Make it real</p><h2>Your next move.</h2><p>{report.whitespace[0].move}</p><a className="primary-button" href="#video-room">Review your first cut <Arrow /></a></div></div>
+        <div className="report-heading"><div><p className="kicker">From research to possibility</p><h1>Here’s your opening.</h1></div><button type="button" onClick={() => openView("research")}><span className="evidence-dot" aria-hidden="true" />{report.sources.length} sources <Arrow /></button></div>
+        <aside className="report-opening"><div className="direction-copy"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />A direction to explore</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p></div><div className="direction-motif" aria-hidden="true"><img className="shape-friend" src="/art/yuvo-coral.svg" width="170" height="170" alt="" /><i /><i /></div></aside>
+        <div className="next-draft"><span className="next-draft-icon" aria-hidden="true">↗</span><div><p className="section-label">Make it real</p><h2>Your next move.</h2><p>{report.whitespace[0].move}</p><button className="primary-button" type="button" onClick={() => { setNextMode("video"); openView("next"); }}>Review your first cut <Arrow /></button></div></div>
         <details className="report-context"><summary>What the research found</summary><p className="report-overview">{report.overview}</p></details>
         <details className="original-premise"><summary>Analyzed premise</summary><p>{report.idea}</p></details>
       </section>
-      <section className="report-section landscape-section" id="landscape">
-        <SectionHead number="01" label="Creative landscape" title="The territory around your idea" note="Qualitative proximity, based on surfaced sources" />
-        <Landscape report={report} />
-      </section>
-
-      <section className="report-section patterns-section" id="patterns">
-        <SectionHead number="02" label="Saturated territory" title="What keeps recurring" note="Common in the research—not a count of the internet" />
-        <div className="pattern-list">{report.saturated.map((item, index) => <article key={item.pattern}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.pattern}</h3><p>{item.why} <SourceRefs ids={item.sourceIds} sources={report.sources} /></p></article>)}</div>
-      </section>
-
-      <section className="report-section friction-section" id="friction">
-        <SectionHead number="03" label="Audience friction" title="Where nearby stories lose people" note="Recurring qualitative signals, not audience statistics" />
-        <div className="friction-grid">{report.frictions.map((item) => <article key={item.signal}><h3>{item.signal}</h3><p>{item.detail}</p><SourceRefs ids={item.sourceIds} sources={report.sources} /></article>)}</div>
-      </section>
-
+      <details className="direction-details"><summary>Explore all {report.whitespace.length} creative openings<span aria-hidden="true">+</span></summary>
       <section className="whitespace-section" id="opportunities">
         <SectionHead number="04" label="Potential whitespace" title="Make your move here" note="Opportunities derived from patterns + friction" />
         <div className="whitespace-list">{report.whitespace.map((item, index) => <article key={item.title}>
@@ -304,15 +306,41 @@ function Report({ report, onReset }) {
         </article>)}</div>
       </section>
 
-      <AudienceRoom report={report} iteration={iteration} previousIdea={previousIdea} setIteration={(value) => { setIteration(value); setAudience(null); setError(""); }} audience={audience} onTest={testIteration} testing={testing} error={error} />
-      <VideoRoom report={report} idea={previousIdea} />
+      </details>
+      </div>
+      <div id="panel-research" role="tabpanel" aria-labelledby="tab-research" tabIndex={0} hidden={view !== "research"}>
+        <div className="research-panel-heading"><p className="kicker">The evidence behind your direction</p><h1>What we found.</h1><p>{report.sources.length} sources · Explore the findings that matter to you.</p></div>
+      <details className="research-disclosure" id="landscape" name="research-findings"><summary><div><b>Nearby stories</b><small>{report.clusters.length} creative territories around your idea</small></div><span aria-hidden="true">+</span></summary><div className="report-section landscape-section">
+        <SectionHead number="01" label="Creative landscape" title="The territory around your idea" note="Qualitative proximity, based on surfaced sources" />
+        <Landscape report={report} />
+      </div></details>
+
+      <details className="research-disclosure" id="patterns" name="research-findings"><summary><div><b>Recurring patterns</b><small>{report.saturated.length} familiar themes worth looking beyond</small></div><span aria-hidden="true">+</span></summary><div className="report-section patterns-section">
+        <SectionHead number="02" label="Saturated territory" title="What keeps recurring" note="Common in the research—not a count of the internet" />
+        <div className="pattern-list">{report.saturated.map((item, index) => <article key={item.pattern}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.pattern}</h3><p>{item.why} <SourceRefs ids={item.sourceIds} sources={report.sources} /></p></article>)}</div>
+      </div></details>
+
+      <details className="research-disclosure" id="friction" name="research-findings"><summary><div><b>Audience reactions</b><small>{report.frictions.length} recurring points of friction</small></div><span aria-hidden="true">+</span></summary><div className="report-section friction-section">
+        <SectionHead number="03" label="Audience friction" title="Where nearby stories lose people" note="Recurring qualitative signals, not audience statistics" />
+        <div className="friction-grid">{report.frictions.map((item) => <article key={item.signal}><h3>{item.signal}</h3><p>{item.detail}</p><SourceRefs ids={item.sourceIds} sources={report.sources} /></article>)}</div>
+      </div></details>
 
       <section className="sources-section" id="sources">
-        <details><summary><span>Research evidence</span><b>{report.sources.length} sources surfaced</b><span className="details-plus">+</span></summary>
+        <details name="research-findings"><summary><span>Research evidence</span><b>{report.sources.length} sources surfaced</b><span className="details-plus">+</span></summary>
           <div className="sources-list">{report.sources.map((source) => <a href={source.url} target="_blank" rel="noreferrer" key={source.id}><span>[{source.id}]</span><div><b>{source.title}</b><small>{new URL(source.url).hostname.replace("www.", "")}</small><p>{source.excerpts[0]}</p></div><Arrow /></a>)}</div>
         </details>
         <p>Based on the sources analyzed. Yuvo does not establish originality or predict real audience behavior.</p>
       </section>
+      </div>
+      <div id="panel-next" role="tabpanel" aria-labelledby="tab-next" tabIndex={0} hidden={view !== "next"}>
+        <div className="next-mode" role="group" aria-label="What to work on"><button type="button" aria-pressed={nextMode === "video"} onClick={() => setNextMode("video")}>Review a video</button><button type="button" aria-pressed={nextMode === "premise"} onClick={() => setNextMode("premise")}>Test a premise</button></div>
+        <div hidden={nextMode !== "video"}>
+      <VideoRoom report={report} idea={previousIdea} active={view === "next" && nextMode === "video"} />
+
+        </div><div hidden={nextMode !== "premise"}>
+      <AudienceRoom report={report} iteration={iteration} previousIdea={previousIdea} setIteration={(value) => { setIteration(value); setAudience(null); setError(""); }} audience={audience} onTest={testIteration} testing={testing} error={error} />
+        </div>
+      </div>
     </main>
   );
 }

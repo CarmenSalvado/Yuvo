@@ -7,7 +7,7 @@ function timestamp(seconds) {
   return `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
 }
 
-export default function VideoRoom({ report, idea }) {
+export default function VideoRoom({ report, idea, active = true }) {
   const [cuts, setCuts] = useState([]);
   const [pending, setPending] = useState(null);
   const [duration, setDuration] = useState(0);
@@ -29,6 +29,7 @@ export default function VideoRoom({ report, idea }) {
     return () => URL.revokeObjectURL(nextUrl);
   }, [displayed]);
   useEffect(() => () => controller.current?.abort(), []);
+  useEffect(() => { if (!active) player.current?.pause(); }, [active]);
 
   function attach(event) {
     const file = event.target.files[0];
@@ -68,7 +69,7 @@ export default function VideoRoom({ report, idea }) {
 
   return (
     <section className="video-room report-section" id="video-room" aria-labelledby="video-room-heading">
-      <div className="section-head"><p><span className="section-number">06</span>The next take</p><div><h2 id="video-room-heading">See your story take shape.</h2><span>Attach a cut. Find the moment to improve. Compare the next version.</span></div></div>
+      <div className="section-head"><p><span className="section-number">03</span>The next take</p><div><h2 id="video-room-heading">See your story take shape.</h2><span>Attach a cut. Find the moment to improve. Compare the next version.</span></div></div>
       <div className="cut-workspace">
         <div className="cut-toolbar"><span><img src="/brand/gemini.svg" width="26" height="26" alt="" />Gemini · Visual review</span><div className="cut-tabs" aria-label="Reviewed cuts">{cuts.map((cut) => <button type="button" key={cut.number} disabled={busy || Boolean(pending)} aria-pressed={!pending && (view || latest) === cut} onClick={() => { setView(cut); setError(""); }}>Cut {cut.number}</button>)}</div></div>
         {displayed ? <video key={url} ref={player} className="cut-player" src={url || undefined} controls playsInline preload="metadata" aria-label={pending ? "Attached cut preview" : `Cut ${(view || latest).number}`} onLoadedMetadata={(event) => {

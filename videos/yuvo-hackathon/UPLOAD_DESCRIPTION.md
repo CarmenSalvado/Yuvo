@@ -4,7 +4,7 @@ Yuvo helps filmmakers research a premise, find a grounded creative direction, re
 
 Try the app: https://yuvo-530653958920.europe-west1.run.app
 Workspace access requires the judge invite shared separately.
-Source: https://github.com/CarmenSalvado/HowItWent (make public before submission).
+Source: https://github.com/CarmenSalvado/Yuvo (make public before submission).
 
 The footage shows real application requests and results; provider waits are condensed. Stock footage is used as an early location test. Feedback is a model’s visual critique, not real audience testing or a guarantee of originality.
 

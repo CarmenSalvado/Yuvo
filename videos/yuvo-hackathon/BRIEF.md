@@ -31,3 +31,5 @@ Under three minutes. Condense and disclose provider wait time. No fabricated API
 The user approved the content but requested much less slideshow styling and more motion design. Prioritize continuous subject identity, circles transforming into story objects, camera-led real application footage and kinetic typography.
 
 Cursor, music and sound pass: use the existing original macOS pointer at a modest size, fix the incorrect text pointer around 1:10, incorporate the supplied Cirrus MP3 in a review version, and add restrained interaction/transformation sound effects. Retain a CC BY soundtrack alternative.
+
+User revision: remove the “Real app · waits condensed” overlay from every scene. Keep the existing footage, timing, cursor and soundtrack mixes.

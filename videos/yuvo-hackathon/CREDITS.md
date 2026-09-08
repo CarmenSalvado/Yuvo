@@ -23,7 +23,7 @@ https://www.pexels.com/video/a-long-hallway-with-graffiti-on-the-walls-17037805/
 License: https://www.pexels.com/license/
 First and second cuts are extracts of the same stock footage; the video explicitly identifies them as a location test, not an original completed film. No implied endorsement by the contributor or Pexels.
 
-Application footage was recorded from the running Yuvo app on 2026-09-08, using Google ADK, Gemini 3.8 Flash on Vertex AI and live Parallel Search. No fetch interception, mocked providers or prepared responses were used. Waiting intervals are cut, and that edit is disclosed on screen. Cut detail shots show the actual uploaded media. Still images are captured from the same live report and reviews. The room-circle graphic and traveling provider dots are editorial explanations, not additional app features or a recorded execution trace. The bridge still is extracted from the actual first uploaded cut.
+Application footage was recorded from the running Yuvo app on 2026-09-08, using Google ADK, Gemini 3.8 Flash on Vertex AI and live Parallel Search. No fetch interception, mocked providers or prepared responses were used. Waiting intervals are cut; this is documented in the accompanying upload description. Cut detail shots show the actual uploaded media. Still images are captured from the same live report and reviews. The room-circle graphic and traveling provider dots are editorial explanations, not additional app features or a recorded execution trace. The bridge still is extracted from the actual first uploaded cut.
 
 ## Marks and type
 

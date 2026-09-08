@@ -35,3 +35,14 @@
 {"id": "sfx_002", "type": "sfx", "path": "assets/sfx-whoosh.mp3", "source": "bundled", "description": "Short whoosh — quick swipe/slide accent, fast element move, snappy transition. Sync to the motion.", "duration": 0.6, "provenance": {"provider": "bundled.sfx", "prompt": "whoosh-short", "library_key": "whoosh-short"}}
 {"id": "sfx_003", "type": "sfx", "path": "assets/sfx-pop.mp3", "source": "bundled", "description": "Quick pop — element appear/spawn, chip/tag/badge in. Small precise accent, sync to the pop-in.", "duration": 0.7, "provenance": {"provider": "bundled.sfx", "prompt": "pop", "library_key": "pop"}}
 {"id": "bgm_cirrus_review", "type": "bgm", "path": "assets/cirrus-review.mp3", "source": "user", "description": "Bonobo — Cirrus, local review only; publication license not verified"}
+{"id": "bgm_003", "type": "bgm", "path": "assets/electrodoodle.mp3", "source": "ingested", "description": "Electrodoodle.mp3", "provenance": {"provider": "local", "from": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Electrodoodle.mp3"}}
+{"id": "idea-bridge", "type": "image", "path": "assets/idea-bridge.jpg", "source": "local", "description": "First frame of the actual Yuvo recording; continuous opening bridge."}
+{"id": "first-cut-six", "type": "image", "path": "assets/first-cut-six.jpg", "source": "local", "description": "Actual first uploaded clip at 00:06; supports recorded review summary."}
+{"id": "first-cut-open", "type": "image", "path": "assets/first-cut-open.jpg", "source": "local", "description": "Opening frame of first uploaded clip."}
+{"id": "next-cut-open", "type": "image", "path": "assets/next-cut-open.jpg", "source": "local", "description": "Opening frame of second uploaded clip."}
+{"id": "voice-recap", "type": "voice", "path": "assets/voice/06-recap.wav", "source": "local", "description": "Google Gemini 3.1 Flash TTS, Charon; plain-language recap."}
+{"id": "voice-recap-mix", "type": "voice", "path": "assets/voice/06-recap-mix.wav", "source": "local", "description": "Recap normalized, 1.08x speed, opening and closing silence to 19.44 seconds."}
+{"id": "cloud-run", "type": "image", "path": "assets/cloud-run.svg", "source": "local", "description": "Official Cloud Run color icon, unchanged; https://cloud.google.com/icons / core-products-icons.zip"}
+{"id": "attach-bridge", "type": "image", "path": "assets/attach-bridge.jpg", "source": "local", "description": "First frame of assets/04-first-cut.mp4, continuous attachment handoff"}
+{"id": "voice-understanding", "type": "voice", "path": "assets/voice/04-understanding.wav", "source": "local", "description": "Google Gemini 3.1 Flash TTS, Kore; agentic video understanding explanation"}
+{"id": "voice-understanding-mix", "type": "voice", "path": "assets/voice/04-understanding-mix.wav", "source": "local", "description": "Kore normalized, 1.04x speed, padded to 25.12 seconds"}

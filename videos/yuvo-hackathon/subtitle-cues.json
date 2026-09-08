@@ -95,49 +95,49 @@
     "text": "instead of another vague suggestion."
   },
   {
-    "start": 55.67,
-    "end": 57.93,
-    "text": "Next, we attach a real video."
+    "start": 55.961,
+    "end": 59.073,
+    "text": "Now, agentic video understanding."
   },
   {
-    "start": 58.33,
-    "end": 62.16,
-    "text": "This is stock footage used as an early location test,"
+    "start": 59.263,
+    "end": 60.662,
+    "text": "We attach a real clip,"
   },
   {
-    "start": 62.47,
-    "end": 64.08,
-    "text": "not a finished film."
+    "start": 60.87,
+    "end": 62.544,
+    "text": "an early location test."
   },
   {
-    "start": 65.26,
-    "end": 67.65,
-    "text": "Gemini inspects the frames"
+    "start": 62.797,
+    "end": 64.486,
+    "text": "Gemini watches the frames"
   },
   {
-    "start": 67.65,
-    "end": 70.97,
-    "text": "and returns observations at precise moments."
+    "start": 64.667,
+    "end": 66.532,
+    "text": "and checks them against our idea."
   },
   {
-    "start": 71.74000000000001,
-    "end": 73.55,
-    "text": "It recognizes the corridor,"
+    "start": 66.86,
+    "end": 69.836,
+    "text": "At six seconds, it sees an empty corridor."
   },
   {
-    "start": 73.84,
-    "end": 75.67,
-    "text": "but points out that the detective"
+    "start": 70.33,
+    "end": 74.294,
+    "text": "But our story needs a detective and conflicting memories."
   },
   {
-    "start": 75.67,
-    "end": 78.33,
-    "text": "and the conflicting memories are still missing."
+    "start": 74.527,
+    "end": 77.275,
+    "text": "Yuvo turns that gap into a next move:"
   },
   {
-    "start": 78.78999999999999,
-    "end": 80.44,
-    "text": "Click a timestamp to check the observation yourself."
+    "start": 77.796,
+    "end": 79.428,
+    "text": "introduce the detective."
   },
   {
     "start": 80.78999999999999,
@@ -180,39 +180,49 @@
     "text": "and get a concrete next editing move."
   },
   {
-    "start": 102.86999999999999,
-    "end": 106.71,
-    "text": "Under the hood, Google ADK runs Gemini"
+    "start": 103.1805,
+    "end": 104.45621,
+    "text": "Start with your idea."
   },
   {
-    "start": 106.71,
-    "end": 109.89,
-    "text": "three point eight Flash on Vertex AI."
+    "start": 105.03504,
+    "end": 106.05503999999999,
+    "text": "Find a direction."
   },
   {
-    "start": 110.19,
-    "end": 112.91,
-    "text": "Parallel supplies live research."
+    "start": 106.78442,
+    "end": 107.60171,
+    "text": "Upload your cut."
   },
   {
-    "start": 113.25999999999999,
-    "end": 115.58,
-    "text": "The app runs on Google Cloud Run,"
+    "start": 108.24408,
+    "end": 110.80725,
+    "text": "Yuvo shows what comes across,"
   },
   {
-    "start": 115.58,
-    "end": 117.44999999999999,
-    "text": "with invite-code access"
+    "start": 111.19220999999999,
+    "end": 112.18316999999999,
+    "text": "what is missing,"
   },
   {
-    "start": 117.44999999999999,
-    "end": 119.41999999999999,
-    "text": "and secrets kept on the server."
+    "start": 112.46916999999999,
+    "end": 113.82889999999999,
+    "text": "and what to try next."
   },
   {
-    "start": 119.66999999999999,
-    "end": 121.86,
-    "text": "The creator keeps the final decision."
+    "start": 114.4855,
+    "end": 116.187,
+    "text": "Gemini reviews the video."
+  },
+  {
+    "start": 116.8558,
+    "end": 118.7615,
+    "text": "Parallel grounds the research."
+  },
+  {
+    "start": 119.3753,
+    "end": 120.7931,
+    "text": "You make the final call."
   },
   {
     "start": 122.30999999999999,

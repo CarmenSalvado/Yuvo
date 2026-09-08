@@ -4,7 +4,11 @@
     {
       "id": "01-hook to 02-idea",
       "cut": 6.64,
-      "technique": "cut-the-curve LEFT",
+      "type": "match-cut",
+      "carrier": {
+        "out": "#hook-preview",
+        "in": "#f02-idea-video"
+      },
       "exit": {
         "selector": "#scene-01-hook",
         "axis": "x",
@@ -13,8 +17,7 @@
       "entry": {
         "selector": "#scene-02-idea",
         "axis": "x",
-        "dir": -1,
-        "travel": 8
+        "dir": -1
       }
     },
     {
@@ -36,7 +39,6 @@
     {
       "id": "03-direction to 04-first-cut",
       "cut": 55.32,
-      "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#scene-03-direction",
         "axis": "x",
@@ -45,8 +47,12 @@
       "entry": {
         "selector": "#scene-04-first-cut",
         "axis": "x",
-        "dir": -1,
-        "travel": 8
+        "dir": -1
+      },
+      "type": "match-cut",
+      "carrier": {
+        "out": "#cut-bridge",
+        "in": "#f04-first-cut-video"
       }
     },
     {

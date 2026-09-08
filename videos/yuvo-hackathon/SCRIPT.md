@@ -1,6 +1,6 @@
 # SCRIPT — Yuvo
 
-**Voice:** Google Gemini 3.1 Flash TTS; Puck opening, Kore narrator, Charon technical beat.
+**Voice:** Google Gemini 3.1 Flash TTS; Puck opening, Kore narrator, Charon recap.
 **Voice direction:** Warm, conversational, confident, no announcer hype. Yuvo is yoo-voh.
 
 ## Line 1 — 01-hook (Frame 1)
@@ -25,7 +25,7 @@
 
 **Delivery:** Kore, clear and lightly playful.
 
-    Next, we attach a real video. This is stock footage used as an early location test, not a finished film. Gemini inspects the frames and returns observations at precise moments. It recognizes the corridor, but points out that the detective and the conflicting memories are still missing. Click a timestamp to check the observation yourself.
+    Now, agentic video understanding. We attach a real clip, an early location test. Gemini watches the frames and checks them against our idea. At six seconds, it sees an empty corridor. But our story needs a detective and conflicting memories. Yuvo turns that gap into a next move: introduce the detective.
 
 ## Line 5 — 05-next-cut (Frame 5)
 
@@ -35,9 +35,9 @@
 
 ## Line 6 — 06-built (Frame 6)
 
-**Delivery:** Charon, clear and lightly playful.
+**Delivery:** Charon, conversational and clear.
 
-    Under the hood, Google ADK runs Gemini three point eight Flash on Vertex AI. Parallel supplies live research. The app runs on Google Cloud Run, with invite-code access and secrets kept on the server. The creator keeps the final decision.
+    Start with your idea. Find a direction. Upload your cut. Yuvo shows what comes across, what is missing, and what to try next. Gemini reviews the video. Parallel grounds the research. You make the final call.
 
 ## Line 7 — 07-close (Frame 7)
 

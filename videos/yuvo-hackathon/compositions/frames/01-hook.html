@@ -1,26 +1,35 @@
-<template id="f01-hook"><div data-hf-id="hf-bxk9" id="f01-hook" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="6.64">
-<style>@font-face{font-family:Manrope;src:url("assets/manrope.woff2") format("woff2");font-weight:200 800;font-display:block} #f01-hook{position:relative;width:1920px;height:1080px;overflow:hidden;font-family:Manrope,sans-serif;color:#252B38} #f01-hook *{box-sizing:border-box} #f01-hook p,#f01-hook h1,#f01-hook h2{margin:0} #f01-hook .ground{position:absolute;inset:0;background:#FFFDF8} #f01-hook .dot{position:absolute;border-radius:50%;background:#FFDA45} #f01-hook .word{position:absolute;font-size:150px;line-height:1.06;font-weight:750;letter-spacing:-7px} #f01-hook .small{font-size:32px;line-height:1.4} #f01-hook .world{position:absolute;inset:0;width:1920px;height:1080px;transform-origin:50% 50%} #f01-hook .plate{position:absolute;overflow:hidden;border-radius:22px;background:white} #f01-hook .plate img{position:absolute;max-width:none}</style>
-<div data-hf-id="hf-6bol" id="f01-hook-ground" class="ground clip" data-start="0" data-duration="6.64" data-track-index="0"></div>
+<template id="f01-hook"><div data-hf-id="hf-bxk9" id="f01-hook" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="6.70">
+<style>@font-face{font-family:Manrope;src:url("assets/manrope.woff2") format("woff2");font-weight:200 800;font-display:block} #f01-hook{position:relative;width:1920px;height:1080px;overflow:hidden;font-family:Manrope,sans-serif;color:#252B38} #f01-hook *{box-sizing:border-box} #f01-hook p,#f01-hook h1,#f01-hook h2{margin:0} #f01-hook .ground{position:absolute;inset:0;background:#FFFDF8} #f01-hook .dot{position:absolute;border-radius:50%;background:#FFDA45} #f01-hook .word{position:absolute;font-size:175px;line-height:1.06;font-weight:750;letter-spacing:-7px} #f01-hook .small{font-size:32px;line-height:1.4} #f01-hook .world{position:absolute;inset:0;width:1920px;height:1080px;transform-origin:50% 50%} #f01-hook .plate{position:absolute;overflow:hidden;border-radius:22px;background:white} #f01-hook .plate img{position:absolute;max-width:none}</style>
+<div data-hf-id="hf-6bol" id="f01-hook-ground" class="ground clip" data-start="0" data-duration="6.70" data-track-index="0"></div>
 
 <div data-hf-id="hf-x994" id="hook-world" class="world">
+<i data-hf-id="hf-yhfz" id="hook-corner" class="dot" style="left:1490px;top:740px;width:620px;height:620px"></i>
 <i data-hf-id="hf-u2ze" id="hook-seed" class="dot" style="left:1170px;top:300px;width:420px;height:420px"></i>
+<div data-hf-id="hf-mjpn" id="hook-brand" style="position:absolute;left:280px;top:300px;width:1360px;text-align:center;font-size:300px;line-height:1.1;font-weight:750;letter-spacing:-17px">Yuvo</div>
+<p data-hf-id="hf-frsf" id="hook-promise" style="position:absolute;left:280px;top:760px;width:1360px;text-align:center;font-size:48px;letter-spacing:-1px">From idea to next take.</p>
 <h1 data-hf-id="hf-gcnw" id="hook-an" class="word" style="left:210px;top:400px">An</h1><h1 data-hf-id="hf-5pei" id="hook-idea" class="word" style="left:470px;top:400px">idea.</h1>
 <div data-hf-id="hf-ufna" id="hook-question" style="position:absolute;left:210px;top:590px;overflow:hidden;height:160px"><p data-hf-id="hf-sjc1" id="hook-worth" class="word" style="position:relative;font-size:110px;letter-spacing:-5px">Worth watching?</p></div>
 <i data-hf-id="hf-kv3u" id="hook-blue" class="dot" style="left:1590px;top:630px;width:100px;height:100px;background:#0866E6"></i>
+<div data-hf-id="hf-nwqi" id="hook-preview" class="plate" style="left:240px;top:145px;width:1440px;height:900px"><img data-hf-id="hf-tnyl" src="assets/idea-bridge.jpg" alt="The Yuvo workspace" style="left:0;top:0;width:1440px;height:900px"></div>
 </div>
 
 <script>const tl=gsap.timeline({paused:true});
 
-tl.fromTo('#hook-an',{x:350,opacity:0},{x:0,opacity:1,duration:.55,ease:'power4.out'},.15);
-tl.fromTo('#hook-idea',{x:420,opacity:0},{x:0,opacity:1,duration:.55,ease:'power4.out'},.55);
-tl.fromTo('#hook-seed',{x:450,scale:.1},{x:0,scale:1,duration:.7,ease:'power4.out'},.388);
-tl.to(['#hook-an','#hook-idea'],{y:-135,duration:.65,ease:'power3.inOut'},1.7);
-tl.fromTo('#hook-worth',{y:170},{y:0,duration:.65,ease:'power4.out'},2.1);
-tl.fromTo('#hook-blue',{x:220,scale:0},{x:0,scale:1,duration:.55,ease:'back.out(1.4)'},3.2);
-tl.to('#hook-seed',{x:-150,y:-40,scale:1.22,duration:1.3,ease:'power2.inOut'},3.5);
-tl.to('#hook-blue',{x:-250,y:95,scale:.7,duration:.8,ease:'power3.inOut'},4.6);
-tl.to(['#hook-an','#hook-idea','#hook-question'],{x:-1000,opacity:0,duration:.65,ease:'power3.in'},5.35);
-tl.to('#hook-seed',{x:-420,y:-20,scaleX:3.42,scaleY:2.1,borderRadius:24,duration:.85,ease:'power3.inOut'},5.35);
+tl.fromTo('#hook-seed',{x:-660,y:-15,scale:.85},{x:-660,y:-15,scale:1,duration:.6,ease:'power3.out'},0);
+tl.fromTo('#hook-brand',{y:24,opacity:0},{y:0,opacity:1,duration:.5,ease:'power3.out'},.15);
+tl.fromTo('#hook-promise',{y:16,opacity:0},{y:0,opacity:1,duration:.4,ease:'power3.out'},.5);
+tl.to(['#hook-brand','#hook-promise'],{y:-25,opacity:0,duration:.35,ease:'power3.in'},2.05);
+tl.to('#hook-seed',{x:0,y:0,scale:1,duration:.65,ease:'power3.inOut'},2.05);
+tl.fromTo('#hook-an',{x:60,opacity:0},{x:0,opacity:1,duration:.45,ease:'power3.out'},2.35);
+tl.fromTo('#hook-idea',{x:60,opacity:0},{x:0,opacity:1,duration:.45,ease:'power3.out'},2.45);
+tl.fromTo('#hook-worth',{y:170,opacity:0},{y:0,opacity:1,duration:.45,ease:'power3.out'},3.05);
+tl.fromTo('#hook-blue',{x:120,scale:0},{x:0,scale:1,duration:.45,ease:'power3.out'},4.0);
+tl.to('#hook-blue',{x:-250,y:95,scale:.7,duration:.5,ease:'power4.inOut'},4.6);
+tl.to(['#hook-an','#hook-idea','#hook-question'],{x:-1000,opacity:0,duration:.45,ease:'power3.in'},5.15);
+tl.to('#hook-seed',{x:-420,y:85,scaleX:24/7,scaleY:15/7,borderRadius:7,duration:.85,ease:'power3.inOut'},5.25);
 
+tl.fromTo('#hook-corner',{scale:0},{scale:1,duration:.6,ease:'power3.out'},5.8);
+tl.fromTo('#hook-preview',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:.3,ease:'power3.out'},6.1);
+tl.to('#hook-blue',{scale:0,duration:.25},5.45);
 window.__timelines["01-hook"]=tl;</script>
 </div></template>

@@ -1,6 +1,6 @@
 Yuvo — Big idea. Better story.
 
-Yuvo helps filmmakers research a premise, find a grounded creative direction, review an actual cut and compare the next version. Built with Google ADK, Gemini 3.8 Flash on Vertex AI, Parallel Search and Google Cloud Run.
+Yuvo helps filmmakers research a premise, find a grounded creative direction, use agentic video understanding to review an actual cut and compare the next version. Built with Google ADK, Gemini 3.8 Flash on Vertex AI, Parallel Search and Google Cloud Run.
 
 Try the app: https://yuvo-530653958920.europe-west1.run.app
 Workspace access requires the judge invite shared separately.
@@ -8,7 +8,12 @@ Source: https://github.com/CarmenSalvado/Yuvo (make public before submission).
 
 The footage shows real application requests and results; provider waits are condensed. Stock footage is used as an early location test. Feedback is a model’s visual critique, not real audience testing or a guarantee of originality.
 
-For the CC BY soundtrack edition:
+For the current film (Electrodoodle):
+Music: “Electrodoodle” — Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
+Music is excerpted, faded and mixed under narration.
+
+For the previous CC BY soundtrack edition (Funkorama):
 Music: “Funkorama” — Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Music is excerpted and mixed under narration.
@@ -23,3 +28,5 @@ For the private review with the user-supplied track:
 Music: “Cirrus” — Bonobo. Publication/synchronization permission has not been verified; do not use the CC BY credit above for this track.
 
 Cursor and subtle interaction sounds were added in editing; the application responses are real.
+
+Large feedback panels summarize the recorded Gemini output. Comparison stills show the actual opening frame of each uploaded cut; no improved film is generated in this demonstration.

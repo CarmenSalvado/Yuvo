@@ -1,88 +1,24 @@
 ---
 format: 1920x1080
-duration: 132s
-message: "Make the next creative decision with evidence, then test it in the cut."
-arc: Demo Loop
-audience: Agentic Cinema hackathon judges
+duration: 131.73s
+message: "Show your idea and your cut. Know what to change next."
+arc: Idea → video → next move
+audience: Agentic Cinema judges and independent filmmakers
 mode: autonomous
-music: grooving instrumental funk, Funkorama by Kevin MacLeod, CC BY 4.0
-captions: none
+music: Electrodoodle by Kevin MacLeod, CC BY 4.0
+captions: optional English SRT
 ---
 
-# Motion revision 2
+# The story
 
-The user asked for less slideshow structure and more motion design. Replace chapter headings and fixed wide shots with connected shape changes and mapped camera poses. Keep the existing narration, source evidence and clip timing. The review uses the supplied Cirrus MP3 with a dynamic voiceover carve; a Funkorama CC BY alternative is also delivered. LEFT remains the common seam direction. No idle loops or fabricated UI.
+1. **0–6.64 · Brand, idea, workspace.** Open with a large Yuvo wordmark over a single yellow circle and “From idea to next take.” Hold the brand, then move the same circle aside as “An idea. Worth watching?” appears. Finally the circle becomes the exact app window and matches into live footage. Introduce one level of information at a time.
+2. **6.64–30.68 · Shape the idea.** Show the actual premise being entered and the research running. The small macOS cursor uses short curved approaches, target correction and a pause before clicking. It moves aside during typing. Camera moves establish the workspace and then focus on relevant controls.
+3. **30.68–55.32 · Research gives a rule.** Fifteen sources build with the evidence dots. The creative opening becomes “One room. One memory.” Three connected rooms explain the storytelling rule, then the center room becomes the actual attachment window.
+4. **55.32–80.44 · The gap becomes visible.** Name “Agentic video understanding” in narration and on screen. Show the real attachment and footage. At 69.82, the actual 00:06 frame accompanies a large summary: the premise calls for a detective and conflicting memories, while this test shows an empty corridor. The next move appears: introduce the detective. These are editorial summaries of the real recorded review.
+5. **80.44–102.52 · Check the next cut.** Show the second real attachment. At 93.94, put each cut’s actual opening frame side by side: the later start changed, but the character and mystery clue are still absent. Do not claim an improved narrative or generated film.
+6. **102.52–121.96 · Explain the loop.** Three connected circles reveal “Shape your idea,” “Review your cut,” and “Know what to change.” Plain-language Charon narration replaces the technical deployment explanation. Readable Gemini, Parallel and Cloud Run marks remain beneath “You make the call.”
+7. **121.96–131.73 · Remember Yuvo.** Center the wordmark and tagline, keep a clear gap between them, and enlarge the Devpost/event lockup. Music attribution accompanies the upload rather than occupying the closing frame.
 
-## Frame 1 — The idea becomes a canvas
+# Verification
 
-- id: 01-hook
-- start: 0
-- duration: 6.64
-- src: compositions/frames/01-hook.html
-- track: 1
-
-Words enter and push the phrase left. The yellow idea circle expands into the proportions of the workspace, carrying the viewer into the actual app. Routes: kinetic text, shared-shape transformation.
-
-## Frame 2 — Follow the work
-
-- id: 02-idea
-- start: 6.64
-- duration: 24.04
-- src: compositions/frames/02-idea.html
-- track: 1
-
-One recording stays alive. Establish the workspace, push into the premise while the user types, pan across to live Parallel research, then pull back when the report lands. Routes: camera with intent, sequenced real UI.
-
-## Frame 3 — Evidence becomes a rule
-
-- id: 03-direction
-- start: 30.68
-- duration: 24.64
-- src: compositions/frames/03-direction.html
-- track: 1
-
-Actual sources are inspected beside fifteen staged dots. The source sheet exits, the opportunity arrives, and the same dots gather before three expand into rooms. A viewpoint travels between them; one room becomes a video window holding the actual location test. Routes: staged evidence, causal shape transformation, viewpoint travel.
-
-## Frame 4 — Inside the first cut
-
-- id: 04-first-cut
-- start: 55.32
-- duration: 25.12
-- src: compositions/frames/04-first-cut.html
-- track: 1
-
-The camera follows the actual attachment, expands the uploaded footage to fill the frame, then returns to timestamped observations and travels down to the next editing move. Routes: camera with intent, real UI, full-frame footage.
-
-## Frame 5 — Show the change
-
-- id: 05-next-cut
-- start: 80.44
-- duration: 22.08
-- src: compositions/frames/05-next-cut.html
-- track: 1
-
-Follow the second attachment. Push through the playing clip and return to the real comparison, keeping its changed framing and missing story elements readable. Routes: camera with intent, real UI.
-
-## Frame 6 — A network doing work
-
-- id: 06-built
-- start: 102.52
-- duration: 19.44
-- src: compositions/frames/06-built.html
-- track: 1
-
-Gemini establishes the center. Parallel arrives with traveling evidence dots; they pass through Gemini toward Cloud Run. The network contracts beneath the creator’s final decision. Routes: staged system actions, traveling packets, spatial transformation. This is an editorial architecture diagram, not a live trace.
-
-## Frame 7 — The mark lands
-
-- id: 07-close
-- start: 121.96
-- duration: 9.75
-- src: compositions/frames/07-close.html
-- track: 1
-
-Three circles converge around the Yuvo wordmark. Big idea rolls into Better story, then Devpost and music attribution settle for a readable final hold. Routes: kinetic type, causal shape travel, final lockup.
-
-## Verification
-
-Inspect camera poses during typing, attachment and feedback; preserve readable holds. Check every scene midpoint and both sides of all six boundaries. The ledger verifies directional continuity. Subtitle and voice timing stay unchanged. Cursor paths inherit each recording’s camera transforms; text-pointer visibility is explicit. UI clicks retain the recording’s timing, while shape accents follow the music’s stronger onsets.
+Opening and 0:54 seams: carrier-matched app images to actual recordings. Remaining four seams: matched leftward motion. Check both sides of the opening handoff, cursor switching at the text-field boundary, the real review/comparison frames, logo readability, voice/subtitle timing and the actual last exported frame. The source has no “Real app · waits condensed” overlay; condensed waiting time is documented in the upload description.

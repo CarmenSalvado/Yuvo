@@ -20,7 +20,7 @@
     },
     {
       "frame": 4,
-      "path": "assets/voice/04-first-cut-mix.wav",
+      "path": "assets/voice/04-understanding-mix.wav",
       "duration_s": 25.12,
       "words": []
     },
@@ -32,7 +32,7 @@
     },
     {
       "frame": 6,
-      "path": "assets/voice/06-built-mix.wav",
+      "path": "assets/voice/06-recap-mix.wav",
       "duration_s": 19.44,
       "words": []
     },
@@ -44,7 +44,7 @@
     }
   ],
   "bgm": {
-    "path": ".media/audio/bgm/bgm_001.mp3",
+    "path": "assets/electrodoodle.mp3",
     "volume": 0.09
   },
   "sfx": []

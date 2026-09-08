@@ -1,39 +1,52 @@
-# .media · 36 assets
+# Media index
 
-id                type   dur      dims      path                               description
-bgm_001           bgm    —        —         assets/funkorama.mp3               Funkorama.mp3
-logo_001          logo   —        —         assets/google-cloud.svg            googlecloud logo (official monochrome glyph)
-video_001         video  32.067s  1440×900  assets/02-idea.mp4                 02 idea; provider waits condensed, final frame held for narration
-video_002         video  10.6s    1440×900  assets/03-sources.mp4              03 sources
-video_003         video  10s      960×540   assets/04-first-cut-detail.mp4     04 first cut detail
-video_004         video  29.567s  1440×900  assets/04-first-cut.mp4            04 first cut; provider waits condensed, final frame held for narration
-video_005         video  8s       960×540   assets/05-next-cut-detail.mp4      05 next cut detail
-video_006         video  28.967s  1440×900  assets/05-next-cut.mp4             05 next cut; provider waits condensed, final frame held for narration
-image_001         image  —        1440×900  assets/comparison.png              comparison
-icon_001          icon   —        —         assets/devpost.svg                 devpost
-image_002         image  —        1440×900  assets/feedback.png                feedback
-bgm_002           bgm    201.5s   —         assets/funkorama.mp3               funkorama
-icon_002          icon   —        —         assets/gemini.svg                  gemini
-icon_003          icon   —        —         assets/google-cloud.svg            google cloud
-image_003         image  —        1440×900  assets/opportunity.png             opportunity
-image_004         image  —        600×94    assets/parallel.png                parallel
-image_005         image  —        1440×900  assets/report.png                  report
-image_006         image  —        1440×900  assets/sources.png                 sources
-voice_001         voice  6.6s     —         assets/voice/01-hook-mix.wav       01 hook mix
-voice_002         voice  5.6s     —         assets/voice/01-hook.wav           01 hook
-voice_003         voice  24s      —         assets/voice/02-idea-mix.wav       02 idea mix
-voice_004         voice  23s      —         assets/voice/02-idea.wav           02 idea
-voice_005         voice  24.6s    —         assets/voice/03-direction-mix.wav  03 direction mix
-voice_006         voice  23.6s    —         assets/voice/03-direction.wav      03 direction
-voice_007         voice  25.1s    —         assets/voice/04-first-cut-mix.wav  04 first cut mix
-voice_008         voice  24.1s    —         assets/voice/04-first-cut.wav      04 first cut
-voice_009         voice  22.1s    —         assets/voice/05-next-cut-mix.wav   05 next cut mix
-voice_010         voice  21.1s    —         assets/voice/05-next-cut.wav       05 next cut
-voice_011         voice  19.4s    —         assets/voice/06-built-mix.wav      06 built mix
-voice_012         voice  18.4s    —         assets/voice/06-built.wav          06 built
-voice_013         voice  9.8s     —         assets/voice/07-close-mix.wav      07 close mix
-voice_014         voice  7.4s     —         assets/voice/07-close.wav          07 close
-cut_bridge_still  image  —        —         assets/cut-bridge.jpg              Bridge from the story-rule circle to the actual location test
-sfx_001           sfx    0.4s     —         .media/audio/sfx/sfx_001.mp3       Quiet short click — low-key UI tap / soft selection. Short accent, sync exactly to the on-screen action.
-sfx_002           sfx    0.6s     —         .media/audio/sfx/sfx_002.mp3       Short whoosh — quick swipe/slide accent, fast element move, snappy transition. Sync to the motion.
-sfx_003           sfx    0.7s     —         .media/audio/sfx/sfx_003.mp3       Quick pop — element appear/spawn, chip/tag/badge in. Small precise accent, sync to the pop-in.
+48 registered assets.
+
+- `bgm_001` — `assets/funkorama.mp3` — Funkorama.mp3
+- `logo_001` — `assets/google-cloud.svg` — googlecloud logo (official monochrome glyph)
+- `video_001` — `assets/02-idea.mp4` — 02 idea; provider waits condensed, final frame held for narration
+- `video_002` — `assets/03-sources.mp4` — 03 sources
+- `video_003` — `assets/04-first-cut-detail.mp4` — 04 first cut detail
+- `video_004` — `assets/04-first-cut.mp4` — 04 first cut; provider waits condensed, final frame held for narration
+- `video_005` — `assets/05-next-cut-detail.mp4` — 05 next cut detail
+- `video_006` — `assets/05-next-cut.mp4` — 05 next cut; provider waits condensed, final frame held for narration
+- `image_001` — `assets/comparison.png` — comparison
+- `icon_001` — `assets/devpost.svg` — devpost
+- `image_002` — `assets/feedback.png` — feedback
+- `bgm_002` — `assets/funkorama.mp3` — funkorama
+- `icon_002` — `assets/gemini.svg` — gemini
+- `icon_003` — `assets/google-cloud.svg` — google cloud
+- `image_003` — `assets/opportunity.png` — opportunity
+- `image_004` — `assets/parallel.png` — parallel
+- `image_005` — `assets/report.png` — report
+- `image_006` — `assets/sources.png` — sources
+- `voice_001` — `assets/voice/01-hook-mix.wav` — 01 hook mix
+- `voice_002` — `assets/voice/01-hook.wav` — 01 hook
+- `voice_003` — `assets/voice/02-idea-mix.wav` — 02 idea mix
+- `voice_004` — `assets/voice/02-idea.wav` — 02 idea
+- `voice_005` — `assets/voice/03-direction-mix.wav` — 03 direction mix
+- `voice_006` — `assets/voice/03-direction.wav` — 03 direction
+- `voice_007` — `assets/voice/04-first-cut-mix.wav` — 04 first cut mix
+- `voice_008` — `assets/voice/04-first-cut.wav` — 04 first cut
+- `voice_009` — `assets/voice/05-next-cut-mix.wav` — 05 next cut mix
+- `voice_010` — `assets/voice/05-next-cut.wav` — 05 next cut
+- `voice_011` — `assets/voice/06-built-mix.wav` — 06 built mix
+- `voice_012` — `assets/voice/06-built.wav` — 06 built
+- `voice_013` — `assets/voice/07-close-mix.wav` — 07 close mix
+- `voice_014` — `assets/voice/07-close.wav` — 07 close
+- `cut_bridge_still` — `assets/cut-bridge.jpg` — Bridge from the story-rule circle to the actual location test
+- `sfx_001` — `assets/sfx-click.mp3` — Quiet short click — low-key UI tap / soft selection. Short accent, sync exactly to the on-screen action.
+- `sfx_002` — `assets/sfx-whoosh.mp3` — Short whoosh — quick swipe/slide accent, fast element move, snappy transition. Sync to the motion.
+- `sfx_003` — `assets/sfx-pop.mp3` — Quick pop — element appear/spawn, chip/tag/badge in. Small precise accent, sync to the pop-in.
+- `bgm_cirrus_review` — `assets/cirrus-review.mp3` — Bonobo — Cirrus, local review only; publication license not verified
+- `bgm_003` — `assets/electrodoodle.mp3` — Electrodoodle.mp3
+- `idea-bridge` — `assets/idea-bridge.jpg` — First frame of the actual Yuvo recording; continuous opening bridge.
+- `first-cut-six` — `assets/first-cut-six.jpg` — Actual first uploaded clip at 00:06; supports recorded review summary.
+- `first-cut-open` — `assets/first-cut-open.jpg` — Opening frame of first uploaded clip.
+- `next-cut-open` — `assets/next-cut-open.jpg` — Opening frame of second uploaded clip.
+- `voice-recap` — `assets/voice/06-recap.wav` — Google Gemini 3.1 Flash TTS, Charon; plain-language recap.
+- `voice-recap-mix` — `assets/voice/06-recap-mix.wav` — Recap normalized, 1.08x speed, opening and closing silence to 19.44 seconds.
+- `cloud-run` — `assets/cloud-run.svg` — Official Cloud Run color icon, unchanged; https://cloud.google.com/icons / core-products-icons.zip
+- `attach-bridge` — `assets/attach-bridge.jpg` — First frame of assets/04-first-cut.mp4, continuous attachment handoff
+- `voice-understanding` — `assets/voice/04-understanding.wav` — Google Gemini 3.1 Flash TTS, Kore; agentic video understanding explanation
+- `voice-understanding-mix` — `assets/voice/04-understanding-mix.wav` — Kore normalized, 1.04x speed, padded to 25.12 seconds

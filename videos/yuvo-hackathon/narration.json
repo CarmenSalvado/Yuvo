@@ -17,7 +17,7 @@
   {
     "id": "04-first-cut",
     "voice": "Kore",
-    "text": "Next, we attach a real video. This is stock footage used as an early location test, not a finished film. Gemini inspects the frames and returns observations at precise moments. It recognizes the corridor, but points out that the detective and the conflicting memories are still missing. Click a timestamp to check the observation yourself."
+    "text": "Now, agentic video understanding. We attach a real clip, an early location test. Gemini watches the frames and checks them against our idea. At six seconds, it sees an empty corridor. But our story needs a detective and conflicting memories. Yuvo turns that gap into a next move: introduce the detective."
   },
   {
     "id": "05-next-cut",
@@ -27,7 +27,7 @@
   {
     "id": "06-built",
     "voice": "Charon",
-    "text": "Under the hood, Google ADK runs Gemini three point eight Flash on Vertex AI. Parallel supplies live research. The app runs on Google Cloud Run, with invite-code access and secrets kept on the server. The creator keeps the final decision."
+    "text": "Start with your idea. Find a direction. Upload your cut. Yuvo shows what comes across, what is missing, and what to try next. Gemini reviews the video. Parallel grounds the research. You make the final call."
   },
   {
     "id": "07-close",

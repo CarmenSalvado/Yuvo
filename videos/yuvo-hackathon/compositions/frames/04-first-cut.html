@@ -1,8 +1,11 @@
 <template id="f04-first-cut"><div data-hf-id="hf-pipf" id="f04-first-cut" data-composition-id="04-first-cut" data-width="1920" data-height="1080" data-duration="25.12">
 <style>@font-face{font-family:Manrope;src:url("assets/manrope.woff2") format("woff2");font-weight:200 800;font-display:block} #f04-first-cut{position:relative;width:1920px;height:1080px;overflow:hidden;font-family:Manrope,sans-serif;color:#252B38} #f04-first-cut *{box-sizing:border-box} #f04-first-cut p,#f04-first-cut h1,#f04-first-cut h2{margin:0} #f04-first-cut .ground{position:absolute;inset:0;background:#FFFDF8} #f04-first-cut .dot{position:absolute;border-radius:50%;background:#FFDA45} #f04-first-cut .word{position:absolute;font-size:150px;line-height:1.06;font-weight:750;letter-spacing:-7px} #f04-first-cut .small{font-size:32px;line-height:1.4} #f04-first-cut .world{position:absolute;inset:0;width:1920px;height:1080px;transform-origin:50% 50%} #f04-first-cut .plate{position:absolute;overflow:hidden;border-radius:22px;background:white} #f04-first-cut .plate img{position:absolute;max-width:none}</style>
 <div data-hf-id="hf-iref" id="f04-first-cut-ground" class="ground clip" data-start="0" data-duration="25.12" data-track-index="0"></div>
-<i data-hf-id="hf-o4uw" class="dot" data-layout-allow-overflow style="left:1490px;top:740px;width:620px;height:620px;background:#72CCA8"></i>
+<i data-hf-id="hf-o4uw" class="dot" data-layout-allow-overflow="" style="left:1490px;top:740px;width:620px;height:620px;background:#72CCA8"></i>
+<div data-hf-id="hf-q2ow" id="understanding-label" style="position:absolute;left:240px;top:52px;display:flex;align-items:center;gap:20px"><img data-hf-id="hf-2om2" src="assets/gemini.svg" alt="Gemini" style="width:48px;height:48px"><p data-hf-id="hf-jemy" style="font-size:34px;font-weight:650">Agentic video understanding</p></div>
 <script>const tl=gsap.timeline({paused:true});
 
+tl.fromTo('#understanding-label',{y:12,opacity:0},{y:0,opacity:1,duration:.45,ease:'power3.out'},.2);
+tl.to('#understanding-label',{opacity:0,duration:.3},8.6);
 window.__timelines["04-first-cut"]=tl;</script>
 </div></template>

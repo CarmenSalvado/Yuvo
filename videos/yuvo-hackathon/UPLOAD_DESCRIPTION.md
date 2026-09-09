@@ -20,4 +20,4 @@ https://www.pexels.com/license/
 
 Narration: Google Cloud Gemini TTS, Puck / Kore / Charon.
 
-This 100-second film shows 11 research sources and two real uploaded cuts. The second cut adds a demolition deadline and conflicting room dialogue to the same footage. Gemini identifies those changes and the missing protagonist; the next shot is still for the filmmaker to make. Large feedback panels summarize the recorded output. Cursor, particles and sound effects were added in editing.
+This 89-second film shows 11 research sources and two real uploaded cuts. The second cut adds a demolition deadline and conflicting room dialogue to the same footage. Gemini identifies those changes and the missing protagonist; the next shot is still for the filmmaker to make. Large feedback panels summarize the recorded output. Cursor, particles and sound effects were added in editing.

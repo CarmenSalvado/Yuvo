@@ -2,7 +2,6 @@
 
 <i data-hf-id="hf-74wv" class="dot" data-layout-ignore style="left:-250px;top:-250px;width:650px;height:650px"></i><i data-hf-id="hf-tlja" class="dot" data-layout-ignore style="right:-200px;bottom:-260px;width:600px;height:600px;background:#8bcff5"></i>
 <div data-hf-id="hf-e3hp" id="r-camera" class="camera" data-layout-allow-overflow><div data-hf-id="hf-cdmk" class="screen"><video data-hf-id="hf-2b21" id="r-video" class="clip" src="assets/dopamine/research-ui.mp4" muted playsinline data-start="0" data-duration="20" data-track-index="2"></video></div><div data-hf-id="hf-3lg5" id="r-pointer" class="pointer" data-layout-ignore></div><div data-hf-id="hf-xxb9" id="r-ring" class="click-ring" style="left:390px;top:510px"></div></div>
-<div data-hf-id="hf-jkb9" id="r-label" class="chip" style="left:120px;top:50px">Your idea → real research</div>
 <div data-hf-id="hf-wa8m" id="r-partners" style="position:absolute;left:110px;bottom:52px;display:flex;gap:18px"><div data-hf-id="hf-um6g" class="badge"><img data-hf-id="hf-q5n6" src="assets/gemini.svg" width="44" height="44">Plans the search</div><div data-hf-id="hf-ybux" class="badge"><img data-hf-id="hf-ijnj" src="assets/parallel.png" width="160" height="27">Finds the evidence</div></div>
 <div data-hf-id="hf-gb0v" id="r-particles" class="layer"></div>
 
@@ -16,7 +15,7 @@ function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);
 tl.set('#r-camera',{scale:1.7,x:845,y:225},0);
 tl.fromTo('#r-pointer',{x:390,y:1200},{x:390,y:275,duration:.18,ease:'power3.out'},0);
 tl.to('#r-pointer',{x:770,y:970,duration:.65,ease:'power3.inOut'},.25);
-reveal('#r-label',.2,0,-70,.4);
+
 tl.to('#r-pointer',{x:395,y:525,duration:.65,ease:'power3.inOut'},9.15);tap('#r-pointer','#r-ring',10);
 tl.to('#r-camera',{scale:1,x:0,y:0,duration:.65,ease:'power4.inOut'},10.05);
 tl.to('#r-pointer',{x:1780,y:1120,duration:.6,ease:'power3.inOut'},10.2);

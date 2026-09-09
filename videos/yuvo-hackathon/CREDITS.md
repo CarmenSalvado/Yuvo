@@ -34,6 +34,8 @@ Application footage was recorded from the running redesigned Yuvo app on 2026-09
 
 ## Marks and type
 
+The closing Yuvo mark reuses the app’s own yellow circle, Manrope y and −8° rotation.
+
 Gemini, Parallel and Devpost marks: sources in ../../public/brand/SOURCES.md. Used to identify integrations and the event; no endorsement claimed.
 Cloud Run: official color SVG from the Google Cloud product icon library (https://cloud.google.com/icons), core-products-icons.zip. Used unchanged to identify the deployment platform.
 Manrope: Google Fonts, SIL Open Font License, source and license https://github.com/google/fonts/tree/main/ofl/manrope . The Latin variable font was copied from the app’s Next.js build.
@@ -41,7 +43,7 @@ GSAP 3.14.2: https://gsap.com/standard-license/ . Local runtime copy preserves i
 
 ## Delivery
 
-100 seconds, 1920×1080, 30 fps. English voiceover. Music attribution is supplied in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
+89 seconds, 1920×1080, 30 fps. English voiceover. Music attribution is supplied in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
 
 ## Cursor and sound effects
 

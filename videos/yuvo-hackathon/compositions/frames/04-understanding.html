@@ -1,11 +1,10 @@
-<template id="film-04-understanding"><div data-hf-id="hf-8njx" id="film-04-understanding" class="film-scene" data-composition-id="film-04-understanding" data-start="0" data-duration="21.1" data-width="1920" data-height="1080">
+<template id="film-04-understanding"><div data-hf-id="hf-8njx" id="film-04-understanding" class="film-scene" data-composition-id="film-04-understanding" data-start="0" data-duration="18.6" data-width="1920" data-height="1080">
 
 <i data-hf-id="hf-exmw" class="dot" data-layout-ignore style="left:-220px;top:-250px;width:640px;height:640px;background:#8bcff5"></i>
 <div data-hf-id="hf-fofd" id="v-camera" class="camera" data-layout-allow-overflow><div data-hf-id="hf-cdmk" class="screen"><video data-hf-id="hf-vm32" id="v-ui" class="clip" src="assets/dopamine/first-ui.mp4" muted playsinline data-start="0" data-duration="8.5" data-track-index="2"></video></div><div data-hf-id="hf-cbd5" id="v-pointer" class="pointer" data-layout-ignore></div><div data-hf-id="hf-1r7t" id="v-ring" class="click-ring" style="left:686px;top:810px"></div></div>
 <div data-hf-id="hf-m0k1" id="v-label" class="chip" style="left:100px;top:38px;display:flex;align-items:center;gap:15px"><img data-hf-id="hf-olp6" src="assets/gemini.svg" width="40" height="40">Agentic video understanding</div>
 <div data-hf-id="hf-7ocg" id="v-proof" class="layer"><h2 data-hf-id="hf-znjb" class="headline" style="position:absolute;left:130px;top:160px;font-size:90px">The location fits.</h2><div data-hf-id="hf-xyzx" id="v-footage" class="photo" style="left:130px;top:310px;width:950px;height:535px"><video data-hf-id="hf-okqd" id="v-proof-video" class="clip" src="assets/dopamine/cut-01-location.mp4" muted playsinline data-start="8.5" data-duration="10" data-track-index="3"></video></div><div data-hf-id="hf-swpi" id="v-still" class="photo" style="left:130px;top:310px;width:950px;height:535px"><img data-hf-id="hf-472s" src="assets/dopamine/cut-01-location-6.jpg"></div>
 <div data-hf-id="hf-pe8c" id="v-gap" class="panel" style="left:1140px;top:335px;width:650px;min-height:440px;background:#fff0e7"><p data-hf-id="hf-78ee" class="tag">GEMINI NOTICED</p><h3 data-hf-id="hf-8cr6" style="font-size:64px;line-height:1.12;letter-spacing:-3px;margin-top:22px">Where is<br data-hf-id="hf-x5px">the protagonist?</h3><p data-hf-id="hf-ef4q" class="note" style="margin-top:26px">The idea isn’t visible yet.</p></div>
-<div data-hf-id="hf-zhnn" id="v-time" class="chip" style="left:160px;top:340px">Check the frame</div>
 <div data-hf-id="hf-ujwx" id="v-next" class="panel" style="left:130px;top:890px;width:1660px;padding:24px 34px;background:#ffda45"><p data-hf-id="hf-nzb9" style="font-size:43px;font-weight:700">Next shot → Show her touching the wall.</p></div></div>
 <div data-hf-id="hf-ueg3" id="v-particles" class="layer"></div>
 
@@ -16,7 +15,7 @@ function burst(id,t,x,y){const box=document.getElementById(id);for(let i=0;i<18;
 function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);tl.to(sel,{scale:1,duration:.16,ease:'power2.out'},t+.08);tl.fromTo(ring,{scale:.3,opacity:.8},{scale:1.6,opacity:0,duration:.45,ease:'power2.out',immediateRender:false},t)}
 
 
-tl.set('#v-camera',{scale:1.15,x:-120,y:0},0);reveal('#v-label',.1,0,-80,.45);
+tl.set('#v-camera',{scale:1.15,x:-120,y:0},0);reveal('#v-label',8.5,0,-45,.35);
 tl.fromTo('#v-pointer',{x:680,y:1200},{x:695,y:823,duration:.55,ease:'power3.out'},.2);tap('#v-pointer','#v-ring',1.0);
 tl.to('#v-pointer',{x:880,y:880,duration:.5,ease:'power3.inOut'},1.3);
 tl.to('#v-camera',{scale:1.4,x:-240,y:-110,duration:.65,ease:'power3.inOut'},2.7);
@@ -24,7 +23,7 @@ tl.to('#v-pointer',{x:1850,y:1140,duration:.6,ease:'power3.inOut'},3);
 tl.to('#v-camera',{x:-2000,opacity:0,duration:.5,ease:'power4.in'},8);
 tl.set('#v-camera',{opacity:0},8.5);
 reveal('#v-proof',8.5,240,0,.55);tl.set('#v-still',{opacity:0},0);tl.set('#v-still',{opacity:1},18.49);
-reveal('#v-gap',10.9,120,0,.5);pop('#v-time',12.5);burst('v-particles',12.6,270,365);reveal('#v-next',16,0,100,.5);
+reveal('#v-gap',10.9,120,0,.5);reveal('#v-next',16,0,100,.5);
 
 window.__timelines["film-04-understanding"]=tl;</script>
 </div></template>

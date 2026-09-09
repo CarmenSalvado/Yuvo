@@ -39,85 +39,77 @@ Eleven sources. One useful direction:
 let the building’s damage shape what it remembers.
 
 11
-00:00:34,790 --> 00:00:36,890
-Open the research behind the idea.
-
-12
-00:00:37,170 --> 00:00:39,440
-Then make your own creative decision.
-
-13
-00:00:41,400 --> 00:00:44,160
+00:00:35,400 --> 00:00:38,160
 Now, agentic video understanding.
 
-14
-00:00:44,640 --> 00:00:46,000
+12
+00:00:38,640 --> 00:00:40,000
 Attach a real cut.
 
-15
-00:00:46,560 --> 00:00:49,360
+13
+00:00:40,560 --> 00:00:43,360
 Gemini checks the frames against your premise.
 
-16
-00:00:49,760 --> 00:00:51,880
+14
+00:00:43,760 --> 00:00:45,880
 It sees the abandoned setting,
 
-17
-00:00:52,000 --> 00:00:54,000
+15
+00:00:46,000 --> 00:00:48,000
 but catches the missing protagonist.
 
-18
-00:00:54,480 --> 00:00:55,560
+16
+00:00:48,480 --> 00:00:49,560
 Click a timestamp.
 
-19
-00:00:55,880 --> 00:00:57,080
+17
+00:00:49,880 --> 00:00:51,080
 See exactly what it means.
 
-20
-00:01:02,450 --> 00:01:04,610
+18
+00:00:53,950 --> 00:00:56,110
 Let’s iterate. We add a deadline
 
-21
-00:01:04,610 --> 00:01:07,490
+19
+00:00:56,110 --> 00:00:58,990
 and two conflicting memories to the same footage.
 
-22
-00:01:07,880 --> 00:01:09,290
+20
+00:00:59,380 --> 00:01:00,790
 Upload the new cut.
 
-23
-00:01:10,140 --> 00:01:12,990
+21
+00:01:01,640 --> 00:01:04,490
 Gemini compares both videos.
 
-24
-00:01:13,270 --> 00:01:15,030
+22
+00:01:04,770 --> 00:01:06,530
 It spots the new text,
 
-25
-00:01:15,030 --> 00:01:17,390
+23
+00:01:06,530 --> 00:01:08,890
 and tells us what still needs work:
 
-26
-00:01:17,600 --> 00:01:20,460
+24
+00:01:09,100 --> 00:01:11,960
 show the woman interacting with the building.
 
-27
-00:01:20,700 --> 00:01:23,120
+25
+00:01:12,200 --> 00:01:14,620
 That’s a specific shot we can make next.
 
-28
-00:01:26,400 --> 00:01:28,620
+26
+00:01:15,400 --> 00:01:17,620
 Idea. Evidence. Cut.
 
-29
-00:01:28,980 --> 00:01:30,940
+27
+00:01:17,980 --> 00:01:19,940
 A clear next move.
 
-30
-00:01:31,360 --> 00:01:34,220
+28
+00:01:20,360 --> 00:01:23,220
 Powered by Gemini, Parallel, and Google Cloud Run.
 
-31
-00:01:34,920 --> 00:01:38,180
+29
+00:01:23,920 --> 00:01:27,180
 Yuvo. Big idea. Better story.

@@ -1,12 +1,11 @@
-<template id="film-03-direction"><div data-hf-id="hf-b3fv" id="film-03-direction" class="film-scene" data-composition-id="film-03-direction" data-start="0" data-duration="14.1" data-width="1920" data-height="1080">
+<template id="film-03-direction"><div data-hf-id="hf-b3fv" id="film-03-direction" class="film-scene" data-composition-id="film-03-direction" data-start="0" data-duration="8.1" data-width="1920" data-height="1080">
 
-<i data-hf-id="hf-x30n" class="dot" data-layout-ignore style="left:-220px;bottom:-250px;width:600px;height:600px;background:#ff7853"></i>
-<div data-hf-id="hf-pghf" id="d-camera" class="camera" data-layout-allow-overflow><div data-hf-id="hf-cdmk" class="screen"><img data-hf-id="hf-dxca" src="assets/dopamine/direction.png"></div></div>
+<i data-hf-id="hf-x30n" class="dot" data-layout-ignore="" style="left:-220px;bottom:-250px;width:600px;height:600px;background:#ff7853"></i>
+<div data-hf-id="hf-pghf" id="d-camera" class="camera" data-layout-allow-overflow=""><div data-hf-id="hf-cdmk" class="screen"><img data-hf-id="hf-dxca" src="assets/dopamine/direction.png"></div></div>
+<div data-hf-id="hf-0v4v" id="d-shade" class="layer" style="background:#fffdf8;opacity:.78"></div>
 <div data-hf-id="hf-wioi" id="d-count" class="panel" style="left:130px;top:170px;width:510px;height:280px"><img data-hf-id="hf-vues" src="assets/parallel.png" width="190" height="32"><p data-hf-id="hf-z32m" style="font-size:118px;line-height:1.2;font-weight:750;letter-spacing:-6px">11 <span data-hf-id="hf-3o4r" style="font-size:38px;letter-spacing:-1px">sources</span></p></div>
 <div data-hf-id="hf-k17d" id="d-insight" class="panel" style="left:740px;top:290px;width:1060px;min-height:400px;background:#d8f1e4"><p data-hf-id="hf-4l1t" class="tag" style="display:flex;align-items:center;gap:16px"><img data-hf-id="hf-eols" src="assets/gemini.svg" width="50" height="50">THE IDEA TO TEST</p><h2 data-hf-id="hf-k1nj" class="headline" style="font-size:86px;margin-top:24px">Let damage<br data-hf-id="hf-x5px">shape memory.</h2><p data-hf-id="hf-q341" class="note" style="margin-top:24px">A physical rule for an impossible story.</p></div>
-<div data-hf-id="hf-cec0" id="d-evidence" data-layout-allow-overflow class="screen" style="left:240px;top:100px"><video data-hf-id="hf-g4ka" id="d-evidence-video" class="clip" src="assets/dopamine/direction-ui.mp4" muted playsinline data-start="7" data-duration="6.1" data-track-index="3"></video></div>
-<div data-hf-id="hf-yuhx" id="d-evidence-label" class="chip" style="left:110px;bottom:42px">Open the evidence. Make your call.</div>
-<div data-hf-id="hf-oo73" id="d-pointer" class="pointer" data-layout-ignore></div><div data-hf-id="hf-x1ge" id="d-ring" class="click-ring" style="left:1500px;top:308px"></div><div data-hf-id="hf-lk2h" id="d-particles" class="layer"></div>
+<div data-hf-id="hf-oo73" id="d-pointer" class="pointer" data-layout-ignore=""></div><div data-hf-id="hf-x1ge" id="d-ring" class="click-ring" style="left:1322px;top:730px"></div><div data-hf-id="hf-lk2h" id="d-particles" class="layer"></div>
 
 <script>const tl=gsap.timeline({paused:true});
 function reveal(sel,t,x=0,y=70,d=.5){tl.fromTo(sel,{x,y,opacity:0},{x:0,y:0,opacity:1,duration:d,ease:'power4.out'},t)}
@@ -15,17 +14,13 @@ function burst(id,t,x,y){const box=document.getElementById(id);for(let i=0;i<18;
 function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);tl.to(sel,{scale:1,duration:.16,ease:'power2.out'},t+.08);tl.fromTo(ring,{scale:.3,opacity:.8},{scale:1.6,opacity:0,duration:.45,ease:'power2.out',immediateRender:false},t)}
 
 
-tl.set('#d-camera',{scale:.92,opacity:.28},0);
-pop('#d-count',.15);burst('d-particles',.4,370,380);reveal('#d-insight',1.1,250,0,.6);
-tl.fromTo('#d-pointer',{x:1500,y:1200},{x:1500,y:650,duration:.7,ease:'power3.out'},5.3);
-tl.to(['#d-count','#d-insight'],{x:-1600,opacity:0,duration:.55,ease:'power4.in'},6.4);
-tl.fromTo('#d-evidence',{x:180,opacity:0},{x:0,opacity:1,duration:.5,ease:'power4.out'},7);
-tl.to('#d-pointer',{x:1510,y:320,duration:.6,ease:'power3.inOut'},7.8);tap('#d-pointer','#d-ring',8.3);
-tl.set('#d-count, #d-insight',{opacity:0},7);
-reveal('#d-evidence-label',8.2,0,90,.4);
-tl.to('#d-evidence',{scale:1.18,x:-70,y:-60,duration:.6,ease:'power3.inOut'},8.5);
-tl.to('#d-pointer',{x:1850,y:1130,duration:.6,ease:'power3.inOut'},9);
-tl.to('#d-evidence',{opacity:0,duration:.2},13.05);tl.to('#d-camera',{scale:1,opacity:1,duration:.3},13.05);
+tl.set('#d-camera',{scale:1.12,x:-60,y:0},0);
+tl.set('#d-count, #d-insight',{opacity:1},0);burst('d-particles',.15,370,380);
+tl.to('#d-count, #d-insight',{opacity:0,scale:.96,duration:.35,ease:'power2.inOut'},5.9);
+tl.to('#d-shade',{opacity:0,duration:.35,ease:'power2.inOut'},5.9);
+tl.set('#d-count, #d-insight, #d-shade',{opacity:0},6.25);
+tl.fromTo('#d-pointer',{x:1750,y:1100},{x:1330,y:743,duration:.6,ease:'power3.out'},6.6);
+tap('#d-pointer','#d-ring',7.75);
 
 window.__timelines["film-03-direction"]=tl;</script>
 </div></template>

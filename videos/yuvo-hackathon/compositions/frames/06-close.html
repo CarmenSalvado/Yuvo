@@ -1,10 +1,15 @@
 <template id="film-06-close"><div data-hf-id="hf-nk5p" id="film-06-close" class="film-scene" data-composition-id="film-06-close" data-start="0" data-duration="14.1" data-width="1920" data-height="1080">
 
-<i data-hf-id="hf-6sjc" id="c-yellow" class="dot" data-layout-ignore style="left:280px;top:265px;width:380px;height:380px"></i><i data-hf-id="hf-mrlc" id="c-coral" class="dot" data-layout-ignore style="left:770px;top:265px;width:380px;height:380px;background:#ff7853"></i><i data-hf-id="hf-oiv5" id="c-blue" class="dot" data-layout-ignore style="left:1260px;top:265px;width:380px;height:380px;background:#8bcff5"></i>
+<i data-hf-id="hf-6sjc" id="c-yellow" class="dot" data-layout-ignore="" style="left:280px;top:265px;width:380px;height:380px"></i><i data-hf-id="hf-mrlc" id="c-coral" class="dot" data-layout-ignore="" style="left:770px;top:265px;width:380px;height:380px;background:#ff7853"></i><i data-hf-id="hf-oiv5" id="c-blue" class="dot" data-layout-ignore="" style="left:1260px;top:265px;width:380px;height:380px;background:#8bcff5"></i>
 <div data-hf-id="hf-sxdc" id="c-idea" class="headline" style="position:absolute;left:280px;top:400px;width:380px;text-align:center;font-size:65px">Idea.</div><div data-hf-id="hf-oohl" id="c-evidence" class="headline" style="position:absolute;left:770px;top:400px;width:380px;text-align:center;font-size:62px">Evidence.</div><div data-hf-id="hf-r95x" id="c-cut" class="headline" style="position:absolute;left:1260px;top:400px;width:380px;text-align:center;font-size:65px">Cut.</div>
 <p data-hf-id="hf-6roe" id="c-move" class="headline" style="position:absolute;left:140px;top:740px;width:1640px;text-align:center;font-size:90px">A clear next move.</p>
 <div data-hf-id="hf-6ofo" id="c-logos" style="position:absolute;left:310px;top:485px;display:flex;align-items:center;gap:100px"><div data-hf-id="hf-l9qi" class="badge" style="font-size:45px"><img data-hf-id="hf-4vug" src="assets/gemini.svg" width="90" height="90">Gemini</div><img data-hf-id="hf-sd2r" src="assets/parallel.png" width="310" height="51"><div data-hf-id="hf-r97t" class="badge" style="font-size:36px"><img data-hf-id="hf-hlyo" src="assets/cloud-run.svg" width="80" height="80">Cloud Run</div></div>
-<div data-hf-id="hf-xhnj" id="c-lockup" class="layer"><div data-hf-id="hf-ge96" class="brand" style="position:absolute;left:340px;top:260px;width:1240px;text-align:center;font-size:300px;letter-spacing:-18px">Yuvo</div><p data-hf-id="hf-x12h" class="headline" style="position:absolute;left:200px;top:630px;width:1520px;text-align:center;font-size:78px">Big idea. Better story.</p><div data-hf-id="hf-6ece" style="position:absolute;left:620px;top:880px;display:flex;align-items:center;gap:20px"><img data-hf-id="hf-0950" src="assets/devpost.svg" width="68" height="68"><p data-hf-id="hf-7sqy" class="note" style="font-size:30px">Agentic Cinema · Parallel track</p></div></div>
+<div data-hf-id="hf-xhnj" id="c-lockup" class="layer">
+<div data-hf-id="hf-o6tn" id="c-brand-row" style="position:absolute;left:0;top:295px;width:1920px;display:flex;align-items:center;justify-content:center;gap:44px">
+<div data-hf-id="hf-ih28" id="c-mark" style="display:grid;place-items:center;width:230px;height:230px;border-radius:50%;background:#ffda45;color:#252b38;font-size:240px;font-weight:800;line-height:1;padding-bottom:40px">y</div>
+<div data-hf-id="hf-etf0" id="c-wordmark" class="brand" style="font-size:270px;letter-spacing:-16px">Yuvo</div></div>
+<p data-hf-id="hf-28am" id="c-promise" class="headline" style="position:absolute;left:200px;top:630px;width:1520px;text-align:center;font-size:78px">Big idea. Better story.</p>
+<div data-hf-id="hf-epay" id="c-devpost" style="position:absolute;left:0;top:875px;width:1920px;display:flex;align-items:center;justify-content:center;gap:20px"><img data-hf-id="hf-0950" src="assets/devpost.svg" width="68" height="68"><p data-hf-id="hf-7sqy" class="note" style="font-size:30px">Agentic Cinema · Parallel track</p></div></div>
 <div data-hf-id="hf-chsa" id="c-particles" class="layer"></div>
 
 <script>const tl=gsap.timeline({paused:true});
@@ -17,8 +22,8 @@ function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);
 tl.fromTo('#c-yellow',{scale:.85},{scale:1,duration:.45,ease:'back.out(1.5)'},0);reveal('#c-idea',.1,0,70,.4);pop('#c-coral',.85);reveal('#c-evidence',.85,0,70,.4);pop('#c-blue',1.65);reveal('#c-cut',1.65,0,70,.4);reveal('#c-move',2.7,0,100,.45);burst('c-particles',2.9,960,770);
 tl.to(['#c-idea','#c-evidence','#c-cut','#c-move'],{y:-150,opacity:0,duration:.4,ease:'power3.in'},4.3);
 tl.to('#c-yellow',{x:-550,y:-380,scale:1.6,duration:.7,ease:'power3.inOut'},4.3);tl.to('#c-coral',{x:850,y:-450,scale:.8,duration:.7,ease:'power3.inOut'},4.3);tl.to('#c-blue',{x:330,y:650,scale:1.4,duration:.7,ease:'power3.inOut'},4.3);
-reveal('#c-logos',4.8,0,100,.55);tl.to('#c-logos',{y:-200,opacity:0,duration:.4,ease:'power4.in'},8.1);
-tl.fromTo('#c-lockup',{scale:1.12,opacity:0},{scale:1,opacity:1,duration:.65,ease:'power4.out'},8.5);burst('c-particles',9,960,560);
+reveal('#c-logos',4.8,0,100,.55);tl.to('#c-logos',{y:-200,opacity:0,duration:.4,ease:'power4.in'},7.8);
+tl.set('#c-mark',{rotation:-8},0);pop('#c-mark',8.35);reveal('#c-wordmark',8.55,85,0,.5);reveal('#c-promise',9.1,0,55,.4);reveal('#c-devpost',9.45,0,35,.4);burst('c-particles',8.65,670,420);
 
 window.__timelines["film-06-close"]=tl;</script>
 </div></template>

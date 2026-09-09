@@ -39,7 +39,7 @@
     },
     {
       "id": "03-direction to 04-understanding",
-      "cut": 41,
+      "cut": 35,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#scene-03-direction",
@@ -57,7 +57,7 @@
     },
     {
       "id": "04-understanding to 05-iteration",
-      "cut": 62,
+      "cut": 53.5,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#scene-04-understanding",
@@ -75,7 +75,7 @@
     },
     {
       "id": "05-iteration to 06-close",
-      "cut": 86,
+      "cut": 75,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#scene-05-iteration",

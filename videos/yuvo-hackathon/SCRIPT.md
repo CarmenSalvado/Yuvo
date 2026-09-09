@@ -12,7 +12,7 @@ Start with an idea: a woman can talk to abandoned buildings. Their memories are 
 
 ## 03-direction
 
-Eleven sources. One useful direction: let the building’s damage shape what it remembers. Open the research behind the idea. Then make your own creative decision.
+Eleven sources. One useful direction: let the building’s damage shape what it remembers.
 
 ## 04-understanding
 

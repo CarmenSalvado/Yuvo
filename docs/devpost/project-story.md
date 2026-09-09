@@ -6,7 +6,7 @@ We kept coming back to that premise while building Yuvo. We could picture the se
 
 We wanted a creative partner that could research the stories around an idea, then stay useful once there was footage to review. The feedback had to lead to something a filmmaker could try in the next cut.
 
-![Illustration of a woman touching a damaged house as fragments of its memory float above her.](https://raw.githubusercontent.com/CarmenSalvado/Yuvo/main/docs/devpost/story-assets/premise.png)
+![Illustration of a woman touching a damaged house as fragments of its memory float above her.](https://yuvo.migarci2.dev/story-assets/premise.png)
 
 *Concept illustration for the premise used in our demo.*
 
@@ -16,13 +16,13 @@ Write a premise. Gemini plans the research, and Parallel searches for related st
 
 In our recorded demo, the research returned 11 sources. One direction was to let the building's physical damage shape what it could remember.
 
-![Yuvo researches the premise with Parallel, then shows 11 sources and a creative direction from Gemini.](https://raw.githubusercontent.com/CarmenSalvado/Yuvo/main/docs/devpost/story-assets/research.gif)
+![Yuvo researches the premise with Parallel, then shows 11 sources and a creative direction from Gemini.](https://yuvo.migarci2.dev/story-assets/research.gif)
 
 Then attach a real video. Yuvo uses **agentic video understanding** to review the frames against your premise and research. Click a timestamp to inspect a moment. Upload another cut, and Gemini compares both videos.
 
 You can also revise the written premise in the Audience Room. Its synthetic critical perspectives help question the idea; they don't predict how a real audience will react.
 
-![A video is attached to Yuvo. Gemini reviews it and identifies the missing protagonist.](https://raw.githubusercontent.com/CarmenSalvado/Yuvo/main/docs/devpost/story-assets/video-review.gif)
+![A video is attached to Yuvo. Gemini reviews it and identifies the missing protagonist.](https://yuvo.migarci2.dev/story-assets/video-review.gif)
 
 *These GIFs come from the demo recorded with live Gemini and Parallel responses. Waiting time is condensed; the larger feedback panels summarize the returned results.*
 
@@ -32,7 +32,7 @@ We built the app with Next.js and React. A Google ADK agent uses Gemini 3.8 Flas
 
 Parallel handles two concurrent research requests: one for related creative work, the other for audience and critic feedback. We retain the source links and excerpts, then validate Gemini's report against those sources.
 
-![Architecture showing Gemini planning searches, Parallel returning evidence, and Gemini proposing a direction. The creator supplies a cut for visual review and uploads revisions.](https://raw.githubusercontent.com/CarmenSalvado/Yuvo/main/docs/devpost/story-assets/architecture.png)
+![Architecture showing Gemini planning searches, Parallel returning evidence, and Gemini proposing a direction. The creator supplies a cut for visual review and uploads revisions.](https://yuvo.migarci2.dev/story-assets/architecture.png)
 
 For a comparison, we send both video files to Gemini with the premise and research context. The model can inspect what changed in the footage itself.
 
@@ -54,7 +54,7 @@ The first cut showed an abandoned corridor. Gemini recognized the setting but po
 
 Gemini noticed those additions. It also noticed that the woman was still missing. Its next suggestion was to show her making physical contact with the building.
 
-![Yuvo compares two uploaded cuts, recognizes the added text and suggests showing the woman touching the wall.](https://raw.githubusercontent.com/CarmenSalvado/Yuvo/main/docs/devpost/story-assets/iteration.gif)
+![Yuvo compares two uploaded cuts, recognizes the added text and suggests showing the woman touching the wall.](https://yuvo.migarci2.dev/story-assets/iteration.gif)
 
 That gave us a specific shot to make. We were glad the model could acknowledge a change without assuming it solved the problem.
 

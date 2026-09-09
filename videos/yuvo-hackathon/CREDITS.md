@@ -21,16 +21,16 @@ Changes: excerpted, mixed under narration, opening and closing fades. This is li
 
 ## Voice
 
-Generated for this film with Google Cloud Gemini 3.1 Flash TTS (preview): Puck, Kore and Charon. Script in SCRIPT.md, exact spoken text and voice choices in narration.json. Voices are normalized and padded for the edit. No voice cloning or impersonation.
+Generated for this film with Google Cloud Gemini 3.1 Flash TTS (preview): Puck, Kore and Charon. Script in SCRIPT.md, exact spoken text and voice choices in narration.json. Voices are normalized for the edit. No voice cloning or impersonation.
 
 ## Footage and screen recordings
 
 Location test footage: Florian Delée, Pexels, “A long hallway with graffiti on the walls.”
 https://www.pexels.com/video/a-long-hallway-with-graffiti-on-the-walls-17037805/
 License: https://www.pexels.com/license/
-First and second cuts are extracts of the same stock footage; the video explicitly identifies them as a location test, not an original completed film. No implied endorsement by the contributor or Pexels.
+The first cut is a 10-second location test. The second uses the same extract with original text overlays: a demolition deadline and conflicting North/South room memories. The film shows an early story test, not a completed narrative film. No implied endorsement by the contributor or Pexels.
 
-Application footage was recorded from the running Yuvo app on 2026-09-08, using Google ADK, Gemini 3.8 Flash on Vertex AI and live Parallel Search. No fetch interception, mocked providers or prepared responses were used. Waiting intervals are cut; this is documented in the accompanying upload description. Cut detail shots show the actual uploaded media. Still images are captured from the same live report and reviews. The room-circle graphic and traveling provider dots are editorial explanations, not additional app features or a recorded execution trace. The bridge still is extracted from the actual first uploaded cut.
+Application footage was recorded from the running redesigned Yuvo app on 2026-09-09 (Europe/Madrid), using Google ADK, Gemini 3.8 Flash on Vertex AI and live Parallel Search. No fetch interception, mocked providers or prepared responses were used in the film recording. Waiting intervals are condensed. The 11-source report and both reviews are saved in `assets/dopamine/research.json` and `reviews.json`. Large editorial panels faithfully summarize those responses.
 
 ## Marks and type
 
@@ -41,14 +41,12 @@ GSAP 3.14.2: https://gsap.com/standard-license/ . Local runtime copy preserves i
 
 ## Delivery
 
-131.71 seconds, 1920×1080, 30 fps. English voiceover. Music attribution is supplied in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
+100 seconds, 1920×1080, 30 fps. English voiceover. Music attribution is supplied in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
 
 ## Cursor and sound effects
 
-The macOS arrow and text cursor are unchanged SVG assets reused from the landing project; provenance and upstream terms are in ../landing-demo/assets/SOURCES.md. Cursor choreography is added in post-production over the real app recording. The text cursor appears only while hovering over the text input. It is not a recording of OS mouse telemetry.
+The unchanged macOS arrow SVG is reused from the landing project; provenance and upstream terms are in ../landing-demo/assets/SOURCES.md. Cursor choreography is added in post-production over the real app recording. The native text caret remains in the recording; the arrow moves away during typing. This is not OS mouse telemetry.
 
 Soft click, short whoosh and pop: bundled HyperFrames media-use sound-effect library, resolved locally through media-use. Effects are placed on the corresponding UI actions and graphic transformations; they are not original location sound.
 
-The review and comparison panels are editorial summaries of the recorded Gemini responses. Their stills come from the actual uploaded clips (first cut at 00:06 and each cut’s opening frame). They do not show AI-generated improvements or claim a finished film. The opening bridge is the actual first frame of the app recording. The recap voice is regenerated from the simpler script and time-adjusted by 1.08× before padding.
-
-The video-understanding narration uses Kore, normalized at 1.04× speed and padded to 25.12 seconds. The 0:54 bridge is the first frame of the actual attachment recording.
+The title panels, colored circles, particles, cursor and camera moves are editorial motion design. They do not represent additional backend features.

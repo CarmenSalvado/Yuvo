@@ -1,35 +1,28 @@
-<template id="f01-hook"><div data-hf-id="hf-bxk9" id="f01-hook" data-composition-id="01-hook" data-width="1920" data-height="1080" data-duration="6.70">
-<style>@font-face{font-family:Manrope;src:url("assets/manrope.woff2") format("woff2");font-weight:200 800;font-display:block} #f01-hook{position:relative;width:1920px;height:1080px;overflow:hidden;font-family:Manrope,sans-serif;color:#252B38} #f01-hook *{box-sizing:border-box} #f01-hook p,#f01-hook h1,#f01-hook h2{margin:0} #f01-hook .ground{position:absolute;inset:0;background:#FFFDF8} #f01-hook .dot{position:absolute;border-radius:50%;background:#FFDA45} #f01-hook .word{position:absolute;font-size:175px;line-height:1.06;font-weight:750;letter-spacing:-7px} #f01-hook .small{font-size:32px;line-height:1.4} #f01-hook .world{position:absolute;inset:0;width:1920px;height:1080px;transform-origin:50% 50%} #f01-hook .plate{position:absolute;overflow:hidden;border-radius:22px;background:white} #f01-hook .plate img{position:absolute;max-width:none}</style>
-<div data-hf-id="hf-6bol" id="f01-hook-ground" class="ground clip" data-start="0" data-duration="6.70" data-track-index="0"></div>
+<template id="film-01-hook"><div data-hf-id="hf-t755" id="film-01-hook" class="film-scene" data-composition-id="film-01-hook" data-start="0" data-duration="7.1" data-width="1920" data-height="1080">
 
-<div data-hf-id="hf-x994" id="hook-world" class="world">
-<i data-hf-id="hf-yhfz" id="hook-corner" class="dot" style="left:1490px;top:740px;width:620px;height:620px"></i>
-<i data-hf-id="hf-u2ze" id="hook-seed" class="dot" style="left:1170px;top:300px;width:420px;height:420px"></i>
-<div data-hf-id="hf-mjpn" id="hook-brand" style="position:absolute;left:280px;top:300px;width:1360px;text-align:center;font-size:300px;line-height:1.1;font-weight:750;letter-spacing:-17px">Yuvo</div>
-<p data-hf-id="hf-frsf" id="hook-promise" style="position:absolute;left:280px;top:760px;width:1360px;text-align:center;font-size:48px;letter-spacing:-1px">From idea to next take.</p>
-<h1 data-hf-id="hf-gcnw" id="hook-an" class="word" style="left:210px;top:400px">An</h1><h1 data-hf-id="hf-5pei" id="hook-idea" class="word" style="left:470px;top:400px">idea.</h1>
-<div data-hf-id="hf-ufna" id="hook-question" style="position:absolute;left:210px;top:590px;overflow:hidden;height:160px"><p data-hf-id="hf-sjc1" id="hook-worth" class="word" style="position:relative;font-size:110px;letter-spacing:-5px">Worth watching?</p></div>
-<i data-hf-id="hf-kv3u" id="hook-blue" class="dot" style="left:1590px;top:630px;width:100px;height:100px;background:#0866E6"></i>
-<div data-hf-id="hf-nwqi" id="hook-preview" class="plate" style="left:240px;top:145px;width:1440px;height:900px"><img data-hf-id="hf-tnyl" src="assets/idea-bridge.jpg" alt="The Yuvo workspace" style="left:0;top:0;width:1440px;height:900px"></div>
-</div>
+<i data-hf-id="hf-u7uf" id="h-yellow" class="dot" data-layout-ignore style="left:560px;top:260px;width:550px;height:550px"></i>
+<div data-hf-id="hf-7g48" id="h-brand" class="brand" style="position:absolute;left:400px;top:280px;width:1120px;text-align:center;font-size:280px;letter-spacing:-17px">Yuvo</div>
+<div data-hf-id="hf-j4kw" id="h-promise" class="note" style="position:absolute;left:400px;top:620px;width:1120px;text-align:center">Big idea. Better story.</div>
+<div data-hf-id="hf-gdu7" id="h-film" class="photo" style="left:830px;top:215px;width:920px;height:620px"><video data-hf-id="hf-jy0r" class="clip" id="h-video" src="assets/dopamine/cut-01-location.mp4" muted playsinline data-start="1.2" data-duration="5.8" data-track-index="2"></video></div>
+<div data-hf-id="hf-kjat" id="h-smallbrand" class="brand" style="position:absolute;left:140px;top:70px">Yuvo</div>
+<div data-hf-id="hf-p7cs" id="h-words" style="position:absolute;left:140px;top:350px;width:760px"><h1 data-hf-id="hf-sszo" id="h-location" class="headline">A location.</h1><div data-hf-id="hf-8ior" style="overflow:hidden;height:150px"><h2 data-hf-id="hf-g4ge" id="h-story" class="headline" style="font-size:120px">A story?</h2></div></div>
+<i data-hf-id="hf-a2d1" id="h-coral" class="dot" data-layout-ignore style="left:110px;top:720px;width:180px;height:180px;background:#ff7853"></i><i data-hf-id="hf-zl3i" id="h-blue" class="dot" data-layout-ignore style="left:520px;top:810px;width:80px;height:80px;background:#8bcff5"></i>
+<div data-hf-id="hf-f7l9" id="h-particles" class="layer"></div>
 
 <script>const tl=gsap.timeline({paused:true});
+function reveal(sel,t,x=0,y=70,d=.5){tl.fromTo(sel,{x,y,opacity:0},{x:0,y:0,opacity:1,duration:d,ease:'power4.out'},t)}
+function pop(sel,t){tl.fromTo(sel,{scale:.65,opacity:0},{scale:1,opacity:1,duration:.45,ease:'back.out(1.5)'},t)}
+function burst(id,t,x,y){const box=document.getElementById(id);for(let i=0;i<18;i++){const p=document.createElement('i');p.className='particle';p.style.left=x+'px';p.style.top=y+'px';p.style.background=['#ffda45','#ff7853','#8bcff5','#39b78b'][i%4];box.appendChild(p);const a=i*2.399963;const r=100+(i%5)*28;tl.fromTo(p,{x:0,y:0,scale:.5,opacity:0},{x:Math.cos(a)*r,y:Math.sin(a)*r,scale:1,opacity:1,duration:.4,ease:'power3.out'},t);tl.to(p,{opacity:0,scale:.2,duration:.3},t+.4);}}
+function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);tl.to(sel,{scale:1,duration:.16,ease:'power2.out'},t+.08);tl.fromTo(ring,{scale:.3,opacity:.8},{scale:1.6,opacity:0,duration:.45,ease:'power2.out',immediateRender:false},t)}
 
-tl.fromTo('#hook-seed',{x:-660,y:-15,scale:.85},{x:-660,y:-15,scale:1,duration:.6,ease:'power3.out'},0);
-tl.fromTo('#hook-brand',{y:24,opacity:0},{y:0,opacity:1,duration:.5,ease:'power3.out'},.15);
-tl.fromTo('#hook-promise',{y:16,opacity:0},{y:0,opacity:1,duration:.4,ease:'power3.out'},.5);
-tl.to(['#hook-brand','#hook-promise'],{y:-25,opacity:0,duration:.35,ease:'power3.in'},2.05);
-tl.to('#hook-seed',{x:0,y:0,scale:1,duration:.65,ease:'power3.inOut'},2.05);
-tl.fromTo('#hook-an',{x:60,opacity:0},{x:0,opacity:1,duration:.45,ease:'power3.out'},2.35);
-tl.fromTo('#hook-idea',{x:60,opacity:0},{x:0,opacity:1,duration:.45,ease:'power3.out'},2.45);
-tl.fromTo('#hook-worth',{y:170,opacity:0},{y:0,opacity:1,duration:.45,ease:'power3.out'},3.05);
-tl.fromTo('#hook-blue',{x:120,scale:0},{x:0,scale:1,duration:.45,ease:'power3.out'},4.0);
-tl.to('#hook-blue',{x:-250,y:95,scale:.7,duration:.5,ease:'power4.inOut'},4.6);
-tl.to(['#hook-an','#hook-idea','#hook-question'],{x:-1000,opacity:0,duration:.45,ease:'power3.in'},5.15);
-tl.to('#hook-seed',{x:-420,y:85,scaleX:24/7,scaleY:15/7,borderRadius:7,duration:.85,ease:'power3.inOut'},5.25);
 
-tl.fromTo('#hook-corner',{scale:0},{scale:1,duration:.6,ease:'power3.out'},5.8);
-tl.fromTo('#hook-preview',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:.3,ease:'power3.out'},6.1);
-tl.to('#hook-blue',{scale:0,duration:.25},5.45);
-window.__timelines["01-hook"]=tl;</script>
+tl.fromTo('#h-yellow',{scale:.45,rotation:-20},{scale:1,rotation:0,duration:.6,ease:'back.out(1.4)'},0);
+tl.fromTo('#h-brand',{scale:1.3,opacity:0},{scale:1,opacity:1,duration:.45,ease:'power4.out'},.1);reveal('#h-promise',.4,0,30,.4);burst('h-particles',.4,960,540);
+tl.to(['#h-brand','#h-promise'],{y:-250,opacity:0,duration:.35,ease:'power3.in'},1.1);
+tl.to('#h-yellow',{x:450,y:-120,scale:1.35,duration:.6,ease:'power3.inOut'},1.2);
+tl.fromTo('#h-film',{scale:.4,rotation:8,clipPath:'inset(0% 0% 0% 0% round 50%)',opacity:0},{scale:1,rotation:0,clipPath:'inset(0% 0% 0% 0% round 3%)',opacity:1,duration:.7,ease:'power4.out'},1.2);
+reveal('#h-smallbrand',1.3,0,-60,.4);reveal('#h-location',1.6,-180,0,.4);reveal('#h-story',3.4,0,160,.5);pop('#h-coral',3.5);pop('#h-blue',3.65);burst('h-particles',3.65,290,790);
+tl.to('#h-film',{x:-30,scale:1.04,duration:1.5,ease:'power2.inOut'},4.7);
+
+window.__timelines["film-01-hook"]=tl;</script>
 </div></template>

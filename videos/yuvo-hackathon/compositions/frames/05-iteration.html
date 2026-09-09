@@ -1,0 +1,33 @@
+<template id="film-05-iteration"><div data-hf-id="hf-zubi" id="film-05-iteration" class="film-scene" data-composition-id="film-05-iteration" data-start="0" data-duration="24.1" data-width="1920" data-height="1080">
+
+<div data-hf-id="hf-7kwg" id="i-comparison" class="layer"><h2 data-hf-id="hf-73m8" id="i-title" class="headline" style="position:absolute;left:140px;top:115px;font-size:100px">Same footage. New story cues.</h2>
+<p data-hf-id="hf-tloz" class="tag" style="position:absolute;left:140px;top:270px">FIRST CUT</p><p data-hf-id="hf-8jfa" class="tag" style="position:absolute;left:1000px;top:270px">NEXT CUT</p>
+<div data-hf-id="hf-1llv" class="photo" style="left:140px;top:335px;width:780px;height:439px"><video data-hf-id="hf-xxm8" id="i-before" class="clip" src="assets/dopamine/cut-01-location.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="2"></video></div>
+<div data-hf-id="hf-i6xx" id="i-after" class="photo" style="left:1000px;top:335px;width:780px;height:439px"><video data-hf-id="hf-7pln" id="i-after-video" class="clip" src="assets/dopamine/cut-02-story.mp4" muted playsinline data-start="0" data-duration="6" data-track-index="3"></video></div>
+<div data-hf-id="hf-f6km" id="i-deadline" class="chip" style="left:140px;top:830px;background:#ffda45">A deadline.</div><div data-hf-id="hf-p0hy" id="i-memory" class="chip" style="left:440px;top:830px;background:#d8f1e4">Two conflicting memories.</div></div>
+<div data-hf-id="hf-jfn0" id="i-camera" class="camera" data-layout-allow-overflow><div data-hf-id="hf-cdmk" class="screen"><video data-hf-id="hf-a42o" id="i-ui" class="clip" src="assets/dopamine/compare-ui.mp4" muted playsinline data-start="6" data-duration="7" data-track-index="4"></video></div><div data-hf-id="hf-5hxa" id="i-pointer" class="pointer" data-layout-ignore></div><div data-hf-id="hf-35y3" id="i-ring" class="click-ring" style="left:716px;top:848px"></div></div>
+<div data-hf-id="hf-miv2" id="i-upload" class="chip" style="left:120px;top:55px">Attach the next cut → Compare both</div>
+<div data-hf-id="hf-e34g" id="i-result" class="layer"><h2 data-hf-id="hf-zm0v" class="headline" style="position:absolute;left:140px;top:130px;font-size:94px">It catches what changed.</h2><div data-hf-id="hf-tgit" style="position:absolute;left:140px;top:300px;display:flex;gap:18px;align-items:center"><img data-hf-id="hf-j13u" src="assets/gemini.svg" width="60" height="60"><p data-hf-id="hf-j8h8" class="note">And what still needs work.</p></div>
+<div data-hf-id="hf-1rxl" id="i-found" class="panel" style="left:140px;top:420px;width:760px;min-height:365px;background:#d8f1e4"><p data-hf-id="hf-5udr" class="tag">DETECTED IN THE NEW CUT</p><p data-hf-id="hf-3ddi" style="font-size:46px;line-height:1.35;margin-top:26px">✓ Demolition countdown<br data-hf-id="hf-x5px">✓ Conflicting room dialogue</p></div>
+<div data-hf-id="hf-ojpc" id="i-missing" class="panel" style="left:940px;top:420px;width:840px;min-height:365px;background:#ffda45"><p data-hf-id="hf-os51" class="tag">YOUR NEXT SHOT</p><h3 data-hf-id="hf-xccc" style="font-size:66px;line-height:1.12;letter-spacing:-2px;margin-top:28px">Show her<br data-hf-id="hf-rsrt">touching the wall.</h3></div>
+<p data-hf-id="hf-0j8v" id="i-decision" class="note" style="position:absolute;left:140px;top:865px">One concrete decision for the next cut.</p></div>
+<div data-hf-id="hf-6wc0" id="i-particles" class="layer"></div>
+
+<script>const tl=gsap.timeline({paused:true});
+function reveal(sel,t,x=0,y=70,d=.5){tl.fromTo(sel,{x,y,opacity:0},{x:0,y:0,opacity:1,duration:d,ease:'power4.out'},t)}
+function pop(sel,t){tl.fromTo(sel,{scale:.65,opacity:0},{scale:1,opacity:1,duration:.45,ease:'back.out(1.5)'},t)}
+function burst(id,t,x,y){const box=document.getElementById(id);for(let i=0;i<18;i++){const p=document.createElement('i');p.className='particle';p.style.left=x+'px';p.style.top=y+'px';p.style.background=['#ffda45','#ff7853','#8bcff5','#39b78b'][i%4];box.appendChild(p);const a=i*2.399963;const r=100+(i%5)*28;tl.fromTo(p,{x:0,y:0,scale:.5,opacity:0},{x:Math.cos(a)*r,y:Math.sin(a)*r,scale:1,opacity:1,duration:.4,ease:'power3.out'},t);tl.to(p,{opacity:0,scale:.2,duration:.3},t+.4);}}
+function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);tl.to(sel,{scale:1,duration:.16,ease:'power2.out'},t+.08);tl.fromTo(ring,{scale:.3,opacity:.8},{scale:1.6,opacity:0,duration:.45,ease:'power2.out',immediateRender:false},t)}
+
+
+reveal('#i-title',.1,0,80,.5);pop('#i-deadline',1.4);pop('#i-memory',4.6);burst('i-particles',4.7,1250,775);
+tl.to('#i-comparison',{x:-2000,opacity:0,duration:.5,ease:'power4.in'},5.5);
+tl.set('#i-comparison',{opacity:0},6);
+tl.fromTo('#i-camera',{x:300,scale:1.12,opacity:0},{x:-180,scale:1.12,opacity:1,duration:.5,ease:'power4.out'},6);reveal('#i-upload',6,0,-90,.4);
+tl.fromTo('#i-pointer',{x:660,y:1180},{x:725,y:861,duration:.5,ease:'power3.out'},6.6);tap('#i-pointer','#i-ring',7.5);tl.to('#i-pointer',{x:1800,y:1140,duration:.65,ease:'power3.inOut'},7.7);
+tl.to('#i-camera',{scale:1.35,x:-270,y:-50,duration:.6,ease:'power3.inOut'},8.7);
+tl.to(['#i-camera','#i-upload'],{x:-2000,opacity:0,duration:.45,ease:'power4.in'},12.55);
+reveal('#i-result',13,240,0,.5);reveal('#i-found',13.3,0,80,.4);reveal('#i-missing',15.3,0,100,.45);burst('i-particles',15.5,1350,610);reveal('#i-decision',19,0,50,.4);
+
+window.__timelines["film-05-iteration"]=tl;</script>
+</div></template>

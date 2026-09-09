@@ -1,37 +1,29 @@
 # Yuvo hackathon film
 
-English product demonstration, 131.73 seconds, 1920 × 1080 at 30 fps.
+100 seconds · 1920 × 1080 · 30 fps · English narration.
 
 ```sh
 cd videos/yuvo-hackathon
 npm run dev
 npm run check
-npm run render -- --quality high --fps 30 --workers 1 --low-memory-mode --video-frame-format png --output renders/yuvo-hackathon-final.mp4
+npm run render -- --quality high --fps 30 --workers 1 --no-low-memory-mode --browser-gpu --video-frame-format png --output renders/yuvo-hackathon-dopamine.mp4
 ```
 
-The current CLI may clear the composition on the final encoded frame. After rendering, hold the preceding frame for that last 1/30 second (audio stays unchanged):
+Current export: `renders/yuvo-hackathon-dopamine.mp4`. The previous 131-second export remains in `renders/yuvo-hackathon-final.mp4` for comparison. Renders are local and excluded from Git.
 
-```sh
-ffmpeg -y -i renders/yuvo-hackathon-final.mp4 -vf "trim=end_frame=3951,tpad=stop_mode=clone:stop_duration=0.033333333" -frames:v 3952 -c:v libx264 -preset fast -crf 15 -pix_fmt yuv420p -c:a copy -movflags +faststart renders/yuvo-hackathon-final-fixed.mp4
-mv renders/yuvo-hackathon-final-fixed.mp4 renders/yuvo-hackathon-final.mp4
-```
+Six scenes follow one idea through live research, a creative direction, a first video review and a comparison. Colorful circles, kinetic titles, short particle bursts and camera moves connect the story. The cursor uses the original macOS arrow, moves aside during typing and targets actual controls.
 
-The CLI is pinned to HyperFrames 0.8.31. Rendering requires Chromium and FFmpeg. One worker streams output instead of retaining every Full HD frame on disk. The CC BY edition includes all required media and fonts; no provider credentials are needed. The review soundtrack uses the user-provided MP3 copied locally to `assets/cirrus-review.mp3` and excluded from Git. Studio and the command above now default to Electrodoodle (CC BY 4.0), used in motion revision 3.
+The screen recordings use the redesigned app and real Gemini 3.8 Flash / Parallel responses. The report found **11 sources**. Two actual clips were submitted to Gemini: the location footage, then the same footage with a demolition deadline and conflicting room dialogue. Gemini detected the added text and the still-missing protagonist. Editorial panels summarize that feedback; they do not present a generated finished film. Provider waits are condensed.
 
-Current export: `renders/yuvo-hackathon-final.mp4`, with Electrodoodle, a brand-first opening that moves from Yuvo to the idea and then the workspace, calmer cursor paths, visual feedback summaries and a side-by-side cut comparison.
+- `index.html`, `film.css` and six referenced files in `compositions/frames/` are the editable composition.
+- `assets/dopamine/` holds the recordings, actual uploaded clips, live response evidence and voice tracks.
+- `SCRIPT.md`, `narration.json` and `STORYBOARD.md` describe the current cut.
+- `subtitles.en.srt` contains optional English captions aligned from the generated audio with Gemini; `subtitle-cues.json` stores the same timings.
+- `ledger.json` records the five directional seams.
+- `CREDITS.md` and `UPLOAD_DESCRIPTION.md` contain media provenance and required music attribution.
 
-Previous local exports: `renders/yuvo-hackathon-motion.mp4` uses Cirrus for review; `renders/yuvo-hackathon-motion-ccby.mp4` uses Funkorama with the attribution in `UPLOAD_DESCRIPTION.md`. Both include narration and interaction effects.
+The CLI stays pinned to **HyperFrames 0.8.31**. The latest-version upgrade probe failed with npm ETARGET for 0.8.32; the pinned version passed local checks. Chromium and FFmpeg are required. All source media needed for this cut is included; rerendering needs no provider credentials.
 
-- `index.html` assembles seven editable scenes from `compositions/frames/`.
-- `SCRIPT.md` and `narration.json` contain the English script and three Google TTS voice selections.
-- `subtitles.en.srt` is the optional subtitle track. UI text stays unobstructed in the MP4.
-- `CREDITS.md` records the stock footage, music license, voices and marks.
-- `UPLOAD_DESCRIPTION.md` contains the accompanying description and required music attribution.
+The soundtrack is Kevin MacLeod’s **Electrodoodle**, CC BY 4.0, with narration-aware level/EQ automation. Puck, Kore and Charon are generated Google Cloud Gemini TTS voices. Publication and Devpost submission are separate from rendering this file.
 
-The app recordings contain actual Gemini 3.8 Flash and Parallel responses. Provider waiting intervals are condensed; final result frames are held while the narration finishes. Two shots enlarge the actual stock clips uploaded in the recording. The second clip is a different extract of the same location test, not a completed narrative film. The original landing animation remains a separate scripted preview.
-
-The story is idea → video → next move. Live attachment footage establishes the workflow; large editorial summaries show the gap between the premise and the actual footage. A split comparison shows what changed between the two real cuts. The final recap uses three plain-language steps and readable integration logos. Music credits stay in the upload description.
-
-Scenes retain their original timing. The opening and 0:54 handoffs match the exact incoming app frames; the other four seams use matched leftward motion. The cursor pauses before clicks, moves aside during typing and rests during review. There are no animated pointer presses or click rings.
-
-Rendering is local. Publishing the film, changing repository visibility and submitting to Devpost are separate actions.
+Validation on 2026-09-09: the app build and all eight automated tests pass, along with the desktop/mobile UI and two-cut upload checks. The film passes HyperFrames lint, runtime, layout and contrast checks and all five numeric seam checks. Thirty-three decoded MP4 frames were checked, including every boundary and the final frame; the brief empty entrance at 1:26 was corrected before delivery. The final export is exactly 100 seconds with AAC audio, measured at −14.68 LUFS integrated and −1.01 dBTP. SHA-256: `8a7efae7f4d40d6ccc328bf89d2db4393afe62f5f541d6c874804943155ce6e4`.

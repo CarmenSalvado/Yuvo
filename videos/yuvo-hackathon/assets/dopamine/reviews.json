@@ -1,0 +1,36 @@
+[
+  {
+    "comparison": "",
+    "moments": [
+      {
+        "observation": "A forward camera glide captures peeling paint, graffiti, and a damaged roof, but lacks any visible human subject.",
+        "seconds": 1.5,
+        "suggestion": "Cut to an over-the-shoulder or reverse shot introducing the woman interacting physically with the damaged walls."
+      },
+      {
+        "observation": "The tracking shot advances through a narrow opening past dense graffiti tags into a deeper corridor.",
+        "seconds": 7.2,
+        "suggestion": "Insert inserts of specific architectural decay, such as fractured mortar, paired with subtle visual distortion to hint at incomplete memories."
+      }
+    ],
+    "nextMove": "Cut into the continuous hallway shot with a close-up of a female character making physical contact with the structure's surface.",
+    "summary": "The footage displays a continuous point-of-view tracking shot traversing an abandoned, graffiti-covered structure. While the setting fits the decay motif, no protagonist or explicit communication is visible to convey the stated premise."
+  },
+  {
+    "comparison": "The underlying video track is identical in timing and movement. The current cut adds top header text ('CASE 07 / DEMOLITION IN 24 HOURS') and changing lower-third dialogue subtitles ('NORTH ROOM' / 'SOUTH ROOM'). However, no human protagonist or architectural reaction is visually captured.",
+    "moments": [
+      {
+        "observation": "Header text establishes an investigative countdown over a forward dolly shot entering the decaying hallway, with no visible person present.",
+        "seconds": 0.5,
+        "suggestion": "Introduce an over-the-shoulder framing or insert shot of the protagonist physically engaging with the wall to establish her physical presence."
+      },
+      {
+        "observation": "Lower-third text shifts from 'North Room' to 'South Room' contradicting statements, but the camera maintains an unbroken forward motion without panning toward the attributed rooms.",
+        "seconds": 5.2,
+        "suggestion": "Cut or pan directly toward specific architectural details corresponding to the conflicting testimonies to anchor the dialogue in physical space."
+      }
+    ],
+    "nextMove": "Cut in reverse angles or insert shots of the female protagonist inspecting the crumbling surfaces to visually establish her conversational presence.",
+    "summary": "A continuous POV tracking shot navigates a graffiti-covered derelict structure. The visual premise of a woman communicating with buildings remains entirely implied through lower-third text rather than visible on-screen character interaction."
+  }
+]

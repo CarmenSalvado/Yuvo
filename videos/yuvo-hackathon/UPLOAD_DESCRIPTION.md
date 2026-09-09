@@ -13,10 +13,6 @@ Music: “Electrodoodle” — Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
 Music is excerpted, faded and mixed under narration.
 
-For the previous CC BY soundtrack edition (Funkorama):
-Music: “Funkorama” — Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
-Music is excerpted and mixed under narration.
 
 Location footage: Florian Delée / Pexels
 https://www.pexels.com/video/a-long-hallway-with-graffiti-on-the-walls-17037805/
@@ -24,9 +20,4 @@ https://www.pexels.com/license/
 
 Narration: Google Cloud Gemini TTS, Puck / Kore / Charon.
 
-For the private review with the user-supplied track:
-Music: “Cirrus” — Bonobo. Publication/synchronization permission has not been verified; do not use the CC BY credit above for this track.
-
-Cursor and subtle interaction sounds were added in editing; the application responses are real.
-
-Large feedback panels summarize the recorded Gemini output. Comparison stills show the actual opening frame of each uploaded cut; no improved film is generated in this demonstration.
+This 100-second film shows 11 research sources and two real uploaded cuts. The second cut adds a demolition deadline and conflicting room dialogue to the same footage. Gemini identifies those changes and the missing protagonist; the next shot is still for the filmmaker to make. Large feedback panels summarize the recorded output. Cursor, particles and sound effects were added in editing.

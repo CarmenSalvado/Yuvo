@@ -2,36 +2,31 @@
   {
     "id": "01-hook",
     "voice": "Puck",
-    "text": "I have an idea. But how do I know what makes it worth watching?"
+    "text": "An empty corridor. Or the start of a mystery? Meet Yuvo."
   },
   {
-    "id": "02-idea",
+    "id": "02-research",
     "voice": "Kore",
-    "text": "Meet Yuvo. A creative workspace that turns an idea into a direction you can test. We start with a detective who reads memories trapped in abandoned buildings. Gemini plans the research. Parallel searches the live web across six angles, looking for familiar territory and the places nearby stories lose people."
+    "text": "Start with an idea: a woman can talk to abandoned buildings. Their memories are incomplete. Gemini plans the research. Parallel searches nearby stories and audience reactions, so you’re building on evidence."
   },
   {
     "id": "03-direction",
     "voice": "Kore",
-    "text": "This run surfaced fifteen sources. You can open the evidence behind each finding. Gemini connects those signals into a creative opening: what if the building is an unreliable witness? Each room can remember only its own point of view. Now we have a specific storytelling rule to explore, instead of another vague suggestion."
+    "text": "Eleven sources. One useful direction: let the building’s damage shape what it remembers. Open the research behind the idea. Then make your own creative decision."
   },
   {
-    "id": "04-first-cut",
+    "id": "04-understanding",
     "voice": "Kore",
-    "text": "Now, agentic video understanding. We attach a real clip, an early location test. Gemini watches the frames and checks them against our idea. At six seconds, it sees an empty corridor. But our story needs a detective and conflicting memories. Yuvo turns that gap into a next move: introduce the detective."
+    "text": "Now, agentic video understanding. Attach a real cut. Gemini checks the frames against your premise. It sees the abandoned setting, but catches the missing protagonist. Click a timestamp. See exactly what it means."
   },
   {
-    "id": "05-next-cut",
+    "id": "05-iteration",
     "voice": "Kore",
-    "text": "We attach a second cut. Yuvo sends both videos to Gemini so it can compare what actually changed. The later start changes the framing. The story still needs a point of view. That is the loop: make a choice, show the cut, and get a concrete next editing move."
+    "text": "Let’s iterate. We add a deadline and two conflicting memories to the same footage. Upload the new cut. Gemini compares both videos. It spots the new text, and tells us what still needs work: show the woman interacting with the building. That’s a specific shot we can make next."
   },
   {
-    "id": "06-built",
+    "id": "06-close",
     "voice": "Charon",
-    "text": "Start with your idea. Find a direction. Upload your cut. Yuvo shows what comes across, what is missing, and what to try next. Gemini reviews the video. Parallel grounds the research. You make the final call."
-  },
-  {
-    "id": "07-close",
-    "voice": "Kore",
-    "text": "Yuvo. Big idea. Better story. One thoughtful take at a time."
+    "text": "Idea. Evidence. Cut. A clear next move. Powered by Gemini, Parallel, and Google Cloud Run. Yuvo. Big idea. Better story."
   }
 ]

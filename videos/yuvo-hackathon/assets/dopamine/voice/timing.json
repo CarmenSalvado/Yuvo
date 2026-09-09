@@ -1,0 +1,44 @@
+[
+  {
+    "id": "01-hook",
+    "voice": "Puck",
+    "text": "An empty corridor. Or the start of a mystery? Meet Yuvo.",
+    "duration": 5.36,
+    "path": "assets/dopamine/voice/01-hook.wav"
+  },
+  {
+    "id": "02-research",
+    "voice": "Kore",
+    "text": "Start with an idea: a woman can talk to abandoned buildings. Their memories are incomplete. Gemini plans the research. Parallel searches nearby stories and audience reactions, so you’re building on evidence.",
+    "duration": 15.72,
+    "path": "assets/dopamine/voice/02-research.wav"
+  },
+  {
+    "id": "03-direction",
+    "voice": "Kore",
+    "text": "Eleven sources. One useful direction: let the building’s damage shape what it remembers. Open the research behind the idea. Then make your own creative decision.",
+    "duration": 12.12,
+    "path": "assets/dopamine/voice/03-direction.wav"
+  },
+  {
+    "id": "04-understanding",
+    "voice": "Kore",
+    "text": "Now, agentic video understanding. Attach a real cut. Gemini checks the frames against your premise. It sees the abandoned setting, but catches the missing protagonist. Click a timestamp. See exactly what it means.",
+    "duration": 15.68,
+    "path": "assets/dopamine/voice/04-understanding.wav"
+  },
+  {
+    "id": "05-iteration",
+    "voice": "Kore",
+    "text": "Let’s iterate. We add a deadline and two conflicting memories to the same footage. Upload the new cut. Gemini compares both videos. It spots the new text, and tells us what still needs work: show the woman interacting with the building. That’s a specific shot we can make next.",
+    "duration": 20.72,
+    "path": "assets/dopamine/voice/05-iteration.wav"
+  },
+  {
+    "id": "06-close",
+    "voice": "Charon",
+    "text": "Idea. Evidence. Cut. A clear next move. Powered by Gemini, Parallel, and Google Cloud Run. Yuvo. Big idea. Better story.",
+    "duration": 12.32,
+    "path": "assets/dopamine/voice/06-close.wav"
+  }
+]

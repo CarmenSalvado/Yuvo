@@ -2,104 +2,92 @@
   "fps": 30,
   "seams": [
     {
-      "id": "01-hook to 02-idea",
-      "cut": 6.64,
-      "type": "match-cut",
-      "carrier": {
-        "out": "#hook-preview",
-        "in": "#f02-idea-video"
-      },
+      "id": "01-hook to 02-research",
+      "cut": 7,
+      "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#scene-01-hook",
         "axis": "x",
-        "dir": -1
+        "dir": -1,
+        "dur": 0.25
       },
       "entry": {
-        "selector": "#scene-02-idea",
+        "selector": "#scene-02-research",
         "axis": "x",
-        "dir": -1
+        "dir": -1,
+        "dur": 0.32,
+        "travel": 8
       }
     },
     {
-      "id": "02-idea to 03-direction",
-      "cut": 30.68,
+      "id": "02-research to 03-direction",
+      "cut": 27,
       "technique": "cut-the-curve LEFT",
       "exit": {
-        "selector": "#scene-02-idea",
+        "selector": "#scene-02-research",
         "axis": "x",
-        "dir": -1
+        "dir": -1,
+        "dur": 0.25
       },
       "entry": {
         "selector": "#scene-03-direction",
         "axis": "x",
         "dir": -1,
+        "dur": 0.32,
         "travel": 8
       }
     },
     {
-      "id": "03-direction to 04-first-cut",
-      "cut": 55.32,
+      "id": "03-direction to 04-understanding",
+      "cut": 41,
+      "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#scene-03-direction",
         "axis": "x",
-        "dir": -1
+        "dir": -1,
+        "dur": 0.25
       },
       "entry": {
-        "selector": "#scene-04-first-cut",
-        "axis": "x",
-        "dir": -1
-      },
-      "type": "match-cut",
-      "carrier": {
-        "out": "#cut-bridge",
-        "in": "#f04-first-cut-video"
-      }
-    },
-    {
-      "id": "04-first-cut to 05-next-cut",
-      "cut": 80.44,
-      "technique": "cut-the-curve LEFT",
-      "exit": {
-        "selector": "#scene-04-first-cut",
-        "axis": "x",
-        "dir": -1
-      },
-      "entry": {
-        "selector": "#scene-05-next-cut",
+        "selector": "#scene-04-understanding",
         "axis": "x",
         "dir": -1,
+        "dur": 0.32,
         "travel": 8
       }
     },
     {
-      "id": "05-next-cut to 06-built",
-      "cut": 102.52,
+      "id": "04-understanding to 05-iteration",
+      "cut": 62,
       "technique": "cut-the-curve LEFT",
       "exit": {
-        "selector": "#scene-05-next-cut",
-        "axis": "x",
-        "dir": -1
-      },
-      "entry": {
-        "selector": "#scene-06-built",
+        "selector": "#scene-04-understanding",
         "axis": "x",
         "dir": -1,
+        "dur": 0.25
+      },
+      "entry": {
+        "selector": "#scene-05-iteration",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.32,
         "travel": 8
       }
     },
     {
-      "id": "06-built to 07-close",
-      "cut": 121.96,
+      "id": "05-iteration to 06-close",
+      "cut": 86,
       "technique": "cut-the-curve LEFT",
       "exit": {
-        "selector": "#scene-06-built",
-        "axis": "x",
-        "dir": -1
-      },
-      "entry": {
-        "selector": "#scene-07-close",
+        "selector": "#scene-05-iteration",
         "axis": "x",
         "dir": -1,
+        "dur": 0.25
+      },
+      "entry": {
+        "selector": "#scene-06-close",
+        "axis": "x",
+        "dir": -1,
+        "dur": 0.32,
         "travel": 8
       }
     }

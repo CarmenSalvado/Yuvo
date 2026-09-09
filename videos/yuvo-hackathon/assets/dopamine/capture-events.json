@@ -1,0 +1,62 @@
+[
+  {
+    "name": "start",
+    "t": 0.060299999997019765
+  },
+  {
+    "name": "typing-start",
+    "t": 0.17039999999850988
+  },
+  {
+    "name": "typing-end",
+    "t": 9.31739999999851
+  },
+  {
+    "name": "research-click",
+    "t": 10.023899999998507
+  },
+  {
+    "name": "research-ready",
+    "t": 24.412699999995528
+  },
+  {
+    "name": "research-open",
+    "t": 26.443
+  },
+  {
+    "name": "direction-return",
+    "t": 27.73969999999553
+  },
+  {
+    "name": "video-open",
+    "t": 27.85060000000149
+  },
+  {
+    "name": "first-attached",
+    "t": 28.94260000000149
+  },
+  {
+    "name": "first-review-click",
+    "t": 30.577
+  },
+  {
+    "name": "first-review-ready",
+    "t": 40.8285
+  },
+  {
+    "name": "second-attached",
+    "t": 42.8365
+  },
+  {
+    "name": "compare-click",
+    "t": 44.2435
+  },
+  {
+    "name": "compare-ready",
+    "t": 50.41610000000149
+  },
+  {
+    "name": "end",
+    "t": 52.59110000000149
+  }
+]

@@ -1,0 +1,29 @@
+<template id="film-02-research"><div data-hf-id="hf-twue" id="film-02-research" class="film-scene" data-composition-id="film-02-research" data-start="0" data-duration="20.1" data-width="1920" data-height="1080">
+
+<i data-hf-id="hf-74wv" class="dot" data-layout-ignore style="left:-250px;top:-250px;width:650px;height:650px"></i><i data-hf-id="hf-tlja" class="dot" data-layout-ignore style="right:-200px;bottom:-260px;width:600px;height:600px;background:#8bcff5"></i>
+<div data-hf-id="hf-e3hp" id="r-camera" class="camera" data-layout-allow-overflow><div data-hf-id="hf-cdmk" class="screen"><video data-hf-id="hf-2b21" id="r-video" class="clip" src="assets/dopamine/research-ui.mp4" muted playsinline data-start="0" data-duration="20" data-track-index="2"></video></div><div data-hf-id="hf-3lg5" id="r-pointer" class="pointer" data-layout-ignore></div><div data-hf-id="hf-xxb9" id="r-ring" class="click-ring" style="left:390px;top:510px"></div></div>
+<div data-hf-id="hf-jkb9" id="r-label" class="chip" style="left:120px;top:50px">Your idea → real research</div>
+<div data-hf-id="hf-wa8m" id="r-partners" style="position:absolute;left:110px;bottom:52px;display:flex;gap:18px"><div data-hf-id="hf-um6g" class="badge"><img data-hf-id="hf-q5n6" src="assets/gemini.svg" width="44" height="44">Plans the search</div><div data-hf-id="hf-ybux" class="badge"><img data-hf-id="hf-ijnj" src="assets/parallel.png" width="160" height="27">Finds the evidence</div></div>
+<div data-hf-id="hf-gb0v" id="r-particles" class="layer"></div>
+
+<script>const tl=gsap.timeline({paused:true});
+function reveal(sel,t,x=0,y=70,d=.5){tl.fromTo(sel,{x,y,opacity:0},{x:0,y:0,opacity:1,duration:d,ease:'power4.out'},t)}
+function pop(sel,t){tl.fromTo(sel,{scale:.65,opacity:0},{scale:1,opacity:1,duration:.45,ease:'back.out(1.5)'},t)}
+function burst(id,t,x,y){const box=document.getElementById(id);for(let i=0;i<18;i++){const p=document.createElement('i');p.className='particle';p.style.left=x+'px';p.style.top=y+'px';p.style.background=['#ffda45','#ff7853','#8bcff5','#39b78b'][i%4];box.appendChild(p);const a=i*2.399963;const r=100+(i%5)*28;tl.fromTo(p,{x:0,y:0,scale:.5,opacity:0},{x:Math.cos(a)*r,y:Math.sin(a)*r,scale:1,opacity:1,duration:.4,ease:'power3.out'},t);tl.to(p,{opacity:0,scale:.2,duration:.3},t+.4);}}
+function tap(sel,ring,t){tl.to(sel,{scale:.88,duration:.08,ease:'power2.in'},t);tl.to(sel,{scale:1,duration:.16,ease:'power2.out'},t+.08);tl.fromTo(ring,{scale:.3,opacity:.8},{scale:1.6,opacity:0,duration:.45,ease:'power2.out',immediateRender:false},t)}
+
+
+tl.set('#r-camera',{scale:1.7,x:845,y:225},0);
+tl.fromTo('#r-pointer',{x:390,y:1200},{x:390,y:275,duration:.18,ease:'power3.out'},0);
+tl.to('#r-pointer',{x:770,y:970,duration:.65,ease:'power3.inOut'},.25);
+reveal('#r-label',.2,0,-70,.4);
+tl.to('#r-pointer',{x:395,y:525,duration:.65,ease:'power3.inOut'},9.15);tap('#r-pointer','#r-ring',10);
+tl.to('#r-camera',{scale:1,x:0,y:0,duration:.65,ease:'power4.inOut'},10.05);
+tl.to('#r-pointer',{x:1780,y:1120,duration:.6,ease:'power3.inOut'},10.2);
+reveal('#r-partners',10.8,0,100,.5);
+tl.to('#r-camera',{scale:1.45,x:-280,y:50,duration:.6,ease:'power3.inOut'},11.6);
+tl.to('#r-camera',{scale:1.12,x:-60,y:0,duration:.65,ease:'power3.inOut'},17.8);
+tl.to('#r-partners',{y:120,opacity:0,duration:.35},17.8);burst('r-particles',18.1,1550,290);
+
+window.__timelines["film-02-research"]=tl;</script>
+</div></template>

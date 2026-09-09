@@ -27,3 +27,7 @@ Subject: the story premise "A woman can talk to abandoned buildings. Their memor
 Composition: illustration centered horizontally in an ample ivory field, subjects occupy the middle 70% of the width. Leave at least 12% empty breathing room at each outer edge. No typography, no labels, no speech balloons, no logos. This is clearly an illustration of a premise, not a film still or a screenshot. Minimal detail, magazine-quality graphic composition with simple bold silhouettes.
 
 NEGATIVE PROMPT: zero grain, zero granulation, zero stippling, zero noise, zero paper texture, zero halftone, zero speckles, zero watercolor, zero rough edges, zero brush strokes, no gradients, no shading, no shadows, no glow, no 3D, no photorealism, no intricate windows, no tiny debris, no dense patterns, no ornate scenery, no sketchy outlines, no cinematic particles, no writing, no text, no watermark. Every colored region must be a perfectly smooth, uniform solid fill.
+
+## Static gallery
+
+`research.png`, `video-review.png` and `iteration.png` are unmodified 1920x1080 frame extracts at 25.0, 49.1 and 73.0 seconds from the final demo export. The latter two contain the demo's editorial feedback summaries. Together with `architecture.png`, they form the PNG-only gallery pack at https://yuvo.migarci2.dev/yuvo-gallery-png.zip. Each image is under 5 MB.

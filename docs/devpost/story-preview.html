@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yuvo | Project story</title><style>
+@font-face{font-family:Manrope;src:url('../../videos/yuvo-hackathon/assets/manrope.woff2');font-weight:200 800;font-display:swap}*{box-sizing:border-box}body{margin:0;background:#fffdf8;color:#252b38;font-family:Manrope,Arial,sans-serif;line-height:1.75}header{max-width:800px;margin:auto;padding:52px 28px 20px;display:flex;align-items:center;gap:14px}header strong{font-size:32px;letter-spacing:-1.5px}header span{font-size:13px;color:#66697a;margin-left:auto}header i{width:32px;height:32px;background:#ffda45;border-radius:50%;display:inline-grid;place-items:center;font-size:28px;font-weight:800;font-style:normal;transform:rotate(-8deg)}main{max-width:800px;margin:auto;padding:0 28px 70px;font-size:17px}h2{font-size:27px;font-weight:800;line-height:1.3;letter-spacing:-.7px;margin:48px 0 20px}p{margin:0 0 20px}blockquote{border-left:4px solid #ffda45;margin:24px 0;padding:10px 0 10px 24px;font-size:23px;font-weight:600;line-height:1.6}blockquote p{margin:0}img{display:block;width:100%;height:auto;margin:30px 0 12px;border-radius:14px}p:has(>em:only-child){font-size:13px;color:#636779;line-height:1.6}a{color:#29245c;text-underline-offset:4px}strong{font-weight:750}@media(max-width:600px){header{padding-top:28px}header span{font-size:11px}main{font-size:16px}h2{font-size:24px;margin-top:36px}blockquote{font-size:20px}}
+</style><header><i>y</i><strong>Yuvo</strong><span>Project story</span></header><main><h2>Inspiration</h2>
+<blockquote>
+<p>A woman can talk to abandoned buildings. Their memories are incomplete.</p>
+</blockquote>
+<p>We kept coming back to that premise while building Yuvo. We could picture the setting. Deciding what should happen on screen was harder.</p>
+<p>We wanted a creative partner that could research the stories around an idea, then stay useful once there was footage to review. The feedback had to lead to something a filmmaker could try in the next cut.</p>
+<p><img src="story-assets/premise.png" alt="Illustration of a woman touching a damaged house as fragments of its memory float above her." /></p>
+<p><em>Concept illustration for the premise used in our demo.</em></p>
+<h2>What it does</h2>
+<p>Write a premise. Gemini plans the research, and Parallel searches for related stories and audience reactions. Yuvo brings the sources together and suggests a direction to explore. You can open the evidence behind the advice.</p>
+<p>In our recorded demo, the research returned 11 sources. One direction was to let the building's physical damage shape what it could remember.</p>
+<p><img src="story-assets/research.gif" alt="Yuvo researches the premise with Parallel, then shows 11 sources and a creative direction from Gemini." /></p>
+<p>Then attach a real video. Yuvo uses <strong>agentic video understanding</strong> to review the frames against your premise and research. Click a timestamp to inspect a moment. Upload another cut, and Gemini compares both videos.</p>
+<p>You can also revise the written premise in the Audience Room. Its synthetic critical perspectives help question the idea; they don't predict how a real audience will react.</p>
+<p><img src="story-assets/video-review.gif" alt="A video is attached to Yuvo. Gemini reviews it and identifies the missing protagonist." /></p>
+<p><em>These GIFs come from the demo recorded with live Gemini and Parallel responses. Waiting time is condensed; the larger feedback panels summarize the returned results.</em></p>
+<h2>How we built it</h2>
+<p>We built the app with Next.js and React. A Google ADK agent uses Gemini 3.8 Flash on Vertex AI to plan searches, turn evidence into a creative direction, and review video.</p>
+<p>Parallel handles two concurrent research requests: one for related creative work, the other for audience and critic feedback. We retain the source links and excerpts, then validate Gemini's report against those sources.</p>
+<p><img src="story-assets/architecture.png" alt="Architecture showing Gemini planning searches, Parallel returning evidence, and Gemini proposing a direction. The creator supplies a cut for visual review and uploads revisions." /></p>
+<p>For a comparison, we send both video files to Gemini with the premise and research context. The model can inspect what changed in the footage itself.</p>
+<p>Cloud Run hosts the app. Secret Manager holds the credentials, and a runtime service account connects it to Vertex AI.</p>
+<h2>Challenges we ran into</h2>
+<p>The difficult part was getting feedback to separate observation from suggestion. A corridor can look right for a mystery without showing the story we described. We ask Gemini to say what is visible before proposing an edit, and keep this version's review focused on visuals.</p>
+<p>We also had to make the research readable. Our early interface was a long report that kept asking you to scroll. We reorganized it into a creative direction, supporting research and a place to work on the next cut.</p>
+<p>Uploads needed care too. If a request fails, the clip stays attached so the creator can retry. The prototype currently accepts clips up to 60 seconds and 2 MB each.</p>
+<h2>Accomplishments that we're proud of</h2>
+<p>Our favorite result came from the second video review.</p>
+<p>The first cut showed an abandoned corridor. Gemini recognized the setting but pointed out that no protagonist was visible. We added a demolition deadline and conflicting room memories as text, then uploaded the revised cut.</p>
+<p>Gemini noticed those additions. It also noticed that the woman was still missing. Its next suggestion was to show her making physical contact with the building.</p>
+<p><img src="story-assets/iteration.gif" alt="Yuvo compares two uploaded cuts, recognizes the added text and suggests showing the woman touching the wall." /></p>
+<p>That gave us a specific shot to make. We were glad the model could acknowledge a change without assuming it solved the problem.</p>
+<h2>What we learned</h2>
+<p>The premise and the footage can tell different stories. Keeping the original idea beside the video gives the critique something concrete to check.</p>
+<p>We also learned to keep the scope of the evidence visible. Eleven search results can suggest a useful direction. They can't certify that an idea is original. A timestamped observation helps a creator inspect the feedback and decide whether to use it.</p>
+<h2>What's next for Yuvo</h2>
+<p>We want to save project history so creators can return to earlier research and cuts. Longer uploads will need a storage and processing flow beyond the current in-memory prototype.</p>
+<p>We'd also like to test Yuvo with filmmakers working on their own footage. The question we'd ask is simple: did the feedback change what you shot or edited next?</p>
+</main></html>

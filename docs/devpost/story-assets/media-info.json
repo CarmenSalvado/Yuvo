@@ -1,0 +1,32 @@
+[
+  {
+    "file": "research.gif",
+    "size": [
+      900,
+      506
+    ],
+    "frames": 72,
+    "duration_s": 9.01,
+    "bytes": 1168740
+  },
+  {
+    "file": "video-review.gif",
+    "size": [
+      800,
+      450
+    ],
+    "frames": 110,
+    "duration_s": 13.76,
+    "bytes": 4272126
+  },
+  {
+    "file": "iteration.gif",
+    "size": [
+      800,
+      450
+    ],
+    "frames": 107,
+    "duration_s": 13.37,
+    "bytes": 3110406
+  }
+]

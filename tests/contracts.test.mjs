@@ -22,7 +22,9 @@ test("landing respects reduced motion without per-frame scroll handlers", async 
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
 
-  assert.doesNotMatch(page, /requestAnimationFrame/);
+  const landing = page.slice(page.indexOf("function Landing("), page.indexOf("function submitOnShortcut("));
+  assert.ok(landing.includes("function Story("));
+  assert.doesNotMatch(landing, /requestAnimationFrame/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 });
 

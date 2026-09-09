@@ -69,7 +69,8 @@ export default function VideoRoom({ report, idea, active = true }) {
 
   return (
     <section className="video-room report-section" id="video-room" aria-labelledby="video-room-heading">
-      <div className="section-head"><p><span className="section-number">03</span>The next take</p><div><h2 id="video-room-heading">See your story take shape.</h2><span>Attach a cut. Find the moment to improve. Compare the next version.</span></div></div>
+      <div className="section-head"><p><span className="section-number" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"><path d="M4 5h16v14H4V5ZM10 9l5 3-5 3V9Z" /></svg></span>The next take</p><div><h2 id="video-room-heading">See your story take shape.</h2><span>Attach a cut. Find the moment to improve. Compare the next version.</span></div></div>
+      <div className="video-review-layout" data-has-feedback={Boolean(feedback)}>
       <div className="cut-workspace">
         <div className="cut-toolbar"><span><img src="/brand/gemini.svg" width="26" height="26" alt="" />Gemini · Visual review</span><div className="cut-tabs" aria-label="Reviewed cuts">{cuts.map((cut) => <button type="button" key={cut.number} disabled={busy || Boolean(pending)} aria-pressed={!pending && (view || latest) === cut} onClick={() => { setView(cut); setError(""); }}>Cut {cut.number}</button>)}</div></div>
         {displayed ? <video key={url} ref={player} className="cut-player" src={url || undefined} controls playsInline preload="metadata" aria-label={pending ? "Attached cut preview" : `Cut ${(view || latest).number}`} onLoadedMetadata={(event) => {
@@ -90,12 +91,16 @@ export default function VideoRoom({ report, idea, active = true }) {
         <div className="cut-status" role="status">{busy && <><span className="cut-orbits" aria-hidden="true"><i /><i /><i /></span><span>{latest ? "Watching both cuts and checking what changed…" : "Watching the footage against your story direction…"}</span></>}</div>
       </div>
       {feedback && <div className="cut-feedback">
-        <p className="cut-feedback-note">Gemini’s visual reading. Check observations against your footage; audio is not reviewed.</p>
+        <p className="section-label"><img src="/brand/gemini.svg" width="22" height="22" alt="" />Agentic video understanding</p>
+        <h3>What comes across.</h3>
         <p className="cut-summary">{feedback.summary}</p>
         {feedback.comparison && <div className="cut-comparison"><b>What changed from the previous cut</b><p>{feedback.comparison}</p></div>}
-        <ol className="cut-moments">{feedback.moments.map((moment, index) => <li key={index}><button type="button" aria-label={`Watch moment at ${timestamp(moment.seconds)}`} onClick={() => { if (player.current) { player.current.currentTime = moment.seconds; player.current.focus(); player.current.play().catch(() => {}); } }}>{timestamp(moment.seconds)} <span aria-hidden="true">↗</span></button><div><p>{moment.observation}</p><p><b>Try this</b> {moment.suggestion}</p></div></li>)}</ol>
         <div className="cut-next"><span aria-hidden="true">↗</span><div><b>For your next cut</b><p>{feedback.nextMove}</p></div></div>
+        <p className="cut-moments-label">Look closer <span>Click a timestamp to check the frame</span></p>
+        <ol className="cut-moments">{feedback.moments.map((moment, index) => <li key={index}><button type="button" aria-label={`Watch moment at ${timestamp(moment.seconds)}`} onClick={() => { if (player.current) { player.current.currentTime = moment.seconds; player.current.focus(); player.current.play().catch(() => {}); } }}>{timestamp(moment.seconds)} <span aria-hidden="true">↗</span></button><div><p>{moment.observation}</p><p><b>Try this</b> {moment.suggestion}</p></div></li>)}</ol>
+        <p className="cut-feedback-note">Gemini’s visual reading. Check it against your footage; audio is not reviewed.</p>
       </div>}
+      </div>
     </section>
   );
 }

@@ -211,14 +211,14 @@ function Landscape({ report }) {
   );
 }
 
-function SectionHead({ number, label, title, note }) {
-  return <div className="section-head"><p><span className="section-number">{number}</span>{label}</p><div><h2>{title}</h2>{note && <span>{note}</span>}</div></div>;
+function SectionHead({ icon, label, title, note }) {
+  return <div className="section-head"><p><span className="section-number" aria-hidden="true">{icon}</span>{label}</p><div><h2>{title}</h2>{note && <span>{note}</span>}</div></div>;
 }
 
 function AudienceRoom({ report, iteration, previousIdea, setIteration, audience, onTest, testing, error }) {
   return (
     <section className="audience-section" id="audience-room">
-      <SectionHead number="03" label="Iteration lab" title="Audience Room" note="Three synthetic perspectives—not predictions" />
+      <SectionHead icon={<LineIcon size={22} path="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m20 0v-2a4 4 0 0 0-3-3.87M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8 .13a4 4 0 0 1 0 7.75" />} label="Iteration lab" title="Audience Room" note="Three synthetic perspectives—not predictions" />
       <div className="audience-intro">
         <div><p className="kicker">Test the next draft</p><h3>Change the premise.<br />Pressure-test the move.</h3></div>
         <form className="iteration-box" aria-busy={testing} onSubmit={(event) => { event.preventDefault(); if (!testing && iteration.trim().length >= 30 && iteration.trim() !== (report.demo ? report.idea : previousIdea).trim()) onTest(); }}>
@@ -232,8 +232,8 @@ function AudienceRoom({ report, iteration, previousIdea, setIteration, audience,
       </div>
       {audience && <div className="audience-output">
         <p className="synthetic-note">{report.demo ? "Prepared sample feedback for the sample revision. Not generated live." : "Synthetic perspectives informed by the audience signals found during research."}</p>
-        <div className="audience-grid">{audience.perspectives.map((voice, index) => <article key={voice.role}>
-          <div className="voice-top"><span>0{index + 1}</span><h4>{voice.role}</h4></div>
+        <div className="audience-grid">{audience.perspectives.map((voice) => <article key={voice.role}>
+          <div className="voice-top"><span aria-hidden="true"><LineIcon path="M20 21v-2a7 7 0 0 0-14 0v2M13 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" /></span><h4>{voice.role}</h4></div>
           <p className="verdict">“{voice.verdict}”</p><p>{voice.critique}</p>
           <div className="voice-detail"><b>What changed</b><p>{voice.comparison}</p></div>
           <div className="voice-detail"><b>Next move</b><p>{voice.nextMove}</p></div>
@@ -307,7 +307,7 @@ function Report({ report, onReset }) {
       <section className="report-hero" id="direction">
         <div className="report-heading"><h1>Here’s your opening.</h1><button type="button" onClick={() => openView("research")}><span className="evidence-dot" aria-hidden="true" />{report.sources.length} sources <Arrow /></button></div>
         <div className="direction-dashboard">
-        <aside className="report-opening"><div className="direction-copy"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />A direction to explore</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p></div><div className="direction-motif" aria-hidden="true"><img className="shape-friend" src="/art/yuvo-coral.svg" width="170" height="170" alt="" /><i /><i /></div></aside>
+        <aside className="report-opening"><div className="direction-copy"><p className="section-label"><img src="/brand/gemini.svg" alt="" width="24" height="24" />A direction to explore</p><h2>{report.whitespace[0].title}</h2><p>{report.whitespace[0].opportunity}</p></div><div className="direction-motif" aria-hidden="true"><div className="direction-confetti">{[[-60,-80],[12,-110],[80,-90],[100,-20],[70,70],[-35,80],[-90,20]].map(([x,y], index) => <i key={index} style={{"--burst-x":`${x}px`,"--burst-y":`${y}px`,"--burst-delay":`${index * 25}ms`}} />)}</div><img className="shape-friend" src="/art/yuvo-coral.svg" width="170" height="170" alt="" /><i /><i /></div></aside>
         <div className="next-draft"><span className="next-draft-icon" aria-hidden="true">↗</span><div><p className="section-label">Make it real</p><h2>Your next move.</h2><p>{report.whitespace[0].move}</p><button className="primary-button" type="button" onClick={() => { setNextMode("video"); openView("next"); }}>Review your first cut <Arrow /></button></div></div>
         </div>
         <div className="research-shortcuts"><p className="section-label">Explore the research</p><div>
@@ -321,7 +321,7 @@ function Report({ report, onReset }) {
       </section>
       <details className="direction-details"><summary>Explore all {report.whitespace.length} creative openings<span aria-hidden="true">+</span></summary>
       <section className="whitespace-section" id="opportunities">
-        <SectionHead number="04" label="Potential whitespace" title="Make your move here" note="Opportunities derived from patterns + friction" />
+        <SectionHead icon={<LineIcon size={22} path="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" />} label="Potential whitespace" title="Make your move here" note="Opportunities derived from patterns + friction" />
         <div className="whitespace-list">{report.whitespace.map((item, index) => <article key={item.title}>
           <div className="opportunity-index"><span>{String(index + 1).padStart(2, "0")}</span> Potential opening</div>
           <div className="opportunity-body"><h3>{item.title}</h3><p className="opportunity">{item.opportunity}</p><p className="why"><b>Why this follows</b>{item.why} <SourceRefs ids={item.sourceIds} sources={report.sources} /></p></div>
@@ -334,17 +334,17 @@ function Report({ report, onReset }) {
       <div id="panel-research" role="tabpanel" aria-labelledby="tab-research" tabIndex={0} hidden={view !== "research"}>
         <div className="research-panel-heading"><p className="kicker">The evidence behind your direction</p><h1>What we found.</h1><p>{report.sources.length} sources · Explore the findings that matter to you.</p></div>
       <details className="research-disclosure" id="landscape" name="research-findings"><summary><div><b>Nearby stories</b><small>{report.clusters.length} creative territories around your idea</small></div><span aria-hidden="true">+</span></summary><div className="report-section landscape-section">
-        <SectionHead number="01" label="Creative landscape" title="The territory around your idea" note="Qualitative proximity, based on surfaced sources" />
+        <SectionHead icon={<LineIcon size={22} path="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Zm6-3v15m6-12v15" />} label="Creative landscape" title="The territory around your idea" note="Qualitative proximity, based on surfaced sources" />
         <Landscape report={report} />
       </div></details>
 
       <details className="research-disclosure" id="patterns" name="research-findings"><summary><div><b>Recurring patterns</b><small>{report.saturated.length} familiar themes worth looking beyond</small></div><span aria-hidden="true">+</span></summary><div className="report-section patterns-section">
-        <SectionHead number="02" label="Saturated territory" title="What keeps recurring" note="Common in the research—not a count of the internet" />
+        <SectionHead icon={<LineIcon size={22} path="m12 3 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 16l9 5 9-5" />} label="Saturated territory" title="What keeps recurring" note="Common in the research—not a count of the internet" />
         <div className="pattern-list">{report.saturated.map((item, index) => <article key={item.pattern}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.pattern}</h3><p>{item.why} <SourceRefs ids={item.sourceIds} sources={report.sources} /></p></article>)}</div>
       </div></details>
 
       <details className="research-disclosure" id="friction" name="research-findings"><summary><div><b>Audience reactions</b><small>{report.frictions.length} recurring points of friction</small></div><span aria-hidden="true">+</span></summary><div className="report-section friction-section">
-        <SectionHead number="03" label="Audience friction" title="Where nearby stories lose people" note="Recurring qualitative signals, not audience statistics" />
+        <SectionHead icon={<LineIcon size={22} path="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m20 0v-2a4 4 0 0 0-3-3.87M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8 .13a4 4 0 0 1 0 7.75" />} label="Audience friction" title="Where nearby stories lose people" note="Recurring qualitative signals, not audience statistics" />
         <div className="friction-grid">{report.frictions.map((item) => <article key={item.signal}><h3>{item.signal}</h3><p>{item.detail}</p><SourceRefs ids={item.sourceIds} sources={report.sources} /></article>)}</div>
       </div></details>
 

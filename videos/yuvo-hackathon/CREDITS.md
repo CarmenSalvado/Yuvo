@@ -43,7 +43,7 @@ GSAP 3.14.2: https://gsap.com/standard-license/ . Local runtime copy preserves i
 
 ## Delivery
 
-89 seconds, 1920×1080, 30 fps. English voiceover. Music attribution is supplied in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
+84.5 seconds, 1920×1080, 30 fps. English voiceover. Music attribution is supplied in the upload description. Full credit text should accompany any upload; rendering this local file does not publish it or submit the project.
 
 ## Cursor and sound effects
 

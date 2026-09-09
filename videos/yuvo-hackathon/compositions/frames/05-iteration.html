@@ -8,7 +8,7 @@
 <div data-hf-id="hf-jfn0" id="i-camera" class="camera" data-layout-allow-overflow=""><div data-hf-id="hf-cdmk" class="screen"><video data-hf-id="hf-a42o" id="i-ui" class="clip" src="assets/dopamine/compare-ui.mp4" muted playsinline data-start="6" data-duration="7" data-track-index="4"></video></div><div data-hf-id="hf-5hxa" id="i-pointer" class="pointer" data-layout-ignore=""></div><div data-hf-id="hf-35y3" id="i-ring" class="click-ring" style="left:716px;top:848px"></div></div>
 <div data-hf-id="hf-e34g" id="i-result" class="layer">
 <div data-hf-id="hf-kflw" id="i-result-footage" class="photo" style="left:130px;top:310px;width:780px;height:439px"><video data-hf-id="hf-j5dt" id="i-result-video" class="clip" src="assets/dopamine/cut-02-story.mp4" muted playsinline data-start="13" data-duration="8.5" data-track-index="5"></video></div>
-<div data-hf-id="hf-ypb3" style="position:absolute;left:1010px;top:190px;display:flex;align-items:center;gap:18px"><img data-hf-id="hf-wzjc" src="assets/gemini.svg" width="54" height="54"><p data-hf-id="hf-mu5e" class="tag">WHAT GEMINI CAUGHT</p></div>
+<div data-hf-id="hf-ypb3" id="i-result-label" style="position:absolute;left:1010px;top:190px;display:flex;align-items:center;gap:18px"><img data-hf-id="hf-wzjc" src="assets/gemini.svg" width="54" height="54"><p data-hf-id="hf-mu5e" class="tag">WHAT GEMINI CAUGHT</p></div>
 <div data-hf-id="hf-srg9" id="i-found" style="position:absolute;left:1010px;top:330px;width:780px"><p data-hf-id="hf-82dg" id="i-countdown" style="font-size:56px;line-height:1.2">A deadline.</p><p data-hf-id="hf-ydgt" id="i-dialogue" style="font-size:56px;line-height:1.2;margin-top:30px">Conflicting memories.</p></div>
 <div data-hf-id="hf-bwu1" id="i-missing" style="position:absolute;left:1010px;top:590px;width:780px"><p data-hf-id="hf-58ec" class="tag" style="margin-bottom:22px">NOW MAKE IT VISIBLE</p><h3 data-hf-id="hf-gyhk" style="font-size:76px;line-height:1.08;letter-spacing:-3px">Show her<br data-hf-id="hf-x5px">touching the wall.</h3><svg data-hf-id="hf-c6qk" id="i-underline" width="640" height="30" viewBox="0 0 640 30" style="margin-top:15px"><path data-hf-id="hf-33jy" d="M8 18 Q290 2 630 14" fill="none" stroke="#ffda45" stroke-width="13" stroke-linecap="round" /></svg></div>
 </div>
@@ -30,5 +30,6 @@ tl.to('#i-camera',{scale:1.35,x:-270,y:-50,duration:.6,ease:'power3.inOut'},8.7)
 tl.to('#i-camera',{x:-2000,opacity:0,duration:.45,ease:'power4.in'},12.55);
 tl.set('#i-camera',{opacity:0},13);reveal('#i-result',13,240,0,.45);reveal('#i-countdown',13.2,0,45,.35);reveal('#i-dialogue',13.7,0,45,.35);reveal('#i-missing',15.3,0,60,.4);tl.fromTo('#i-underline',{scaleX:0},{scaleX:1,transformOrigin:'0% 50%',duration:.4,ease:'power3.out'},16);tl.to('#i-result-footage',{scale:1.04,duration:1.1,ease:'power3.inOut'},18.8);
 
+tl.to(['#i-result-label','#i-found','#i-missing'],{opacity:0,y:-20,duration:.3,ease:'power2.in'},21.15);
 window.__timelines["film-05-iteration"]=tl;</script>
 </div></template>

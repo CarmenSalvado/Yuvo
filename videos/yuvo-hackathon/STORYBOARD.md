@@ -1,4 +1,4 @@
-# Yuvo — 89-second motion cut
+# Yuvo — 84.5-second motion cut
 
 Current: LEFT. Six scenes; actual 2026-09-09 local app recording and real returned research/video outputs. Narration timings measured.
 
@@ -52,8 +52,8 @@ Motion: kinetic-beat-slam + coordinate-target-zoom + particle-burst. Sustained r
 status: built
 src: compositions/frames/06-close.html
 start: 75
-duration: 14
+duration: 9.5
 
-Motion: kinetic-beat-slam + coordinate-target-zoom + particle-burst. Sustained route: kinetic word sequence; integration marks; brand lockup
+Motion: the actual last cut contracts into the yellow y mark; the wordmark extends from it. Integration marks reveal under the brand, then settle into the footer as the promise and centered Devpost credit arrive. No recap slide or recap narration.
 
 The iteration result now uses an actual moving cut and two brief findings, followed by the next-shot instruction. The close reveals the app’s y mark and wordmark in sequence, with Devpost centered as a group.

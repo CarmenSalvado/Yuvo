@@ -6,7 +6,7 @@ message: "Turn an idea into evidence, then a specific next shot."
 destination: youtube
 aspect: 1920x1080
 language: en
-length: 89s
+length: 84.5s
 audience: Agentic Cinema judges and independent filmmakers
 angle: demo-loop
 narration: yes

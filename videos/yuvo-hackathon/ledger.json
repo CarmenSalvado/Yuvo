@@ -76,19 +76,17 @@
     {
       "id": "05-iteration to 06-close",
       "cut": 75,
-      "technique": "cut-the-curve LEFT",
+      "type": "match-cut",
+      "technique": "continuous cut to brand",
       "exit": {
-        "selector": "#scene-05-iteration",
-        "axis": "x",
-        "dir": -1,
-        "dur": 0.25
+        "selector": "#scene-05-iteration"
       },
       "entry": {
-        "selector": "#scene-06-close",
-        "axis": "x",
-        "dir": -1,
-        "dur": 0.32,
-        "travel": 8
+        "selector": "#scene-06-close"
+      },
+      "carrier": {
+        "out": "#i-result-footage",
+        "in": "#c-film"
       }
     }
   ]

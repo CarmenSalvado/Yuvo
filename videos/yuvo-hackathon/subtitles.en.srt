@@ -99,17 +99,9 @@ show the woman interacting with the building.
 That’s a specific shot we can make next.
 
 26
-00:01:15,400 --> 00:01:17,620
-Idea. Evidence. Cut.
-
-27
-00:01:17,980 --> 00:01:19,940
-A clear next move.
-
-28
-00:01:20,360 --> 00:01:23,220
+00:01:16,200 --> 00:01:19,530
 Powered by Gemini, Parallel, and Google Cloud Run.
 
-29
-00:01:23,920 --> 00:01:27,180
+27
+00:01:19,960 --> 00:01:23,170
 Yuvo. Big idea. Better story.

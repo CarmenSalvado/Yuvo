@@ -24,4 +24,4 @@ Let’s iterate. We add a deadline and two conflicting memories to the same foot
 
 ## 06-close
 
-Idea. Evidence. Cut. A clear next move. Powered by Gemini, Parallel, and Google Cloud Run. Yuvo. Big idea. Better story.
+Powered by Gemini, Parallel, and Google Cloud Run. Yuvo. Big idea. Better story.

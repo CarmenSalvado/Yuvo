@@ -1,5 +1,5 @@
 {
-  "duration_s": 89,
+  "duration_s": 84.5,
   "voices": [
     {
       "id": "01-hook",
@@ -22,7 +22,7 @@
       "voice": "Kore",
       "text": "Eleven sources. One useful direction: let the building\u2019s damage shape what it remembers.",
       "duration": 7.05,
-      "path": "assets/dopamine/voice/03-direction-mix.wav",
+      "path": "assets/dopamine/voice/03-direction-short.wav",
       "start": 27.4
     },
     {
@@ -44,10 +44,10 @@
     {
       "id": "06-close",
       "voice": "Charon",
-      "text": "Idea. Evidence. Cut. A clear next move. Powered by Gemini, Parallel, and Google Cloud Run. Yuvo. Big idea. Better story.",
-      "duration": 12.32,
-      "path": "assets/dopamine/voice/06-close-mix.wav",
-      "start": 75.4
+      "text": "Powered by Gemini, Parallel, and Google Cloud Run. Yuvo. Big idea. Better story.",
+      "duration": 7.36,
+      "path": "assets/dopamine/voice/06-close-short.wav",
+      "start": 76.05
     }
   ],
   "music": "assets/electrodoodle.mp3"
